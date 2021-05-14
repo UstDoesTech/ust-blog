@@ -20,3 +20,7 @@ params:
   gitRepo: https://github.com/uoldfield/ust-blog
   enableBlogPost: true
   enableTOC: true
+  logo:
+    main: images/icon.png
+    inverted: images/icon.png
+    favicon: images/icon.png
