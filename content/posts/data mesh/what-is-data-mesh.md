@@ -1,6 +1,6 @@
 ---
 title: "What is Data Mesh"
-date: 2021-08-03T019:29:25+06:00
+date: 2021-08-03T19:29:25+06:00
 description: Introduction to the concept of Data Mesh
 menu:
   sidebar:
