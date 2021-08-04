@@ -1,15 +1,15 @@
 ---
-title: "What is Data Mesh"
+title: "What is Data Mesh?"
 date: 2021-08-03T19:29:25+06:00
 description: Introduction to the concept of Data Mesh
 menu:
   sidebar:
-    name: What is Data Mesh
+    name: What is Data Mesh?
     identifier: What is Data Mesh
     weight: 10
 ---
 
-To be able to properly describe what Data Mesh is, we need to contextualise in which analytical generation we currently are. 
+To be able to properly describe what Data Mesh is, we need to contextualise in which analytical generation we currently are, mostly so that we can describe what it is not. 
 
 ## Analytical Generations
 
@@ -72,6 +72,6 @@ The data mesh is an interesting paradigm and, because it is so new, poses more q
 - How much organisational change is required to reorient an organisation to be domain driven? 
 - What level of data governance maturity is required before embarking on the data mesh?
 
- I like the potential it offers, such as decentralising data ownership and enabling more people to be involved in the curation of data. I LOVE the emphasis on data governance and how it plays a central role to enabling data mesh. 
+I like the potential it offers, such as decentralising data ownership and enabling more people to be involved in the curation of data. I LOVE the emphasis on data governance and how it plays a central role to enabling data mesh. 
 
 The shift in thinking means data engineering, and everything analytics, needs to start aligning much more closely with software engineering so that architectures like data mesh can be realised, as well as making more traditional architectures much more performant. While I can't see widespread adoption of the data mesh any time soon, I would like to see some of the principles behind the data mesh adopted so that it becomes easier to adapt and change to new ways of thinking and new ways of working. 
