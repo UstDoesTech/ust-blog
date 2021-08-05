@@ -18,7 +18,9 @@ Let's start with why we need a paradigm like Data Mesh.
 
 In my previous post, I made the bold claim that analytical architectures hadn't fundamentally progressed since the inception of the Data Warehouse in the 1990s. That's three decades of the same thinking: ingest data into a central data repository, clean and transform data, serve data for consumption. 
 
-![Image describing the process flow of data from ingestion, to transformation, and serving](/images/ingest-clean-serve.png)
+![Image describing the process flow of data from ingestion, to transformation, and serving](./images/ingest-clean-serve.png)
+
+{{< img src="images/ingest-clean-serve.png" width="900" align="center">}}
 
 This approach doesn't scale very well, even though the underpining technology has made vast improvements to alleviate, or even mask, the impact of poor scalability. Even approaches that use metadata and configuration to automatically perform the bulk of the data process still end up falling foul of the same issue: scalability. 
 
@@ -26,7 +28,7 @@ However, I'm not referring to platform scalability, as most cloud platforms scal
 
 In a traditional analytical architecture (whether it's a Data Warehouse, Data Lake, Data Hub or Lakehouse) the closer processes get to serving data from a central data repository, more dataset dependencies are introduced and the throughput becomes less. 
 
-![Image describing the reduced throughput as data goes through the data flow process](/images/ingest-clean-serve-throughput.png)
+![Image describing the reduced throughput as data goes through the data flow process](./images/ingest-clean-serve-throughput.png)
 
 This means that, while it is relatively easy to ingest data, it becomes harder to transform and serve data to the consumers who demand it, in a manner and time in which they desire. The business gets frustrated with IT, or the central data function, friction ensues and we end up with classic governance issues of shadow IT and dark data. All because the architecture we build no longer meets the needs of today, let alone the future. 
 
@@ -46,11 +48,11 @@ The big differentiators here are the decentralised operational model, supported 
 
 A Data Product is a fundamental part of the data mesh and the smallest component of it. It contains the ***code*** used to ingest, transform and serve that data; the ***data*** that is to be consumed and its metadata, describing its schema, quality metrics, access control policies, etc; the ***infrastructure*** upon which the code is deployed, and the data to be stored, processed and accessed. 
 
-![The Data Product as composed by Code, Data and Infrastructure](/images/data-product.png)
+![The Data Product as composed by Code, Data and Infrastructure](./images/data-product.png)
 
 A data product is bounded by the context of a domain and a domain can have many data products, just like it might have many operational systems. Very simply put, the following diagram is of a data product in the context of a domain.
 
-![Data Product in the Context of a Domain - linking to Operational System](/images/data-product-domain-context.png)
+![Data Product in the Context of a Domain - linking to Operational System](./images/data-product-domain-context.png)
 
 But that's not all there is to a data product. It is much more than a composition of code, data and infrastructure. It has the following core principles associated with it:
 - Discoverable
@@ -89,7 +91,7 @@ There are some capabilities that the data platform should provide to domains:
 
 A typical workload on a shared self-service data platform infrastructure could look like the following digram: incoming data (batch or streaming) gets ingested and processed and stored into the data structure that defines the data product, whether that is columnar or object. At the other end of the workload, an incoming request for data hits a web service, which then orchestrates a series of processes against the data product storage area, to then return that data to the customer.
 
-![Logical workload process of a data product on self-service infrastructure as described above](/images/data-product-self-serve-infra.png)
+![Logical workload process of a data product on self-service infrastructure as described above](./images/data-product-self-serve-infra.png)
 
 This is highly abstracted to allow any technology to play the role of an ingestion service, processing engine, storage provider, web service, etc. While the platform needs to domain agnostic, it should also aim to be vendor agnostic and embrace Open Standards, Open Protocols and Open-Source Integrations. 
 
