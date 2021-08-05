@@ -1,6 +1,6 @@
 ---
 title: "Data Mesh Deep Dive"
-date: 2021-08-04T19:29:25+06:00
+date: 2021-08-05T12:04:25+06:00
 description: Digging deeper into the underlying principles of Data Mesh
 menu:
   sidebar:
