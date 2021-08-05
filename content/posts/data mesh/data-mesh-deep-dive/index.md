@@ -26,7 +26,7 @@ However, I'm not referring to platform scalability, as most cloud platforms scal
 
 In a traditional analytical architecture (whether it's a Data Warehouse, Data Lake, Data Hub or Lakehouse) the closer processes get to serving data from a central data repository, more dataset dependencies are introduced and the throughput becomes less. 
 
-{{< img src="images/ingest-clean-serve-throughput.png" alt="Image describing the reduced throughput as data goes through the data flow process" width="900" align="center">}}
+{{< img src="images/ingest-clean-serve-throughput.png" alt="Image describing the reduced throughput as data goes through the data flow process" width="700" align="center">}}
 
 This means that, while it is relatively easy to ingest data, it becomes harder to transform and serve data to the consumers who demand it, in a manner and time in which they desire. The business gets frustrated with IT, or the central data function, friction ensues and we end up with classic governance issues of shadow IT and dark data. All because the architecture we build no longer meets the needs of today, let alone the future. 
 
@@ -46,11 +46,11 @@ The big differentiators here are the decentralised operational model, supported 
 
 A Data Product is a fundamental part of the data mesh and the smallest component of it. It contains the ***code*** used to ingest, transform and serve that data; the ***data*** that is to be consumed and its metadata, describing its schema, quality metrics, access control policies, etc; the ***infrastructure*** upon which the code is deployed, and the data to be stored, processed and accessed. 
 
-{{< img src="images/data-product.png" alt="The Data Product as composed by Code, Data and Infrastructure" width="900" align="center">}}
+{{< img src="images/data-product.png" alt="The Data Product as composed by Code, Data and Infrastructure" width="700" align="center">}}
 
 A data product is bounded by the context of a domain and a domain can have many data products, just like it might have many operational systems. Very simply put, the following diagram is of a data product in the context of a domain.
 
-{{< img src="images/data-product-domain-context.png" alt="Data Product in the Context of a Domain - linking to Operational System" width="900" align="center">}}
+{{< img src="images/data-product-domain-context.png" alt="Data Product in the Context of a Domain - linking to Operational System" width="700" align="center">}}
 
 But that's not all there is to a data product. It is much more than a composition of code, data and infrastructure. It has the following core principles associated with it:
 - Discoverable
