@@ -37,10 +37,23 @@ The Data Mesh aims to overcome these challenges by embracing the following princ
 3. Self-serve data platform infrastructure
 4. Federated Governance
 
-The big differentiators here are the decentralised operational model, supported by data as a product and the self-serve platform. For many data professionals, this is a huge change in the way of working because our architectural paradigm is shifting away from a centralised model to one which is decentralised and democratised. As a 
+The big differentiators here are the decentralised operational model, supported by data as a product and the self-serve platform. For many data professionals, this is a huge change in the way of working because our architectural paradigm is shifting away from a centralised model to one which is decentralised and democratised. 
 
 ## Decentralised Data Ownership and Architecture
 
+A foundational principle of data mesh is the decentralisation of ownership of data to those closest to it. Those closest to it are those in the business, often using the operational systems and also using analytical data. Responsibility and ownership of the data is devolved from a central function to business units and domains. Therefore any change to how a business domain organises itself is limited to the domain itself rather than impacting the entire organisation. This is referred to as the bounded domain context. 
+
+Teams responsible for the business operation, e.g. CRM team responsible for Customers, are also responsible for the ownership and serving of the analytical data relating to their domain. 
+
+Because our organisations are often separated based on domains, our architecture needs to be arranged to support that. The interfaces of a domain needs to enable operational capabilities, e.g. registering a customer, but also provide an analytical endpoint, e.g. Newly registered Customers over last X months, to consumers. This means that domains must be able to provide these capabilities independently of other domains - essentially decoupling the analytical process at a domain level, much in the same way that microservices have decoupled operational capabilities at the domain level. 
+
+{{< img src="images/domain-context.png" alt="Image visualising the domain context - with O for operational capabilities and A as analytical endpoints" width="700" align="center">}}
+
+In the diagram above, we have the context of the domain - being the team and the systems they own - an operational capabiliity (represented by O), and an analytical endpoint (represented by A).
+
+Whilst we've decoupled the analytical process at the domain level, we haven't removed dependencies as there will exist dependencies between domains of operational and analytical endpoints, particularly of business critical domains. 
+
+There is, however, an assumption that operational systems have been built and maintained in-house for there to be this organisational alignment by domain, as well as a seamless sharing of data in domains. And, for some domains such as Customer and Product, it might also require significant investment in mastering data - so that there is a consistent view of these critical domains across systems. 
 
 ## Data Products 
 
@@ -62,7 +75,7 @@ But that's not all there is to a data product. It is much more than a compositio
 
 The reason why a data product has those core principles is because it makes it easier to use. What's the point of building something if it's not going to be used? Also, a data product can be used by other domains - so we need to treat any other domain just like any other customer. In fact, there's no fundamental difference between a domain customer and any other data customer. 
 
-*What does this mean in practice?* PLACEHOLDER
+
 
 ## Self-Serve Data Platform
 
@@ -71,26 +84,34 @@ A Self-Serve Data Platform is effectively Platform-as-a-Service with Infrastruct
 Like with any architecture, there's a large amount of infrastructure that's needed to be deployed so that a data product can be built, deployed, executed, monitored and accessed. Infrastructure management is specialised skill-set that could be too prohibitive to have in every domain, particularly if there are hundreds of domains in an organisation. Therefore, the platform becomes a shared asset to enable domain autonomy. 
 
 There are some capabilities that the data platform should provide to domains:
-- Scalable polyglot big data storage
-- Encryption of data in transit and at rest
-- Data Product Versioning
-- Data Product Schema
-- Data Product De-identification
-- Unified data access control and logging
-- Data pipeline implementation and orchestration
-- Data product discovery, catalogue registration and publishing
-- Data governance and standardisation
-- Data product lineage
-- Data product monitorin / alerting / logs
-- Data product quality metrics
-- In-memory data caching
-- Federated identity management
-- Compute and data locality
+- Scalable, Distributed Storage
+- Scalable, Distributed Query Engine
+- Data Pipeline Implementation and Orchestration
+- Identity and Control Management
+- Data Product Code Deployment
+- Data Product Discovery, Catalogue Registration, Lineage, etc.
+- Data Product Monitoring / Alerting / Logs
 
 A typical workload on a shared self-service data platform infrastructure could look like the following digram: incoming data (batch or streaming) gets ingested and processed and stored into the data structure that defines the data product, whether that is columnar or object. At the other end of the workload, an incoming request for data hits a web service, which then orchestrates a series of processes against the data product storage area, to then return that data to the customer.
 
 {{< img src="images/data-product-self-serve-infra.png" alt="Logical workload process of a data product on self-service infrastructure as described above" width="900" align="center">}}
 
-This is highly abstracted to allow any technology to play the role of an ingestion service, processing engine, storage provider, web service, etc. While the platform needs to domain agnostic, it should also aim to be vendor agnostic and embrace Open Standards, Open Protocols and Open-Source Integrations. 
+This is highly abstracted to allow any technology to play the role of an ingestion service, processing engine, storage provider, web service, etc. While the platform needs to domain agnostic, it should also aim to be vendor agnostic and embrace Open Standards, Open Protocols and Open-Source Integrations. This allows the domain teams to be truly autonomous in choosing the tools to best meet their needs and skills - although, a word of caution here, as the selection of tooling should also be done in consultation with the data platform team, as they will be supporting the underlying infrastructure - including how the tooling interacts with the rest of the infrastructure.  
 
 ## Federated Governance
+
+A data mesh is, by nature, a distributed, decentralised architecture - with autonomy built into the architecture - largely applying the principles of software architecture to data architecture. However, because there are dependencies between domains and their data products, there is a needs for these autonomous and independent products to interoperate at scale. This, therefore, requires a robust governance model that embraces self-serve and autonomy. 
+
+This is requires a Federated Governance model, that has contributions from data product owners and data platform product owners - creating and adhering to a common set of rules to be applied to all domains and their interfaces - to ensure interoperability. In a traditional governance model, this is similar to a Governance Council but the difference is that it is expanded to incorporate product owners.
+
+In any federated system there will be challenges to maintain balance between what needs to be agreed globally and what the individual products have autonomy over. Ultimately, global concerns should be centered around interoperability and discovery of data products. Anything that will have an impact across domains will, most likely, become a focus of glocal concern and agreement, while elements that can be bounded by the domain context, such as the data model, would remain in the preserve of the domain. However, there might be standards set out by global that would need to be applied at the domain - to ensure interoperability and discovery. 
+
+## Conclusion
+
+The data mesh is supported by four principles:
+1. Decentralised data ownership and architecture - so that the ecosystem can scale as the volume of data, number of use cases, and access models change over time. 
+2. Data Products enabled by Domain Driven Design - so that consumers can easily discover, understand and consume high quality data.
+3. Self-serve data platform infrastructure - so that domain teams can create data products without the complexity of needing to support or understand the underlying platform.
+4. Federated Governance - so that consumers can get value from independent data products.
+
+Ultimately, the data mesh brings analytical and operational data closer together, as well as enabling capabilities and architecture patterns from software engineering in data engineering - with principal focus on interoperability. 
