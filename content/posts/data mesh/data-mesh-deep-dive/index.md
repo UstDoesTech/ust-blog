@@ -18,9 +18,7 @@ Let's start with why we need a paradigm like Data Mesh.
 
 In my previous post, I made the bold claim that analytical architectures hadn't fundamentally progressed since the inception of the Data Warehouse in the 1990s. That's three decades of the same thinking: ingest data into a central data repository, clean and transform data, serve data for consumption. 
 
-![Image describing the process flow of data from ingestion, to transformation, and serving](./images/ingest-clean-serve.png)
-
-{{< img src="images/ingest-clean-serve.png" width="900" align="center">}}
+{{< img src="images/ingest-clean-serve.png" alt="Image describing the process flow of data from ingestion, to transformation, and serving" width="900" align="center">}}
 
 This approach doesn't scale very well, even though the underpining technology has made vast improvements to alleviate, or even mask, the impact of poor scalability. Even approaches that use metadata and configuration to automatically perform the bulk of the data process still end up falling foul of the same issue: scalability. 
 
