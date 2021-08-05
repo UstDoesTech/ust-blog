@@ -10,7 +10,7 @@ menu:
     weight: 10
 ---
 
-In a [previous post](../what-is-data-mesh/what-is-data-mesh.md), we laid down the foundational principles of a Data Mesh, and touched on some of the problems we have with the current analytical architectures. In this post, I will go deeper into the underlying principles of Data Mesh, particularly why we need an architecture paradigm like Data Mesh.  
+In a [previous post](../what-is-data-mesh/index.md), we laid down the foundational principles of a Data Mesh, and touched on some of the problems we have with the current analytical architectures. In this post, I will go deeper into the underlying principles of Data Mesh, particularly why we need an architecture paradigm like Data Mesh.  
 
 Let's start with why we need a paradigm like Data Mesh. 
 
