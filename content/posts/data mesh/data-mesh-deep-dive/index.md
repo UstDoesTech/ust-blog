@@ -92,7 +92,9 @@ There are some capabilities that the data platform should provide to domains:
 - Data Product Discovery, Catalogue Registration, Lineage, etc.
 - Data Product Monitoring / Alerting / Logs
 
-A typical workload on a shared self-service data platform infrastructure could look like the following digram: incoming data (batch or streaming) gets ingested and processed and stored into the data structure that defines the data product, whether that is columnar or object. At the other end of the workload, an incoming request for data hits a web service, which then orchestrates a series of processes against the data product storage area, to then return that data to the customer.
+A typical workload on a shared self-service data platform infrastructure could look like the following digram: incoming data (batch or streaming) gets ingested and processed and stored into the data structure that defines the data product, whether that is columnar or object. At the other end of the workload, an incoming request for data hits a web service, which then orchestrates a series of processes against the data product storage area, to then return that data to the customer. [^1]
+
+[^1]: The diagram is inspired from Lena Hall's session at the Data & AI Summit, May 2021. See the [session recording on YouTube](https://www.youtube.com/watch?v=fOAPQJd3f0M&t=1079s&ab_channel=Databricks).
 
 {{< img src="images/data-product-self-serve-infra.png" alt="Logical workload process of a data product on self-service infrastructure as described above" width="900" align="center">}}
 
