@@ -5,7 +5,8 @@ description: Introduction to the concept of Data Mesh
 menu:
   sidebar:
     name: What is Data Mesh?
-    identifier: What is Data Mesh
+    identifier: what-is-data-mesh
+    parent: data-mesh
     weight: 10
 ---
 

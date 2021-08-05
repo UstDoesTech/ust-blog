@@ -5,7 +5,8 @@ description: Digging deeper into the underlying principles of Data Mesh
 menu:
   sidebar:
     name: Data Mesh Deep Dive
-    identifier: Data Mesh Deep Dive
+    identifier: data-mesh-deep-dive
+    parent: data-mesh
     weight: 10
 ---
 
