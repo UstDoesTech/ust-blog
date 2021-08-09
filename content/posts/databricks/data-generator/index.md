@@ -46,7 +46,7 @@ From here we can create the specification for our synthetic data.
 
 ``` python
 spec = (dg.DataGenerator(
-        spark # initialise a spark session
+        spark # initialize a spark session
         ,name="[name of dataset]"
         ,rows=[number of rows to be generated]
         ,partitions=[number of partitions to be generated]
@@ -56,7 +56,7 @@ spec = (dg.DataGenerator(
         ,verbose=True # generates verbose output
         ,debug=True # output debug level info 
         )
-    .withColumn([column spec]) # infering a schema
+    .withColumn([column spec]) # inferring a schema
     .withSchema([Schema Definition]) # supplying a schema
 )
 
@@ -83,10 +83,10 @@ testData.write.format("delta").mode("overwrite").save("output path")
 
 But the most incredible thing isn't the ease in which synthetic data is generated. The most incredible thing is being able to [generate synthetic data that relates to other synthetic data](https://databrickslabs.github.io/dbldatagen/public_docs/multi_table_data.html) - consistent primary and foreign keys that you will most likely encounter in a production operational system. 
 
-## Conculsion
+## Conclusion
 
 My previous experiences of generating synthetic data is a costly exercise, which largely isn't worth the hassle. However, the Databricks Data Generator is easy to work with and makes generating synthetic data, through the multiple table approach, worthwhile. 
 
-However, you still need access to production data in order to profile it and capture the quality of the data so that you're making syntehtic data reflective of the challenges that you'll face once it comes to deploying your analytical solution to production and it starts ingesting and transforming production data in the wild. 
+However, you still need access to production data in order to profile it and capture the quality of the data so that you're making synthetic data reflective of the challenges that you'll face once it comes to deploying your analytical solution to production and it starts ingesting and transforming production data in the wild. 
 
-I cannot wait to start using this in every single project! Not only will it alleviate many concerns InfoSec might have with non-production environments, it will help improve knowledge of the data - due to the need to profile and model the data for generating a syntehtic version of it. 
+I cannot wait to start using this in every single project! Not only will it alleviate many concerns InfoSec might have with non-production environments, it will help improve knowledge of the data - due to the need to profile and model the data for generating a synthetic version of it. 
