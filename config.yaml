@@ -17,10 +17,14 @@ markup:
 enableEmoji: true
 
 params:
-  gitRepo: https://github.com/uoldfield/ust-blog
+  #gitRepo: https://github.com/uoldfield/ust-blog
   enableBlogPost: true
   enableTOC: true
+  background: images/jordan2.jpg
   logo:
     main: images/icon.png
     inverted: images/icon.png
     favicon: images/icon.png
+  newsletter:
+    enable: false
+  

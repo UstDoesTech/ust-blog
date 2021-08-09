@@ -7,7 +7,7 @@ menu:
     name: What is Data Mesh?
     identifier: what-is-data-mesh
     parent: data-mesh
-    weight: 10
+    weight: 1
 ---
 
 To be able to properly describe what Data Mesh is, we need to contextualise in which analytical generation we currently are, mostly so that we can describe what it is not. 

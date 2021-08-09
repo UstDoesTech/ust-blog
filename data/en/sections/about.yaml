@@ -17,7 +17,7 @@ company:
 #resume: "files/UstOldfield.pdf"
 
 # a summary about you
-#summary: 'I am a passionate software engineer with x years of working experience. I built OSS tools for [Kubernetes](https://kubernetes.io/) using GO. My tools help people to deploy their workloads in Kubernetes. Sometimes, I work on some fun projects such as writing a theme, etc.'
+summary: 'I am a passionate data engineer and analytics consultant with over 10 years of working experience. I help my customers overcome the challenges they have with data, allowing them to unlock value and gain valuable insight in their data.'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
@@ -41,22 +41,22 @@ socialLinks:
 # your soft skills
 # give the percentage between 50 to 100 with 5 intervals.
 # currently supported colors: blue, yellow, pink, green, sky, orange
-#softSkills:
-#- name: Leadership
-#  percentage: 90
-#  color: blue
-#- name: Team Work
-#  percentage: 85
-#  color: yellow
-#- name: Communication
-#  percentage: 85
-#  color: pink
-#- name: Hard Working
-#  percentage: 85
-#  color: green
-#- name: Fast Learner
-#  percentage: 95
-#  color: sky
-#- name: Problem Solving
-#  percentage: 90
-#  color: orange
+softSkills:
+- name: Leadership
+  percentage: 90
+  color: blue
+- name: Team Work
+  percentage: 85
+  color: yellow
+- name: Communication
+  percentage: 85
+  color: pink
+- name: Hard Working
+  percentage: 85
+  color: green
+- name: Fast Learner
+  percentage: 95
+  color: sky
+- name: Problem Solving
+  percentage: 90
+  color: orange

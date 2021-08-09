@@ -7,7 +7,7 @@ menu:
     name: Data Mesh Deep Dive
     identifier: data-mesh-deep-dive
     parent: data-mesh
-    weight: 10
+    weight: 2
 ---
 
 In a [previous post](../what-is-data-mesh/), we laid down the foundational principles of a Data Mesh, and touched on some of the problems we have with the current analytical architectures. In this post, I will go deeper into the underlying principles of Data Mesh, particularly why we need an architecture paradigm like Data Mesh.  
