@@ -2,6 +2,7 @@
 title: "Databricks Labs: Data Generator"
 date: 2021-08-09T19:29:25+06:00
 description: Introduction to the Databricks Data Generator
+#hero: databricks.svg
 menu:
   sidebar:
     name: Databricks Labs Data Generator
@@ -44,7 +45,48 @@ import dbldatagen as dg
 From here we can create the specification for our synthetic data.
 
 ``` python
-spec = (dg.DataGenerator(spark, rows=[number of rows to be generated], partitions=[number of partitions to be generated], randomSeedMethod="[something]")
+spec = (dg.DataGenerator(
+        spark # initialise a spark session
+        ,name="[name of dataset]"
+        ,rows=[number of rows to be generated]
+        ,partitions=[number of partitions to be generated]
+        ,randomSeedMethod=None | "[fixed | hash_fieldname]"
+        ,startingId=[starting value for seed]
+        ,randomSeed=[seed for random number generator]
+        ,verbose=True # generates verbose output
+        ,debug=True # output debug level info 
+        )
     .withColumn([column spec]) # infering a schema
     .withSchema([Schema Definition]) # supplying a schema
+)
+
 ```
+
+We can then build upon the spec, by applying transformations in an iterative way, reflecting the quality of the data (e.g. missing data) that you might expect in a production system, as well as the patterns of the data too. 
+
+``` python
+spec = (spec
+            .withColumn("email", percentNulls=0.1, template=r'\w.\w@\w.com|\w@\w.co.u\k') # insert a random word from the ipsum lorem word set 
+            .withColumn("ip_addr",template=r'\n.\n.\n.\n') # insert a random number between 0 and 255
+            .withColumn("serial_number", minValue=1000000, maxValue=10000000, prefix="dr", random=True) # insert a random number using a range of values
+            .withColumn("phone",template=r'+447dddddddddd') # insert a random digit between 0 and 9
+        )
+
+```
+Finally, we use the `build` command to generate the data into a dataframe which can then be written and used by other processes or users.
+
+``` python
+testData = spec.build()
+
+testData.write.format("delta").mode("overwrite").save("output path")
+```
+
+But the most incredible thing isn't the ease in which synthetic data is generated. The most incredible thing is being able to [generate synthetic data that relates to other synthetic data](https://databrickslabs.github.io/dbldatagen/public_docs/multi_table_data.html) - consistent primary and foreign keys that you will most likely encounter in a production operational system. 
+
+## Conculsion
+
+My previous experiences of generating synthetic data is a costly exercise, which largely isn't worth the hassle. However, the Databricks Data Generator is easy to work with and makes generating synthetic data, through the multiple table approach, worthwhile. 
+
+However, you still need access to production data in order to profile it and capture the quality of the data so that you're making syntehtic data reflective of the challenges that you'll face once it comes to deploying your analytical solution to production and it starts ingesting and transforming production data in the wild. 
+
+I cannot wait to start using this in every single project! Not only will it alleviate many concerns InfoSec might have with non-production environments, it will help improve knowledge of the data - due to the need to profile and model the data for generating a syntehtic version of it. 
