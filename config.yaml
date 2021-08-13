@@ -14,6 +14,20 @@ markup:
     endLevel: 6
     ordered: false
 
+# At least HTML and JSON are required for the main HTML content and
+# client-side JavaScript search
+outputs:
+  home:
+  - HTML
+  - RSS
+  - JSON
+
+# Enable Google Analytics
+#googleAnalytics: UA-122321624-2
+
+# Enable Disqus forum
+disqusShortname: ustdoes-tech
+
 enableEmoji: true
 
 params:
