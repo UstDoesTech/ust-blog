@@ -23,7 +23,7 @@ outputs:
   - JSON
 
 # Enable Google Analytics
-#googleAnalytics: UA-122321624-2
+googleAnalytics: G-L76VMCBXNW
 
 # Enable Disqus forum
 disqusShortname: ustdoes-tech
