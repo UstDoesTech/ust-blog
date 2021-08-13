@@ -22,7 +22,7 @@ In my previous post, I made the bold claim that analytical architectures hadn't 
 
 This approach doesn't scale very well, even though the underpining technology has made vast improvements to alleviate, or even mask, the impact of poor scalability. Even approaches that use metadata and configuration to automatically perform the bulk of the data process still end up falling foul of the same issue: scalability. 
 
-However, I'm not referring to platform scalability, as most cloud platforms scale incredibly well both in terms of storage and compute scaling. The scalability issues I'm referring to are several points: a constantly changing data landscape (just think of all the different tools there are to work with data); a huge increase in data sources and volumes; a huge increase in demand for quality and usable data in organisations; huge increase in data use cases, coupled with diverse requirements for transformating and processing those use cases, and the need for organisations to respond quickly to change. 
+However, I'm not referring to platform scalability, as most cloud platforms scale incredibly well both in terms of storage and compute scaling. The scalability issues I'm referring to are several points: a constantly changing data landscape (just think of all the different tools there are to work with data); a huge increase in data sources and volumes; a huge increase in demand for quality and usable data in organisations; huge increase in data use cases, coupled with diverse requirements for transformation and processing those use cases, and the need for organisations to respond quickly to change. 
 
 In a traditional analytical architecture (whether it's a Data Warehouse, Data Lake, Data Hub or Lakehouse) the closer processes get to serving data from a central data repository, more dataset dependencies are introduced and the throughput becomes less. 
 
@@ -49,7 +49,7 @@ Because our organisations are often separated based on domains, our architecture
 
 {{< img src="images/domain-context.png" alt="Image visualising the domain context - with O for operational capabilities and A as analytical endpoints" width="700" align="center">}}
 
-In the diagram above, we have the context of the domain - being the team and the systems they own - an operational capabiliity (represented by O), and an analytical endpoint (represented by A).
+In the diagram above, we have the context of the domain - being the team and the systems they own - an operational capability (represented by O), and an analytical endpoint (represented by A).
 
 Whilst we've decoupled the analytical process at the domain level, we haven't removed dependencies as there will exist dependencies between domains of operational and analytical endpoints, particularly of business critical domains. 
 
@@ -92,7 +92,7 @@ There are some capabilities that the data platform should provide to domains:
 - Data Product Discovery, Catalogue Registration, Lineage, etc.
 - Data Product Monitoring / Alerting / Logs
 
-A typical workload on a shared self-service data platform infrastructure could look like the following digram: incoming data (batch or streaming) gets ingested and processed and stored into the data structure that defines the data product, whether that is columnar or object. At the other end of the workload, an incoming request for data hits a web service, which then orchestrates a series of processes against the data product storage area, to then return that data to the customer. [^1]
+A typical workload on a shared self-service data platform infrastructure could look like the following diagram: incoming data (batch or streaming) gets ingested and processed and stored into the data structure that defines the data product, whether that is columnar or object. At the other end of the workload, an incoming request for data hits a web service, which then orchestrates a series of processes against the data product storage area, to then return that data to the customer. [^1]
 
 [^1]: The diagram is inspired from Lena Hall's session at the Data & AI Summit, May 2021. See the [session recording on YouTube](https://www.youtube.com/watch?v=fOAPQJd3f0M&t=1079s&ab_channel=Databricks).
 
@@ -106,7 +106,7 @@ A data mesh is, by nature, a distributed, decentralised architecture - with auto
 
 This is requires a Federated Governance model, that has contributions from data product owners and data platform product owners - creating and adhering to a common set of rules to be applied to all domains and their interfaces - to ensure interoperability. In a traditional governance model, this is similar to a Governance Council but the difference is that it is expanded to incorporate product owners.
 
-In any federated system there will be challenges to maintain balance between what needs to be agreed globally and what the individual products have autonomy over. Ultimately, global concerns should be centered around interoperability and discovery of data products. Anything that will have an impact across domains will, most likely, become a focus of glocal concern and agreement, while elements that can be bounded by the domain context, such as the data model, would remain in the preserve of the domain. However, there might be standards set out by global that would need to be applied at the domain - to ensure interoperability and discovery. 
+In any federated system there will be challenges to maintain balance between what needs to be agreed globally and what the individual products have autonomy over. Ultimately, global concerns should be centered around interoperability and discovery of data products. Anything that will have an impact across domains will, most likely, become a focus of global concern and agreement, while elements that can be bounded by the domain context, such as the data model, would remain in the preserve of the domain. However, there might be standards set out by global that would need to be applied at the domain - to ensure interoperability and discovery. 
 
 ## Conclusion
 
