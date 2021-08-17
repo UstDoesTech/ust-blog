@@ -1,6 +1,6 @@
 ---
 title: "Data Domain Fictional Case Study: Retail"
-date: 2021-08-13T12:04:25+06:00
+date: 2021-08-17T08:55:25+06:00
 description: Using a fictionalised case study to understand how data domains could work in practice
 menu:
   sidebar:
