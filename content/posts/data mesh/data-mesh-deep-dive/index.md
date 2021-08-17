@@ -75,8 +75,6 @@ But that's not all there is to a data product. It is much more than a compositio
 
 The reason why a data product has those core principles is because it makes it easier to use. What's the point of building something if it's not going to be used? Also, a data product can be used by other domains - so we need to treat any other domain just like any other customer. In fact, there's no fundamental difference between a domain customer and any other data customer. 
 
-
-
 ## Self-Serve Data Platform
 
 A Self-Serve Data Platform is effectively Platform-as-a-Service with Infrastructure as Code principles, with some additional abstraction to lower the barriers of entry needed to build data products. 
