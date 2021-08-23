@@ -4,5 +4,5 @@ menu:
   sidebar:
     name: Data Mesh
     identifier: data-mesh
-    weight: 300
+    weight: 3
 ---
