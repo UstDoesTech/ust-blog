@@ -6,7 +6,7 @@ menu:
   sidebar:
     name: Forecasting Methods and Principles
     identifier: forecasting-methods-principles
-    parent: data science
+    parent: data-science
     weight: 1
 ---
 What comes to your mind when you hear the words forecasting, forecasts etc?

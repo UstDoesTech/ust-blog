@@ -7,7 +7,7 @@ menu:
   sidebar:
     name: Introduction to Data Lakes
     identifier: data-lake-intro
-    parent: Data Lake
+    parent: data-lake
     weight: 1
 ---
 Data Lakes are the new hot topic in the big data and BI communities. Data Lakes have been around for a few years now, but have only gained popular notice within the last year. In this blog I will take you through the concept of a Data Lake, so that you can begin your own voyage on the lakes.
