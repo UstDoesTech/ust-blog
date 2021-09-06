@@ -18,3 +18,12 @@ As a reminder, below is our hypothetical flow of data between the domains establ
 
 {{< img src="images/data-flow-domains-xclusiv.png" alt="Image with the data flow between the different domains listed" width="900" align="center">}}
 
+## Customer Data Product
+
+In our Customer Domain, we have the Customer information in the source applications and the Customer information in the CRM application, as highlighted in the below image.
+
+{{< img src="images/data-flow-domain-ownership-crm-xclusiv.png" alt="Customer Relationship Domain Ownership" width="500" align="center">}}
+
+But the reality of data flows for the customer domain are likely to be more complex than that, just because there are customers coming from different source applications and there's a business need to ensure that the data is mastered and we have a golden source of data for customers.
+
+
