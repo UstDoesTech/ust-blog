@@ -1,6 +1,6 @@
 # section information
 section:
-  name: Presentations
+  name: achievements
   id: achievements
   enable: true
   weight: 6
