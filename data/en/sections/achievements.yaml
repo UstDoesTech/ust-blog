@@ -1,6 +1,6 @@
 # section information
 section:
-  name: achievements
+  name: Achievements
   id: achievements
   enable: true
   weight: 6
@@ -11,7 +11,7 @@ section:
 # Your achievements achievements
 achievements:
 - title: A Deep Dive Into Data Lakes
-  #image: /images/sections/achievements/presenter.jpg
+  image: /images/sections/achievements/presenter.jpg
   summary: Presented at [SQL Bits 2017](https://sqlbits.com/Sessions/Event16/A_Deep_Dive_Into_Data_Lakes)
 #- title: Champion
   #image: /images/sections/achievements/sport.jpg
