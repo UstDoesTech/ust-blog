@@ -33,7 +33,7 @@ In our Customer Domain, we have the Customer information in the source applicati
 
 {{< img src="images/data-flow-domain-ownership-crm-xclusiv.png" alt="Customer Relationship Domain Ownership" width="500" align="center">}}
 
-But the reality of data flows for the customer domain are likely to be more complex than that, just because there are customers coming from different source applications and there's a business need to ensure that the data is mastered and we have a golden source of data for customers.
+But the reality of data flows for the customer domain are likely to be more complex than that, just because there are customers coming from different source applications and there's a business need to ensure that the data is mastered and we have a golden source of data for customers. This is to ensure that Customer A, who habitually shops in Country A can have the same experience when they shop in a different country and get assigned a different Customer ID.
 
 {{< img src="images/customer-mdm-inflow.png" alt="Image with the data flow between POS and MDM Tool" width="300" align="center">}}
 
@@ -127,4 +127,3 @@ The preference in most cases would be for pure consumers of data to employ data 
 ## Conclusion
 
 We've established what data products could look like for a single domain, as well as established how more traditional users of data would interact with the products - with a preference for data virtualisation.
-
