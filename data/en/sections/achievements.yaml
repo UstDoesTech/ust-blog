@@ -1,7 +1,7 @@
 # section information
 section:
   name: Presentations
-  id: presentations
+  id: achievements
   enable: true
   weight: 6
   showOnNavbar: false
