@@ -36,3 +36,10 @@ Let us focus on two areas:
 1. Self-Serve Data Platform with Existing Services
 2. Ideal Self-Serve Data Platform
 
+## DPaaS with Existing Services
+
+### Scalable, Distributed Storage
+
+This is an easy one to tick-off. This is a data lake, whether it's a single service with folders demarking the boundaries between domains for physical storage of data; or a federated collection of physical services. What will dictate the approach to use a single service or multiple services will be internal data security policies and administration policies.
+
+For XclusiV, the Information Security Team would prefer data to all be on one physical storage service so that it is easier to monitor and track access. They are currently cloud agnostic, so are deciding between Azure Data Lake Gen 2, AWS S3 and Google Cloud Storage - as the main cloud providers. As they already have Azure Active Directory, the choice of authentication protocol might sway them towards Azure.
