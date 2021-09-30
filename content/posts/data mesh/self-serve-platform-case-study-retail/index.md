@@ -67,4 +67,6 @@ There is, however, a concern in some areas of the business that configuration-as
 
 #### Kafka Engine
 
-An alternative to Spark is Kafka, utilising an efficient and effective publish & subscribe architecture to form a reliable messaging and analytics backbone to a data platform. 
+An alternative to Spark is Kafka, utilising an efficient and effective publish & subscribe architecture to form a reliable messaging and analytics backbone to a data platform, and sharing data easily between domains.
+
+Because Kafka is a messaging service,
