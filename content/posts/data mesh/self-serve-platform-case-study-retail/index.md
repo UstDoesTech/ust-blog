@@ -69,4 +69,23 @@ There is, however, a concern in some areas of the business that configuration-as
 
 An alternative to Spark is Kafka, utilising an efficient and effective publish & subscribe architecture to form a reliable messaging and analytics backbone to a data platform, and sharing data easily between domains.
 
-Because Kafka is a messaging service,
+Because Kafka is an abstraction of a distributed commit log, it integrates nicely with a microservices architecture and allows for the scalability of a durable system. Kafka also provides a variety of SQL, called KSQL, which would reduce the barriers to entry for querying data and creating data products. 
+
+[IMAGE ABOUT KAFKA INTEGRATION]
+
+Would it be used for everything throughout a self-service data platform? That's for the IT and Business teams to agree upon, but even if it's not used for everything, it provides a nice compliment to the Spark Engine.
+
+If the IT Team don't want to manage a full blown Kafka instance, then a managed offering would probably be [Confluent](https://www.confluent.io/) as it exists on all three major cloud providers.
+
+### Data Pipeline Implementation and Orchestration
+
+How does data get from A to B? How does the system know which data to process and when? Data Mesh isn't an architecture that facilitates the removal of ETL / ELT pipelines, it decentralises the pipelines to domains and decouples the pipelines from each other.
+
+Generally, the various data processing engines, like Spark or Kafka, will be responsible for moving and transforming data but when we add configuration-as-code into the mix, it can make orchestration more complex because the processing engines need to be told: 
+
+- What needs to be processed
+- Where the source data exists
+- Where the target data needs to go
+- Any other configuration / transformation steps need to be applied
+
+Therefore, we need an orchestration tool. The most obvious open source offering is [Apache Airflow](https://airflow.apache.org/). 
