@@ -1,6 +1,6 @@
 ---
 title: "Using Auto Loader on Azure Databricks with AWS S3"
-date: 2021-08-09T19:29:25+06:00
+date: 2021-10-18T20:29:25+06:00
 description: All the necessary steps to make Auto Loader on Azure Databricks work with data in an AWS S3 Bucket
 #hero: databricks.svg
 menu:
