@@ -18,7 +18,14 @@ Recently on a client project, we wanted to use the [Auto Loader](https://docs.mi
 We followed the steps on the Microsoft Docs to [load files in from AWS S3 using Auto Loader](https://docs.microsoft.com/en-us/azure/databricks/spark/latest/structured-streaming/auto-loader-s3) but we were getting an error message that couldn't be easily resolved in the Azure instance of Databricks:
 
 ```typescript
-shaded.databricks.org.apache.hadoop.fs.s3a.AWSClientIOException: Instantiate shaded.databricks.org.apache.hadoop.fs.s3a.auth.AssumedRoleCredentialProvider on : com.amazonaws.AmazonClientException: No AWS Credentials provided by InstanceProfileCredentialsProvider : com.amazonaws.SdkClientException: The requested metadata is not found at http://169.254.169.254/latest/meta-data/iam/security-credentials/: No AWS Credentials provided by InstanceProfileCredentialsProvider : com.amazonaws.SdkClientException: The requested metadata is not found at http://169.254.169.254/latest/meta-data/iam/security-credentials/
+shaded.databricks.org.apache.hadoop.fs.s3a.AWSClientIOException: 
+Instantiate shaded.databricks.org.apache.hadoop.fs.s3a.auth.AssumedRoleCredentialProvider on : 
+com.amazonaws.AmazonClientException: No AWS Credentials provided by InstanceProfileCredentialsProvider : 
+com.amazonaws.SdkClientException: 
+The requested metadata is not found at http://169.254.169.254/latest/meta-data/iam/security-credentials/: 
+No AWS Credentials provided by InstanceProfileCredentialsProvider : 
+com.amazonaws.SdkClientException: The requested metadata is not found at
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
 ```
 
 Azure doesn't have notions of an InstanceProfile but AWS does, so marrying the two cloud platforms was going to be a challenge.
@@ -188,3 +195,7 @@ Configuring Databricks Auto Loader to load data in from AWS S3 is not a straight
 This is one way of getting it to work. If there wasn't a need for other services to also connect to S3, I should think that the method to generate the temporary credentials could be rationalised significantly and to exist solely within Databricks.
 
 Thanks for reading!
+
+UPDATE: It is much simpler to configure this directly in Databricks if you do not need to use the temporary credentials for other services in Azure.
+
+{{< gist UstDoesTech 172525c34c4bea5650e1338e77c5bf3a>}}
