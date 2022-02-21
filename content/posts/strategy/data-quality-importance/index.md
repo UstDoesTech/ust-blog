@@ -65,3 +65,5 @@ There are plenty of off-the-shelf products, which can be bought for not insubsta
 ## Takeaway
 
 Regardless of which approach you take to monitor data quality, build or buy, I hope this post has given you a deeper understanding of what data quality is and why monitoring, and improving, data quality is important.
+
+Thanks for reading.
