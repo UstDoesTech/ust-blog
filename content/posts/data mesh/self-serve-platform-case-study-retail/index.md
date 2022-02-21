@@ -88,4 +88,17 @@ Generally, the various data processing engines, like Spark or Kafka, will be res
 - Where the target data needs to go
 - Any other configuration / transformation steps need to be applied
 
-Therefore, we need an orchestration tool. The most obvious open source offering is [Apache Airflow](https://airflow.apache.org/).
+Therefore, we need an orchestration tool. The most obvious open source offering is [Apache Airflow](https://airflow.apache.org/). Airflow, however, can only be deployed using containers - so the team would have to learn how to use Docker, Kubernetes or similar. 
+
+The interface itself is Python based, so the team would also have to provide an abstraction for it, so that it can be used by Business Teams as part of their processing without knowing that they're using it. Or the team need to look at some proprietary alternatives. 
+
+On Azure, this is [Azure Data Factory](https://docs.microsoft.com/en-gb/azure/data-factory/); AWS has [Data Pipeline](https://aws.amazon.com/datapipeline/) and GCP has [Cloud Data Fusion](https://cloud.google.com/data-fusion All of these provide a nice drag and drop interface, which can remove a lot of technical barriers to orchestrating pipelines. There's also built in connectors, which can make using configuration-as-case a lot simpler, as you can have a single location which stores the configuration (often a database) and have the orchestrator do what the configuration does it.
+
+[Image About Configuration-As-Code being used by Orchestrator]
+
+### Identity and Control Management
+Identity and Control Management is a hot topic these days, and not just confined to InfoSec circles. Almost everyone in any business is concerned with the right people having the right access, along with the right policies and processes to support that.
+
+From a technological perspective, for XclusiV, this is [Azure Active Directory](https://docs.microsoft.com/en-gb/azure/active-directory/fundamentals/active-directory-whatis) which is their Enterprise wide identity management tool. When it comes to designing and implementing the new platform, they'll have to have access and identity at the forefront to: a) make the platform secure, and b) make it easy for users to access data they should have access to.
+
+### Data Product Code Deployment
