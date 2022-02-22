@@ -45,11 +45,11 @@ I won't bore you with the specifics, there's the code for that. Other than the c
 
 #### ARM Template
 
-<script src="https://gist.github.com/UstDoesTech/2198f319f0d5a84b60a418fe7437c012.js"></script>
+{{< gist UstDoesTech 2198f319f0d5a84b60a418fe7437c012.js"></script>
 
 #### ARM Parameters
 
-<script src="https://gist.github.com/UstDoesTech/797f98b22f453e771c523fcda899095a.js"></script>
+{{< gist UstDoesTech 797f98b22f453e771c523fcda899095a.js"></script>
 
 Now that we have the name of the Workspace in the DevOps pipeline, we can use it in a PowerShell script to assign our accounts as Synapse Admins. If we don't do this step, no one will be able to use the Workspace as the only accounts that automatically have access are the Managed Identity and the Service Principal that deployed the workspace.
 
@@ -59,27 +59,27 @@ As mentioned earlier, DACPACs don't work and a SQL Script that contains all the 
 
 #### Create Database
 
-<script src="https://gist.github.com/UstDoesTech/0b4ca89c8905eba1a0d81fabfcfecbd6.js"></script>
+{{< gist UstDoesTech 0b4ca89c8905eba1a0d81fabfcfecbd6>}}
 
 #### Create External Resources
 
-<script src="https://gist.github.com/UstDoesTech/6fce12200a5ce1bca64fd7bc4fe1d013.js"></script>
+{{< gist UstDoesTech 6fce12200a5ce1bca64fd7bc4fe1d013>}}
 
 #### Create Schema
 
-<script src="https://gist.github.com/UstDoesTech/683d2803d70df960ad937ff4b4eb6f17.js"></script>
+{{< gist UstDoesTech 683d2803d70df960ad937ff4b4eb6f17>}}
 
 #### Create Stored Procs
 
-<script src="https://gist.github.com/UstDoesTech/0d3164c974d898be6773b8210b4145ec.js"></script>
+{{< gist UstDoesTech 0d3164c974d898be6773b8210b4145ec>}}
 
-<script src="https://gist.github.com/UstDoesTech/eebdac85a5f7e979bb2ce04b253b6487.js"></script>
+{{< gist UstDoesTech eebdac85a5f7e979bb2ce04b253b6487>}}
 
 And all this is orchestrated by an Azure DevOps Pipeline, written in yaml.
 
 #### DevOps Pipeline Yaml
 
-<script src="https://gist.github.com/UstDoesTech/41460487938756331e0f0109c4145098.js"></script>
+{{< gist UstDoesTech 41460487938756331e0f0109c4145098>}}
 
 ## Conclusion
 
