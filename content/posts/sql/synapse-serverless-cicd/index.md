@@ -1,6 +1,6 @@
 ---
 title:  "CI / CD With Synapse Serverless"
-date:   2022-02-22T08:55:38+00:00
+date:   2022-02-22T08:40:38+00:00
 description: Exploring the limitations of deploying to Synapse Serverless and how to deploy database objects
 menu:
   sidebar:
