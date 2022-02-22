@@ -45,11 +45,11 @@ I won't bore you with the specifics, there's the code for that. Other than the c
 
 #### ARM Template
 
-{{< gist UstDoesTech 2198f319f0d5a84b60a418fe7437c012.js"></script>
+{{< gist UstDoesTech 2198f319f0d5a84b60a418fe7437c012>}}
 
 #### ARM Parameters
 
-{{< gist UstDoesTech 797f98b22f453e771c523fcda899095a.js"></script>
+{{< gist UstDoesTech 797f98b22f453e771c523fcda899095a>}}
 
 Now that we have the name of the Workspace in the DevOps pipeline, we can use it in a PowerShell script to assign our accounts as Synapse Admins. If we don't do this step, no one will be able to use the Workspace as the only accounts that automatically have access are the Managed Identity and the Service Principal that deployed the workspace.
 
