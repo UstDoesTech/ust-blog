@@ -1,6 +1,6 @@
 ---
 title:  "Why Data Quality is Important"
-date:   2021-02-21T08:55:38+00:00
+date:   2022-02-21T08:55:38+00:00
 description: Reasons for why Data Quality is Important and how it can be monitored
 menu:
   sidebar:
