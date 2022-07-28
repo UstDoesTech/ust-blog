@@ -19,33 +19,33 @@ We won't go through every domain identified in the previous post, instead we'll 
 
 As a reminder, below is our hypothetical flow of data between the domains established in the previous post:
 
-{{< img src="images/data-flow-domains-xclusiv.png" alt="Image with the data flow between the different domains listed" width="600" align="center">}}
+{{< figure src="images/data-flow-domains-xclusiv.png" alt="Image with the data flow between the different domains listed" width="600" align="center">}}
 
 ## Customer Data Product
 
 A [Data Product](../data-mesh-deep-dive/#data-products) is the smallest component of a data mesh, composed of the ***code*** used to process and serve data; the ***data*** that is consumed as a product, along with its metadata; and the ***infrastructure*** upon which the code is deployed and the data, as a product, is stored.
 
-{{< img src="images/data-product.png" alt="Conceptual Data Product" width="300" align="center">}}
+{{< figure src="images/data-product.png" alt="Conceptual Data Product" width="300" align="center">}}
 
 A domain can have many data products, just like it might have many operational data sources and systems.
 
 In our Customer Domain, we have the Customer information in the source applications and the Customer information in the CRM application, as highlighted in the below image.
 
-{{< img src="images/data-flow-domain-ownership-crm-xclusiv.png" alt="Customer Relationship Domain Ownership" width="500" align="center">}}
+{{< figure src="images/data-flow-domain-ownership-crm-xclusiv.png" alt="Customer Relationship Domain Ownership" width="500" align="center">}}
 
 But the reality of data flows for the customer domain are likely to be more complex than that, just because there are customers coming from different source applications and there's a business need to ensure that the data is mastered and we have a golden source of data for customers. This is to ensure that Customer A, who habitually shops in Country A can have the same experience when they shop in a different country and get assigned a different Customer ID.
 
-{{< img src="images/customer-mdm-inflow.png" alt="Image with the data flow between POS and MDM Tool" width="300" align="center">}}
+{{< figure src="images/customer-mdm-inflow.png" alt="Image with the data flow between POS and MDM Tool" width="300" align="center">}}
 
 At this point, our data product could be the Master Data Management (MDM) tool for Customer as it can be used by other solutions - not just those owned by the Customer Relationship Team. Like any good MDM tool and process, we want that data to flow back to originating source systems so that they have accurate and up-to-date data.
 
-{{< img src="images/customer-mdm-reflow.png" alt="Image with the data flow between POS and MDM Tool and back to POS" width="300" align="center">}}
+{{< figure src="images/customer-mdm-reflow.png" alt="Image with the data flow between POS and MDM Tool and back to POS" width="300" align="center">}}
 
 Other teams and systems can also subscribe to the data in the MDM tool but there's potential that the customer data and associated metrics can become distorted by teams and processes that don't have the same intimate knowledge of the data as the Customer Relationship Team.
 
 Ownership of customer information resides with the team, so they should provide some analytical capabilities, such as serving a dimension for traditional consumers, or more interesting insights. Even if these are only used for the team's own purpose, it is still providing value.
 
-{{< img src="images/customer-mdm-outflow.png" alt="Image with the data flow to an analytical endpoint" width="700" align="center">}}
+{{< figure src="images/customer-mdm-outflow.png" alt="Image with the data flow to an analytical endpoint" width="700" align="center">}}
 
 Some of the analytical capabilities the team may offer, such as providing a view of segmentation by other domains, e.g. Product, will need to consume and transform data from other domains.
 

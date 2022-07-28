@@ -34,6 +34,24 @@ params:
   #gitRepo: https://github.com/uoldfield/ust-blog
   enableBlogPost: true
   enableTOC: true
+  env: production
+  # title: UstDoes.Tech
+  # profileMode:
+  #       enabled: true
+  #       imageUrl: https://github.com/UstDoesTech/ust-blog/blob/main/assets/images/Ust.png
+  #       buttons:
+  #         - name: Posts
+  #           url: "/content/posts/"
+  #         - name: Github
+  #           url: "https://github.com/UstDoesTech"
+  
+  # cover:
+  #   image: images/jordan2.jpg
+  # socialIcons: # optional
+  #   - name: "<platform>"
+  #     url: "<link>"
+  #   - name: "<platform 2>"
+  #     url: "<link2>"
   background: images/jordan2.jpg
   logo:
     main: images/icon.png

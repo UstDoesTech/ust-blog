@@ -24,7 +24,7 @@ Often, inertia - driven by an overwhelming amount of information to the risks - 
 
 Handily, there are industry defined dimensions for assessing data, as defined by the [Data Management Association (DAMA)](https://www.dama.org/cpages/home).
 
-{{< img src="images/DQ-Dimensions.png" alt="Data Quality Dimensions" width="500" align="center">}}
+{{< figure src="images/DQ-Dimensions.png" alt="Data Quality Dimensions" width="500" align="center">}}
 
 ### Completeness
 

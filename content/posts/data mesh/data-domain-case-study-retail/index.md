@@ -40,11 +40,11 @@ Due to the lack of ownership of data, a data mesh might not be able to resolve t
 
 The organisational structure doesn't make this a simple use case for data mesh. In other examples, there's a clear separation between domains: user domain; playlist domain; artist domain etc., but in this example, the separation between domains isn't so clean. I think one of the reasons why there's a clear domain separation in other examples is due to a microservices architecture. XclusiV haven't got around to implementing a microservices architecture and are still using line-of-business applications.  
 
-{{< img src="images/xclusiv-architecture.png" alt="Image with POS and ERP flowing into a Data Warehouse with Cube" width="600" align="center">}}
+{{< figure src="images/xclusiv-architecture.png" alt="Image with POS and ERP flowing into a Data Warehouse with Cube" width="600" align="center">}}
 
 We could separate domains into Sale, Product, Customer, Location, Stock etc., and that would work quite nicely if there was system alignment across markets (and that is a technological hurdle which shouldn't be insurmountable). The following diagram details the data flow from one domain to another with the operational capabilities in blue and the analytical endpoints in green. You'll notice that there's a fair few dependencies, and this is a simplified model.
 
-{{< img src="images/data-flow-domains-xclusiv.png" alt="Image with the data flow between the different domains listed" width="900" align="center">}}
+{{< figure src="images/data-flow-domains-xclusiv.png" alt="Image with the data flow between the different domains listed" width="900" align="center">}}
 
 Regardless of whether XclusiV has embraced microservices or retain LOB applications, the logical flow of data between arbitrary domains would be the same. But who should own what?
 
@@ -54,7 +54,7 @@ Domains can span multiple subject areas and have many dependencies. Let's take S
 
 #### Retail Operations Team
 
-{{< img src="images/data-flow-domain-ownership-ops-xclusiv.png" alt="Retail Operations Domain Ownership" width="500" align="center">}}
+{{< figure src="images/data-flow-domain-ownership-ops-xclusiv.png" alt="Retail Operations Domain Ownership" width="500" align="center">}}
 
 In this example, the operational capabilities and associated analytical endpoints for Sales and Stock domains come under the ownership of the Retail Operations Team. They're tightly aligned to the creation of data and with the operational analytical demands, like *Weekly Sales Report* and *Weekly Stock Position*. The team is responsible for the input of data, the quality of the data, and associated output.
 
@@ -66,7 +66,7 @@ Yes, at the moment that is how XclusiV currently arranges its business. But the 
 
 Unsurprisingly, the Customer Relationship Team should own the Customer domain, as well as the CRM domain. 
 
-{{< img src="images/data-flow-domain-ownership-crm-xclusiv.png" alt="Customer Relationship Domain Ownership" width="500" align="center">}}
+{{< figure src="images/data-flow-domain-ownership-crm-xclusiv.png" alt="Customer Relationship Domain Ownership" width="500" align="center">}}
 
 The Customer Relationship Team wants to ensure that the right customers are targeted, that the right customer relationships are nurtured, and the quality of the customer data is accurate - specifically with regards to GDPR requests. A poor service, at any engagement point, will damage the reputation of XclusiV and reflect poorly on the Customer Relationship Team.
 
@@ -74,7 +74,7 @@ The Customer Relationship Team wants to ensure that the right customers are targ
 
 Finance are typically the gatekeepers for investment, as well as divestment. If sales are growing, there could be scope for opening up more stores or expanding product ranges. Conversely, if sales are not growing then stores could be closed and the product range could be more limited. Those decisions all rely upon Finance to make, with the advice from other departments.  
 
-{{< img src="images/data-flow-domain-ownership-finance-xclusiv.png" alt="Finance Domain Ownership" width="500" align="center">}}
+{{< figure src="images/data-flow-domain-ownership-finance-xclusiv.png" alt="Finance Domain Ownership" width="500" align="center">}}
 
 > What about the Sales Team? 
 
@@ -84,7 +84,7 @@ This is where it can get complicated. I recommend that it's Finance who own thes
 
 There is a lot of overlap between the Sales Team and the Retail Operations and the Finance Teams.
 
-{{< img src="images/data-flow-domain-ownership-sales-xclusiv.png" alt="Finance Domain Ownership" width="500" align="center">}}
+{{< figure src="images/data-flow-domain-ownership-sales-xclusiv.png" alt="Finance Domain Ownership" width="500" align="center">}}
 
 The Sales Team could be responsible for the Sales Planning Domain, but I argue that they are consumers of the domain as they are targeted by Finance on sales, rather than setting targets and driving decisions based on the data. Conversely, in another organisation it could be the Sales Team who owns the domain and Finance is the consumer.
 
@@ -92,7 +92,7 @@ The Sales Team could be responsible for the Sales Planning Domain, but I argue t
 
 The Buying Team are responsible for buying products for the various stores based on the trends and types of products that have performed well in the past and expected to perform well in the future. 
 
-{{< img src="images/data-flow-domain-ownership-buying-xclusiv.png" alt="Buying Team Domain Ownership" width="500" align="center">}}
+{{< figure src="images/data-flow-domain-ownership-buying-xclusiv.png" alt="Buying Team Domain Ownership" width="500" align="center">}}
 
 Therefore, the Buying Team owns the Inventory Planning Domain as it needs to plan for inventory it needs to buy. However, you'll notice that the Buying Team does not have ownership of the Product Domain. But who does?
 
@@ -100,7 +100,7 @@ Therefore, the Buying Team owns the Inventory Planning Domain as it needs to pla
 
 Marketing owns the Product Domain. Why Marketing and not Buying or Manufacturing? Because Marketing are most keenly interested in the product as they are entirely responsible for the success of a product, how it is marketed and it's performance (from a sales perspective). Owners of Product Domain but consumers of the Sales Planning Domain. Marketing sets the brief for products to be created.
 
-{{< img src="images/data-flow-domain-ownership-marketing-xclusiv.png" alt="Buying Team Domain Ownership" width="500" align="center">}}
+{{< figure src="images/data-flow-domain-ownership-marketing-xclusiv.png" alt="Buying Team Domain Ownership" width="500" align="center">}}
 
 Manufacturing is concerned about output and quality of the product but they're not that interested in the success of a product. Buying is concerned about the required inventory of the product, but not the product itself. That's why Marketing is, in my opinion, the correct owner of the Product Domain.
 

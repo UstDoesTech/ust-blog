@@ -23,7 +23,7 @@ For example, if you have an exchange rate base of USD and know that the GBP/USD 
 
 That might sound simple, but most exchange rates are held in a table across a range of dates. This complicates the calculation somewhat. I've used CTEs because I find that it makes the script neater and easier to debug. Below is an example of the triangulation using the Sales.CurrencyRate table in the **AdventureWorks2012** database.
 
-{{< gist uoldfield d8d6dbfeecee9df83c27c10d014c0c3d >}}
+{{< gist ustdoestech d8d6dbfeecee9df83c27c10d014c0c3d >}}
 
 As always, if you have any feedback and can suggest a simpler way of performing the triangulation I would love to hear it.  
 

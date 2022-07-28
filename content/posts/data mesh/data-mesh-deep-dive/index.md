@@ -18,7 +18,7 @@ Let's start with why we need a paradigm like Data Mesh.
 
 In my previous post, I made the bold claim that analytical architectures hadn't fundamentally progressed since the inception of the Data Warehouse in the 1990s. That's three decades of the same thinking: ingest data into a central data repository, clean and transform data, serve data for consumption.
 
-{{< img src="images/ingest-clean-serve.png" alt="Image describing the process flow of data from ingestion, to transformation, and serving" width="900" align="center">}}
+{{< figure src="images/ingest-clean-serve.png" alt="Image describing the process flow of data from ingestion, to transformation, and serving" width="900" align="center">}}
 
 This approach doesn't scale very well, even though the underpining technology has made vast improvements to alleviate, or even mask, the impact of poor scalability. Even approaches that use metadata and configuration to automatically perform the bulk of the data process still end up falling foul of the same issue: scalability.
 
@@ -26,7 +26,7 @@ However, I'm not referring to platform scalability, as most cloud platforms scal
 
 In a traditional analytical architecture (whether it's a Data Warehouse, Data Lake, Data Hub or Lakehouse) the closer processes get to serving data from a central data repository, more dataset dependencies are introduced and the throughput becomes less.
 
-{{< img src="images/ingest-clean-serve-throughput.png" alt="Image describing the reduced throughput as data goes through the data flow process" width="700" align="center">}}
+{{< figure src="images/ingest-clean-serve-throughput.png" alt="Image describing the reduced throughput as data goes through the data flow process" width="700" align="center">}}
 
 This means that, while it is relatively easy to ingest data, it becomes harder to transform and serve data to the consumers who demand it, in a manner and time in which they desire. The business gets frustrated with IT, or the central data function, friction ensues and we end up with classic governance issues of shadow IT and dark data. All because the architecture we build no longer meets the needs of today, let alone the future.
 
@@ -47,7 +47,7 @@ Teams responsible for the business operation, e.g. CRM team responsible for Cust
 
 Because our organisations are often separated based on domains, our architecture needs to be arranged to support that. The interfaces of a domain needs to enable operational capabilities, e.g. registering a customer, but also provide an analytical endpoint, e.g. Newly registered Customers over last X months, to consumers. This means that domains must be able to provide these capabilities independently of other domains - essentially decoupling the analytical process at a domain level, much in the same way that microservices have decoupled operational capabilities at the domain level.
 
-{{< img src="images/domain-context.png" alt="Image visualising the domain context - with O for operational capabilities and A as analytical endpoints" width="700" align="center">}}
+{{< figure src="images/domain-context.png" alt="Image visualising the domain context - with O for operational capabilities and A as analytical endpoints" width="700" align="center">}}
 
 In the diagram above, we have the context of the domain - being the team and the systems they own - an operational capability (represented by O), and an analytical endpoint (represented by A).
 
@@ -59,11 +59,11 @@ There is, however, an assumption that operational systems have been built and ma
 
 A Data Product is a fundamental part of the data mesh and the smallest component of it. It contains the ***code*** used to ingest, transform and serve that data; the ***data*** that is to be consumed and its metadata, describing its schema, quality metrics, access control policies, etc; the ***infrastructure*** upon which the code is deployed, and the data to be stored, processed and accessed.
 
-{{< img src="images/data-product.png" alt="The Data Product as composed by Code, Data and Infrastructure" width="700" align="center">}}
+{{< figure src="images/data-product.png" alt="The Data Product as composed by Code, Data and Infrastructure" width="700" align="center">}}
 
 A data product is bounded by the context of a domain and a domain can have many data products, just like it might have many operational systems. Very simply put, the following diagram is of a data product in the context of a domain.
 
-{{< img src="images/data-product-domain-context.png" alt="Data Product in the Context of a Domain - linking to Operational System" width="700" align="center">}}
+{{< figure src="images/data-product-domain-context.png" alt="Data Product in the Context of a Domain - linking to Operational System" width="700" align="center">}}
 
 But that's not all there is to a data product. It is much more than a composition of code, data and infrastructure. It has the following core principles associated with it:
 
@@ -96,7 +96,7 @@ A typical workload on a shared self-service data platform infrastructure could l
 
 [^1]: The diagram is inspired from Lena Hall's session at the Data & AI Summit, May 2021. See the [session recording on YouTube](https://www.youtube.com/watch?v=fOAPQJd3f0M&t=1079s&ab_channel=Databricks).
 
-{{< img src="images/data-product-self-serve-infra.png" alt="Logical workload process of a data product on self-service infrastructure as described above" width="900" align="center">}}
+{{< figure src="images/data-product-self-serve-infra.png" alt="Logical workload process of a data product on self-service infrastructure as described above" width="900" align="center">}}
 
 This is highly abstracted to allow any technology to play the role of an ingestion service, processing engine, storage provider, web service, etc. While the platform needs to domain agnostic, it should also aim to be vendor agnostic and embrace Open Standards, Open Protocols and Open-Source Integrations. This allows the domain teams to be truly autonomous in choosing the tools to best meet their needs and skills - although, a word of caution here, as the selection of tooling should also be done in consultation with the data platform team, as they will be supporting the underlying infrastructure - including how the tooling interacts with the rest of the infrastructure.  
 
