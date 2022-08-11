@@ -52,11 +52,11 @@ params:
   #     url: "<link>"
   #   - name: "<platform 2>"
   #     url: "<link2>"
-  background: images/jordan2.jpg
+  background: images/full_logo.jpg
   logo:
-    main: images/icon.png
-    inverted: images/icon.png
-    favicon: images/icon.png
+    main: images/logo.png
+    inverted: images/logo.png
+    favicon: images/logo.png
   newsletter:
     enable: false
   
