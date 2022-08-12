@@ -52,7 +52,7 @@ params:
   #     url: "<link>"
   #   - name: "<platform 2>"
   #     url: "<link2>"
-  background: images/full_logo.jpg
+  background: images/jordan2.png
   logo:
     main: images/logo.png
     inverted: images/logo.png
