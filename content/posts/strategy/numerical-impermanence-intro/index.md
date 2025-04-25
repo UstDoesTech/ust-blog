@@ -28,7 +28,7 @@ This has nothing to do with Judas Priest.
 
 Remember when I said that impermanence helps me stay grounded? And that mathematics is a grounded discipline? Well... Let's destroy the idea that it's a grounded discipline.
 
-Mathematics is a discipline that is often seen as rigid and unchanging. But the reality is that mathematics is constantly evolving and changing. The concept of numerical impermanence is about embracing this change and using it to our advantage. However, the one thing that is going to undermine the core tenets of mathematics, the idea of that numbers are fixed and unchanging, is the idea that numbers are not fixed and unchanging. Numbers are not permanent. They are not constant. They are not immutable. They are not even real (with some branches of mathematics going "well, duh").
+Mathematics is a discipline that is often seen as rigid and unchanging. But the reality is that mathematics is constantly evolving and changing. The concept of numerical impermanence is about embracing this change and using it to our advantage. However, the one thing that is going to undermine the core tenets of mathematics, the idea that numbers are fixed and unchanging, is the idea that numbers are not fixed and unchanging. Numbers are not permanent. They are not constant. They are not immutable. They are not even real (with some branches of mathematics going "well, duh").
 
 Still with me?
 
@@ -36,7 +36,7 @@ Good. Time to get a bit more technical.
 
 ### The Setup
 
-Core tenets of mathematics state that numbers are fixed. 1 = 1. 
+Core tenets of mathematics state that numbers are fixed. 1 = 1.
 
 Numbers out in the wild are not fixed - they are shaped by the context in which they are used. A number is always interpreted in context: time, environment, relationship, purpose, and so on, all shape the meaning of a number. This observation, in addition to the embrace of impermanence, has lead to the idea of numerical impermanence - numbers don't have fixed identities when the context changes enough. This is a radical departure from the core tenets of mathematics, but it is one that I believe is necessary in order to embrace the impermanence of life and the world around us.
 
@@ -71,7 +71,7 @@ If you pick a starting point in time (say, t₀) and look at the value of the Te
 
 The first implication is a load of angry mathematicians shouting at me for destroying their world view. I'm not sorry. You'll get over it.
 
-The second set of implications is how we can apply this to our systems. The idea of numerical impermanence is not just a theoretical concept, but one that has practical implications for how we design and use systems. 
+The second set of implications is how we can apply this to our systems. The idea of numerical impermanence is not just a theoretical concept, but one that has practical implications for how we design and use systems.
 
 ### Some examples
 
@@ -87,4 +87,8 @@ I could go on, but I think you get the point. Things change. Context is king - i
 
 For some disciplines, like economics, the idea of numerical impermanence is as old as time, you might as well call it inflation. Numerical impermanence, as formalised, is a novel application of the old idea of impermanence to the oldest science in the world. For mathematicians, I hope you're not angry at me for breaking your world view. I hope you can see the value in embracing impermanence and using it to our advantage.
 
+Ultimately, the theorem of numerical impermanence isn't about rejecting mathematics. It's about embracing the living, breathing nature of numbers we see every day in the world around us. In a changing world, the most powerful numbers are the ones we understand in context.
+
 For the rest of us, I hope you can see the value in applying this concept to our systems and using it to help us navigate the chaos of life. Embrace impermanence. Embrace change. And remember that nothing is permanent - not even numbers.
+
+In future post we'll explore the theorem in more detail as well as look at some of the practical applications.
