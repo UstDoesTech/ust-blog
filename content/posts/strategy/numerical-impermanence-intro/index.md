@@ -1,6 +1,6 @@
 ---
 title:  "Numerical Impermanence: An Introduction"
-date:   2025-04-27T06:00:38+00:00
+date:   2025-04-27T21:00:38+00:00
 description: Exploring numerical impermanence and its implications on system design
 menu:
   sidebar:
@@ -15,6 +15,8 @@ In a recent blog post I mentioned that I have been thinking about novel applicat
 Since moving to France in 2022 and having my world turned upside down with the move, and the deaths of my grandfather and the Queen, I have been leaning on impermanence to help me stay grounded and navigate the chaos of life. Mathematics, on the whole, is a grounded discipline, but it is also a discipline that is constantly evolving. The concept of impermanence is not new, but it is one that I have been thinking about in the context of mathematics and how we can apply it to more than just understanding life.
 
 ## What is Numerical Impermanence?
+
+{{< figure src="images/numerical-impermanence.png" alt="Numerical Impermanence" width="500" align="center">}}
 
 Before getting into the details, let's start with impermanence.
 
@@ -44,7 +46,7 @@ Numbers out in the wild are not fixed - they are shaped by the context in which 
 
 The theorem of numerical impermanence states that:
 
-> “For any initial value N(t0), there exists a transformation of C(t) such that limt→∞​N(t)≠N(t0​) and may even become undefined”
+> “For any initial value N(t₀), there exists a transformation of C(t) such that limt→∞​N(t)≠N(t₀) and may even become undefined”
 
 Ok - that was technically English, but still a bit technical. Let's break it down.
 
@@ -91,4 +93,4 @@ Ultimately, the theorem of numerical impermanence isn't about rejecting mathemat
 
 For the rest of us, I hope you can see the value in applying this concept to our systems and using it to help us navigate the chaos of life. Embrace impermanence. Embrace change. And remember that nothing is permanent - not even numbers.
 
-In future post we'll explore the theorem in more detail as well as look at some of the practical applications.
+In future posts we'll explore the theorem in more detail as well as look at some of the practical applications.
