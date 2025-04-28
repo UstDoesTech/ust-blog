@@ -1,6 +1,6 @@
 ---
 title:  "Numerical Impermanence: An Introduction"
-date:   2025-04-27T21:00:38+00:00
+date:   2025-04-28T01:00:38+00:00
 description: Exploring numerical impermanence and its implications on system design
 menu:
   sidebar:
