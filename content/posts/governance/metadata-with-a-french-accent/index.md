@@ -22,6 +22,8 @@ The French like to think of themselves as a philosophical nation. They have a lo
 
 So, if one verb can be used to make sense of metadata, why not use other verbs to enrich our understanding of it?
 
+{{< figure src="images/metadata-with-a-french-accent.png" alt="Metadata With a French Accent" width="500" align="center">}}
+
 Here's a list of French verbs, their meanings, and background information on their philosophical implications:
 
 | **Verb**       | **Meaning**             | **Philosophical Domain**      | **Conceptual Function**                       | **Comments / Associations**                           |
