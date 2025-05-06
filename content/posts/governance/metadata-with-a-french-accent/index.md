@@ -43,7 +43,7 @@ Here's a list of French verbs, their meanings, and background information on the
 
 Language lesson over! *sigh of relief*
 
-How does this relate to metadata? Sit back with the French breakfast of your choice (a stereotypical one is a coffee and a cigarette) and let me explain.
+How does this relate to metadata and data governance? Sit back with the French breakfast of your choice (a stereotypical one is a coffee and a cigarette) and let me explain.
 
 ### Être (To Be) - Defining Existence
 
@@ -123,6 +123,7 @@ Questions that you'll be asking when defining the obligation of your data includ
 - Is this data subject to GDPR?
 - What retention policies apply to this data?
 - Who is accountable for compliance?
+- What commitments does it uphold? e.g., SLAs
 
 Policies and regulations are essential for effective data governance. They are often seen as a burden, but they are expressions of devoir.
 
@@ -162,17 +163,6 @@ Questions that you'll be asking when defining the belief of your data include:
 - How uncertain is this data?
 
 Strong governance isn't just about truth, it's the degrees of confidence in how much you can believe the data.
-
-### Tenir (To Hold) - Defining Responsibility
-
-With Devoir we have obligations. With Tenir we have responsibility. Not all data has the same level of responsibility.
-
-Questions that you'll be asking when defining the responsibility of your data include:
-
-- What is the data responsible for? e.g., customer data is responsible for customer experience
-- What commitments does it uphold? e.g., SLA commitments
-
-Tenir closes the lifecycle loop of data, ensuring that it is held accountable for the impact it has on the organisation.
 
 ## Conclusion
 
