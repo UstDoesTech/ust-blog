@@ -2,17 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/strategy/numerical-impermanence-intro/</loc>
-    <lastmod>2025-04-25T06:00:38+00:00</lastmod>
+    <loc>http://localhost:1313/posts/ai/</loc>
+    <lastmod>2025-05-08T01:00:38+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-04-25T06:00:38+00:00</lastmod>
+    <lastmod>2025-05-08T01:00:38+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/strategy/</loc>
-    <lastmod>2025-04-25T06:00:38+00:00</lastmod>
+    <loc>http://localhost:1313/posts/ai/purpose-in-the-age-of-ai/</loc>
+    <lastmod>2025-05-08T01:00:38+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-04-25T06:00:38+00:00</lastmod>
+    <lastmod>2025-05-08T01:00:38+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/governance/</loc>
+    <lastmod>2025-05-06T05:00:38+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/governance/metadata-with-a-french-accent/</loc>
+    <lastmod>2025-05-06T05:00:38+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/strategy/numerical-impermanence-intro/</loc>
+    <lastmod>2025-04-28T01:00:38+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/strategy/</loc>
+    <lastmod>2025-04-28T01:00:38+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/strategy/what-our-systems-say-about-us/</loc>
     <lastmod>2025-04-25T06:00:38+00:00</lastmod>

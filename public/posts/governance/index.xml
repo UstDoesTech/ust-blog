@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Governance on Ust Does Tech</title>
+    <link>http://localhost:1313/posts/governance/</link>
+    <description>Recent content in Governance on Ust Does Tech</description>
+    <generator>Hugo -- 0.146.7</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 06 May 2025 05:00:38 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/governance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Metadata with a French Accent</title>
+      <link>http://localhost:1313/posts/governance/metadata-with-a-french-accent/</link>
+      <pubDate>Tue, 06 May 2025 05:00:38 +0000</pubDate>
+      <guid>http://localhost:1313/posts/governance/metadata-with-a-french-accent/</guid>
+      <description>Give your metadata some je ne sais quoi. By applying the logic of French verbs to the structure of your data catalog, you’ll build a model that’s not only precise, but expressive, contextual, and full of personality.</description>
+    </item>
+  </channel>
+</rss>
