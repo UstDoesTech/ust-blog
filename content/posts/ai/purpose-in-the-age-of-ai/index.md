@@ -74,7 +74,7 @@ What is my purpose? I like to think of myself as a lazy gardener, but I'm still 
 
 ## What is the purpose of AI?
 
-To understand the purpose of AI, we need to understand the purpose of its creators (as well as its users). The creators are human - whatever they build will [inherit their flaws and philosophical beliefs](https://ustdoes.tech/posts/strategy/what-our-systems-say-about-us/). The creators are also trying to make a profit (of which they are doing an AMAZING job). Contentious opinion: not a lot of societal good has, historically, come from the pursuit of profit.
+To understand the purpose of AI, we need to understand the purpose of its creators (as well as its users). The creators are human - whatever they build will [inherit their flaws and philosophical beliefs](https://ustdoes.tech/posts/strategy/what-our-systems-say-about-us/). The creators are also trying to make a profit (of which they are doing an AMAZING job).
 
 I think Sam Altman's purpose, rightly or wrongly, is to create artificial life. The risk with artificial life, as fascinated as I am by it, is that we collectively turn our backs on pursuing our individual purpose in exchange for the easy ride and, in so doing, sacrifice what makes us human. All those random thoughts, the creativity, the messiness of life, the imperfections that make us human. We are not perfect beings. We are not machines. We are not gods. We are human beings.
 
