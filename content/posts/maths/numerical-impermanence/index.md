@@ -135,7 +135,6 @@ Let $N(t_0) = 1$ in a standard mathematical context $C(t_0)$ defined by:
 
 Within this context, "1" has a well-defined identity including properties such as:
 
-- Being the multiplicative identity
 - Being the successor of 0
 - Being a natural number, integer, rational, real, and complex number
 - Having measure 1

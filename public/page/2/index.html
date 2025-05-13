@@ -129,6 +129,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Using Auto Loader on Azure Databricks with AWS S3
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Problem Recently on a client project, we wanted to use the Auto Loader functionality in Databricks to easily consume from AWS S3 into our Azure hosted data platform. The reason why we opted for Auto Loader over any other solution is because it natively exists within Databricks and allows us to quickly ingest data from Azure Storage Accounts and AWS S3 Buckets, while using the benefits of Structured Streaming to checkpoint which files it last loaded. It also means we’re less dependent upon additional systems to provide that “what did we last load” context.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-10-18 20:29:25 +0600 +0600'>October 18, 2021</span></footer>
+  <a class="entry-link" aria-label="post link to Using Auto Loader on Azure Databricks with AWS S3" href="http://localhost:1313/posts/databricks/autoloader-s3-azure-databricks/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Data Product Fictional Case Study: Retail
     </h2>
   </header>
@@ -252,20 +265,6 @@ Forecasting is the process of making predictions of the future based on past and
   </div>
   <footer class="entry-footer"><span title='2015-11-16 08:55:38 +0000 GMT'>November 16, 2015</span></footer>
   <a class="entry-link" aria-label="post link to Forecasting: Methods and Principles" href="http://localhost:1313/posts/data-science/forecasting-methods-principles/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Currency Conversion in SQL using Triangulation Arbitrage
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Some systems use a single currency as a base, which is something that I noticed recently when working with IBM Cognos Controller, e.g. USD to convert local currencies into. But what if you want / need to rebase into another currency but still retain the original base?
-This doesn’t appear to be easy to achieve within Cognos Controller itself, but it is achievable within SQL and a wider ETL framework.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-05-12 08:55:38 +0000 +0000'>May 12, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Currency Conversion in SQL using Triangulation Arbitrage" href="http://localhost:1313/posts/sql/triangulation-arbitrage/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
