@@ -1,6 +1,6 @@
 ---
 title:  "Numerical Impermanence"
-date:   2025-05-18T01:00:38+00:00
+date:   2025-05-31T01:00:38+00:00
 description: Expanding on numerical impermanence
 menu:
   sidebar:
@@ -144,11 +144,32 @@ This is, for all intents and purposes, a fixed identity of the number "1". The n
 
 ### Contextual Evolution
 
-Now, consider the following sequence of contextual transformations:
+Now, consider the following contextual transformations:
 
-**Stage 1: Classical → Fuzzy Logic**
+**Fuzzy Context**
 Let $C(t_1)$ be a context in which fuzzy logic replaces classical logic. In this context:
 
 - $N(t_1)$ becomes a fuzzy set with membership function centered around 1
 - The law of excluded middle no longer applies
 - $N(t_1)$ is no longer definitively odd or even, but has degrees of membership in both categories
+
+{{< figure src="images/fuzzy.png" alt="Fuzzy Context" width="500" align="center">}}
+
+**Probabilistic Context**
+Let $C(t_2)$ be a probabilistic context where numbers are represented as random variables. In this context:
+
+- $N(t_2)$ is represented as a probability distribution
+- Deterministic outcomes are replaced by expected values and confidence intervals
+- $N(t_2)$ has probability $P$ of being odd and probability $1-P$ of being even
+
+{{< figure src="images/probability.png" alt="Probabilistic Context" width="500" align="center">}}
+
+**Quantum Context**
+Let $C(t_3)$ be a quantum context where numbers are represented as quantum states. In this context:
+
+- $N(t_3)$ is represented as a superposition of states
+- Complementary properties cannot be simultaneously measured with precision
+- $N(t_3)$ can be in a state of being both odd and even until measured
+
+{{< figure src="images/quantum.png" alt="Quantum Context" width="500" align="center">}}
+
