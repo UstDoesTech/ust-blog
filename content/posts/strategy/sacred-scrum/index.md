@@ -16,7 +16,7 @@ Scrum is one of the most widely adopted agile frameworks in the world. But long 
 
 This post explores the structural and cultural parallels between the Catholic Church and Scrum; and what Scrum might learn from centuries of theological agility.
 
-{{< figure src="images/sacred-scrum/png" alt="Jesus as a Scrum Master" width="500" align="center">}}
+{{< figure src="images/sacred-scrum.png" alt="Jesus as a Scrum Master" width="500" align="center">}}
 
 ## Rituals create rhythm and identity
 
