@@ -1,6 +1,6 @@
 ---
 title:  "Numerical Impermanence"
-date:   2025-06-31T01:00:38+00:00
+date:   2025-06-30T01:00:38+00:00
 description: Expanding on numerical impermanence
 menu:
   sidebar:
