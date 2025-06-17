@@ -12,19 +12,19 @@ menu:
 
 Automation has long carried a promise both bold and elegant: that machines might one day relieve us from the weight of repetitive labor, allowing human creativity to rise where once it was mired in routine. For decades, that vision has danced just ahead of us, sometimes feeling close, sometimes impossibly distant.
 
-In recent years, two waves of enterprise automation: Robotic Process Automation (RPA) and Business Process Automation (BPA), promised to bring that vision within reach. They delivered real gains. They have also equally delivered real disappointments.
+We've lived through two such waves already: Robotic Process Automation (RPA) and Business Process Automation (BPA). Each achieved something important. Each also exposed the same truth: that the world we wish to automate is far more complex, dynamic, and human (messy) than we are often willing to admit.
 
-Now, as we enter what may be the most profound shift yet, it's time to reflect and remember: new technologies often fail not because they lack capability, but because we forget the lessons of the technologies that came before.
+Now, with the rise of agentic AI frameworks, we are poised to try again. But if we are wise, we will not rush forward as though history has nothing to teach us.
 
 ## The First Wave: RPA's Narrow Victory
 
-RPA emerged with a simple, almost seductive proposition: why not let bots replicate human actions directly?
+RPA was born from a simple observation: so much of modern work involves humans moving data between systems, clicking buttons, and following routine steps. If humans could do this mechanically, why not teach machines to do the same?
 
-Instead of waiting for every legacy system to expose APIs or clean data, software robots could mimic our clicks, keystrokes, and copy-paste routines. With minimal coding, companies could automate invoice entry, data reconciliation, and reporting — exactly the sort of repetitive tasks humans found draining.
+And so, we built software robots - not robots in the industrial sense, but scripts that mimicked mouse clicks, keystrokes, and menu selections. The appeal was obvious. RPA was fast to deploy, required little integration, and delivered measurable savings in areas like data entry, form processing, and reporting.
 
-And for many, RPA worked. Analysts estimate that global RPA revenue jumped from less than $100 million in 2015 to over [$1 billion just five years later](https://www.technologydecisions.com.au/content/cloud-and-virtualisation/news/gartner-rpa-software-revenue-to-reach-1-89bn-by-2021-819644074). Early adopters reported measurable efficiency gains and rapid ROI.
+And for some, RPA worked. Analysts estimate that global RPA revenue jumped from less than $100 million in 2015 to over [$1 billion just five years later](https://www.technologydecisions.com.au/content/cloud-and-virtualisation/news/gartner-rpa-software-revenue-to-reach-1-89bn-by-2021-819644074). Early adopters reported measurable efficiency gains and rapid ROI.
 
-But beneath this initial success, cracks began to show. RPA bots excelled only when conditions remained static. A small change (a new field added to a form, a pop-up dialog, a minor UI redesign) could break entire bot fleets. Enterprises that had hoped to reduce operational overhead found themselves employing entire teams of "bot shepherds," continually patching, updating, and maintaining fragile scripts.
+But beneath this initial success, cracks began to show. RPA bots excelled only when conditions remained static. A small change (a new field added to a form, a pop-up dialog, a minor UI redesign) could break entire bot fleets. Enterprises that had hoped to reduce operational overhead found themselves employing entire teams continually patching, updating, and maintaining fragile scripts.
 
 RPA's strength was also its weakness: it automated surface-level behavior, not understanding. The bots didn't "know" what they were doing, they simply followed patterns. And when those patterns shifted, so too did their reliability.
 
@@ -52,7 +52,7 @@ Looking back, we can distill their failures into several themes:
 
 * **The Illusion of Autonomy**: Both were often sold as "autonomous" solutions. In reality, humans remained heavily involved to handle exceptions, monitor processes, and intervene when things went wrong.
 
-And so, while RPA and BPA achieved real value in narrow domains, they never truly delivered the fully adaptive automation they promised.
+In short: we automated the parts of work that were easiest to describe, but hardest to sustain.
 
 ## The Third Wave: Agentic AI
 
@@ -69,7 +69,7 @@ Agentic systems typically exhibit:
 * **Reflection**: Monitoring outcomes and adjusting when plans falter.
 * **Collaboration**: Working with other agents or humans to complete tasks.
 
-Some of the most ambitious early agentic systems already show promise in domains like research assistance, customer service, legal drafting, and scientific discovery. Frameworks such as LangChain, AutoGen, OpenAI's function-calling APIs, and others have created the foundation for agents that reason, adapt, and evolve.
+Some of the most ambitious early agentic systems already show promise in domains like research assistance, customer service, legal drafting, and scientific discovery. Frameworks such as LangChain, AutoGen, [OpenAI's function-calling APIs](https://openai.com/index/function-calling-and-other-api-updates/), and others have created the foundation for agents that reason, adapt, and evolve.
 
 ## Why Agentic AI Feels So Different, Yet So Dangerous
 
@@ -93,6 +93,10 @@ Just because an agent can attempt novel approaches doesn't mean it always succee
 
 As agents begin chaining tasks across multiple systems, handoffs, and actors, accountability becomes blurry. When an agent makes a poor decision based on ambiguous data, who is responsible? Is it the developer who trained the model, the business that deployed it, or the agent itself? This distributed accountability can lead to ethical and legal challenges that RPA and BPA never fully confronted.
 
+### Security and Trust
+
+Agentic AI systems, by their nature, are more complex and interconnected than their predecessors. This complexity introduces new security vulnerabilities, particularly as agents interact with external APIs, databases, and other systems. Dynamic tool use opens the door to adversarial manipulation, where [agents might be tricked into executing harmful sequences of actions](https://www.wired.com/story/zico-kolter-ai-agents-game-theory/). Ensuring the integrity and trustworthiness of these systems is paramount, especially as they become more autonomous in decision-making.
+
 ## The Lessons Agentic AI Must Learn
 
 If there is one great danger for this third wave, it is the temptation to forget the very history that made it necessary.
@@ -109,15 +113,15 @@ The story of RPA and BPA is not one of failure, but of partial success under the
 
 ## A More Purposeful Future
 
-Perhaps the most important insight is this: automation is not about replacing people (although it can highlight roles that might be considered ["bullshit"](https://en.wikipedia.org/wiki/Bullshit_Jobs)), it's about changing the nature of partnership between humans and machines.
+Perhaps the most important message is this: automation is not about replacing people (although it can highlight roles that might be considered ["bullshit"](https://en.wikipedia.org/wiki/Bullshit_Jobs)), it's about removing drudgery from people so that they can engage more deeply with what only humans can do.
 
 * RPA automated tasks.
 * BPA automated processes.
 * Agentic AI aims to automate problem-solving itself.
 
-As Icarus learned, the higher we climb the more dangerous our mistakes become. Agentic systems may one day reason, negotiate, and coordinate at levels we can scarcely imagine. But they must do so with transparency, alignment, and wisdom built-in.
+As Icarus learned, the higher we climb the more dangerous our mistakes become. Agentic systems may one day reason, negotiate, and coordinate at levels we can scarcely imagine. But they must do so with transparency, alignment, and uncertainty built-in.
 
-We have been here before. We should not be here blindly again. If we move too quickly, seduced by novelty, confident in early gains—we risk building fragile, overconfident systems that repeat the brittle trajectories of the past. If we listen to the lessons automation has already tried to teach us, we may yet build a generation of systems that are not simply faster or cheaper, but more human in their adaptability, their reasoning, and their care.
+We have been here before. We should not be here blindly again. If we move too quickly, seduced by novelty, confident in early gains we risk building fragile, overconfident systems that repeat the brittle patterns of the past. If we listen to the lessons automation has already tried to teach us, we may yet build a generation of systems that are not simply faster or cheaper, but more human in their adaptability and their reasoning.
 
 Do I think we will? I think some of us will. I think some of us will learn from the past and build better systems. I think some of us will continue to repeat the same mistakes, thinking that this time it will be different.
 
