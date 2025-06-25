@@ -1,6 +1,6 @@
 ---
 title:  "On Change"
-date:   2025-06-12T06:00:38+00:00
+date:   2025-06-30T06:00:38+00:00
 description: Musings on change
 menu:
   sidebar:
