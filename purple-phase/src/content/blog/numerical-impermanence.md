@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Numerical Impermanence"
 pubDate: 2025-06-30T01:00:38+00:00
 description: "Expanding on numerical impermanence"
 tags: ["maths"]
 categories: ["maths"]
 slug: "maths/numerical-impermanence"
+heroImage: "/images/maths/numerical-impermanence/images/fuzzy.png"
 ---
 
 In a recent blog post I introduced the concept of [**numerical impermanence**](https://ustdoes.tech/posts/strategy/numerical-impermanence-intro/). In this post, I want to expand on that idea, and introduce the theorem in more detail.

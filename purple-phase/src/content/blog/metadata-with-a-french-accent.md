@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Metadata with a French Accent"
 pubDate: 2025-05-06T05:00:38+00:00
 description: "Give your metadata some je ne sais quoi. By applying the logic of French verbs to the structure of your data catalog, youâ€™ll build a model thatâ€™s not only precise, but expressive, contextual, and full of personality."
 tags: ["governance"]
 categories: ["governance"]
 slug: "governance/metadata-with-a-french-accent"
+heroImage: "/images/governance/metadata-with-a-french-accent/images/metadata-with-a-french-accent.png"
 ---
 
 I never thought I would be writing a post about French verbs. Metadata, sure. That goes with the territory. But French verbs?

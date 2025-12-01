@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Forecasting: Methods and Principles"
 pubDate: 2015-11-16T08:55:38+00:00
 description: "Introduction to the Databricks Data Generator"
 tags: ["data-science"]
 categories: ["data-science"]
 slug: "data-science/forecasting-methods-principles"
+heroImage: "/images/data-science/forecasting-methods-principles/images/forecast_average.jpg"
 ---
 
 What comes to your mind when you hear the words forecasting, forecasts etc?

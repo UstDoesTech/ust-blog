@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Data Product Fictional Case Study: Retail"
 pubDate: 2021-09-11T23:30:25+06:00
 description: "Using a fictionalised case study to understand how data products could work in practice"
 tags: ["data-mesh"]
 categories: ["data-mesh"]
 slug: "data-mesh/data-product-case-study-retail"
+heroImage: "/images/data-mesh/data-product-case-study-retail/images/data-flow-domains-xclusiv.png"
 ---
 
 ## Background

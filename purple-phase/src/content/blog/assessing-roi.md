@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Forecasting and Assessing Data ROI"
 pubDate: 2025-06-06T01:00:38+00:00
 description: "Understanding the value of data in business decisions and how to measure it"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/assessing-roi"
+heroImage: "/images/strategy/assessing-roi/images/data-roi.png"
 ---
 
 This post is inspired by a LinkedIn post by [Pierre-Yves Calloc'h](https://www.linkedin.com/feed/update/urn:li:activity:7335885538001907712?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7335885538001907712%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29), which goes into detail about how to calculate ROI for AI initiatives. The post got me thinking about how we can assess the ROI of data in general, and how we can forecast the value of data before we invest in it.

@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Data Domain Fictional Case Study: Retail"
 pubDate: 2021-08-17T08:55:25+06:00
 description: "Using a fictionalised case study to understand how data domains could work in practice"
 tags: ["data-mesh"]
 categories: ["data-mesh"]
 slug: "data-mesh/data-domain-case-study-retail"
+heroImage: "/images/data-mesh/data-domain-case-study-retail/images/xclusiv-architecture.png"
 ---
 
 In previous posts we've understood what is [Data Mesh](../what-is-data-mesh/) and gone into [greater detail](../data-mesh-deep-dive/) with regards to the principles. In this next series of posts I want to use a fictional case study to explore how the underlying principles could work in practice. This post will introduce the fictitious company; the challenges it faces; and how the principle of decentralised data ownership and architecture, with domain alignment, would work.

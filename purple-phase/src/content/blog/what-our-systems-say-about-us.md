@@ -1,10 +1,11 @@
-﻿---
+---
 title: "What Our Systems Say About Us"
 pubDate: 2025-04-25T06:00:38+00:00
 description: "Exploring system design and how we impact our systems"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/what-our-systems-say-about-us"
+heroImage: "/images/strategy/what-our-systems-say-about-us/images/what-our-systems-say-about-us.png"
 ---
 
 Hey blog!

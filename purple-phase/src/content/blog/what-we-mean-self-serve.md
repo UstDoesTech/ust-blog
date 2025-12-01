@@ -1,10 +1,11 @@
-﻿---
+---
 title: "What do we mean by Self-Serve"
 pubDate: 2022-08-12T08:55:38+00:00
 description: "Exploring the different self-serve options"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/what-we-mean-self-serve"
+heroImage: "/images/strategy/what-we-mean-self-serve/images/self-serve-levels.png"
 ---
 
 Self-serve, or self-service, has been around in various guises for decades from Automatic Teller Machines (ATMs) through to self-serve analytics. With the advent of spreadsheeting tools, self-serve analytics has arguably been around for a long time, and with the more recent introduction of dedicated self-serve Business Intelligence tools, self-serve has become embedded in the analytics vernacular.

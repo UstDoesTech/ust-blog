@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Data Mesh Deep Dive"
 pubDate: 2021-08-05T12:04:25+06:00
 description: "Digging deeper into the underlying principles of Data Mesh"
 tags: ["data-mesh"]
 categories: ["data-mesh"]
 slug: "data-mesh/data-mesh-deep-dive"
+heroImage: "/images/data-mesh/data-mesh-deep-dive/images/ingest-clean-serve.png"
 ---
 
 In a [previous post](../what-is-data-mesh/), we laid down the foundational principles of a Data Mesh, and touched on some of the problems we have with the current analytical architectures. In this post, I will go deeper into the underlying principles of Data Mesh, particularly why we need an architecture paradigm like Data Mesh.  

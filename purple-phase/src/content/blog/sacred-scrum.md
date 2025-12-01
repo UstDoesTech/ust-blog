@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Scrum and the Sacred: What Catholicism can teach us about Agile"
 pubDate: 2025-05-21T01:00:38+00:00
 description: "Exploring the parallels between Scrum and Catholicism"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/sacred-scrum"
+heroImage: "/images/strategy/sacred-scrum/images/sacred-scrum.png"
 ---
 
 A new pope wears the ring of the fisherman, Conclave was among the best film nominees at the 2025 Oscars, and church attendance among young men in the UK is up - Roman Catholicism is back in the zeitgeist for the first time since the reformation.

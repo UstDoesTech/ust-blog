@@ -5,6 +5,7 @@ description: "Reasons for why Data Quality is Important and how it can be monito
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/data-quality-importance"
+heroImage: '/images/strategy/data-quality-importance/images/DQ-Dimensions.png'
 ---
 
 Data is among the most valuable assets for any organisation. Without data, the ability to make informed decisions is diminished. So it stands to reason that Data Quality is incredibly important to any organisation. If data doesn't meet the expectations of accuracy, validity, completeness, and consistency that an organisation sets it, then the data could have severe implications for the organisation. Conversely, if data does meet those expectations, then it is a real asset that can be used to drive value across an organisation.

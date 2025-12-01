@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Scheduling Databricks Cluster Uptime"
 pubDate: 2022-07-28T12:29:25+06:00
 description: "Scheduling Interactive and SQL Warehouse Clusters in Databricks"
 tags: ["databricks"]
 categories: ["databricks"]
 slug: "databricks/cluster-scheduling"
+heroImage: "/images/databricks/cluster-scheduling/images/ClusterScheduleProcess.png"
 ---
 
 ## Problem

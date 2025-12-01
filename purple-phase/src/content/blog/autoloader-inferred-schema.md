@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Using and Abusing Auto Loader's Inferred Schema"
 pubDate: 2021-10-28T17:29:25+06:00
 description: "Auto Loader's Inferred Schema - what is it and how can we amend it"
 tags: ["databricks"]
 categories: ["databricks"]
 slug: "databricks/autoloader-inferred-schema"
+heroImage: "/images/databricks/autoloader-inferred-schema/images/original-schema.png"
 ---
 
 ## Problem

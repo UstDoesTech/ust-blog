@@ -1,10 +1,11 @@
-﻿---
+---
 title: "What is Truth?"
 pubDate: 2025-05-13T01:00:38+00:00
 description: "Exploring the concept of truth and its implications on our systems"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/what-is-truth"
+heroImage: "/images/strategy/what-is-truth/images/What-is-truth.jpg"
 ---
 
 Pontius Pilate, of biblical fame, asked the question "Quid est veritas?" - "What is truth?". It was asked in response to Jesus' claim that he was "witness to the truth".

@@ -1,10 +1,11 @@
-﻿---
+---
 title: "Numerical Impermanence: An Introduction"
 pubDate: 2025-04-28T01:00:38+00:00
 description: "Exploring numerical impermanence and its implications on system design"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/numerical-impermanence-intro"
+heroImage: "/images/strategy/numerical-impermanence-intro/images/numerical-impermanence.png"
 ---
 
 In a recent blog post I mentioned that I have been thinking about novel applications to mathematics. One of the areas I have been exploring is the concept of **numerical impermanence**. And you're probably thinking, "are you on drugs?" - which is what my wife asked me when I said I had been having fun with maths (she misheard me and thought I said "meth").
