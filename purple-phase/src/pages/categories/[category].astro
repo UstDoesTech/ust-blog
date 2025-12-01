@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = [...new Set(posts.flatMap((post) => post.data.categories || []))];
+  return categories.map((category) => ({ params: { category } }));
+}
+
+const { category } = Astro.params;
+const posts = (await getCollection('blog')).filter((p) => (p.data.categories ?? []).includes(category));
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Category: {category}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Category: {category}</h1>
+      <ul>
+        {posts.map((p) => (
+          <li><a href={`/posts/${p.data.slug || p.id}/`}>{p.data.title}</a></li>
+        ))}
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>

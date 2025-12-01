@@ -1,0 +1,49 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Search</title>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Search</h1>
+      <input id="q" type="search" placeholder="Search posts" />
+      <ul id="results"></ul>
+    </main>
+    <Footer />
+    <script>
+      const input = document.getElementById('q');
+      const ul = document.getElementById('results');
+      let fuse;
+      async function load() {
+        const res = await fetch('/index.json');
+        const data = await res.json();
+        fuse = new Fuse(data, { keys: ['title', 'description', 'tags', 'categories'] });
+      }
+      function render(items) {
+        ul.innerHTML = '';
+        items.slice(0, 50).forEach((item) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = item.item.url;
+          a.textContent = item.item.title;
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+      }
+      input.addEventListener('input', () => {
+        const q = input.value.trim();
+        if (!fuse || q.length === 0) { ul.innerHTML = ''; return; }
+        const result = fuse.search(q);
+        render(result);
+      });
+      load();
+    </script>
+  </body>
+</html>

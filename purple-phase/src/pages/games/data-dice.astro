@@ -1,0 +1,336 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Data Dice | ${SITE_TITLE}`} description="Explore probability distributions through interactive dice rolling" />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 2rem 1rem;
+			}
+			.game-container {
+				background: #f8f9fa;
+				border-radius: 12px;
+				padding: 2rem;
+				margin: 2rem 0;
+			}
+			.controls {
+				display: flex;
+				gap: 1rem;
+				margin-bottom: 2rem;
+				flex-wrap: wrap;
+			}
+			.control-group {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+			label {
+				font-weight: 600;
+				font-size: 0.9rem;
+			}
+			input[type="number"], select {
+				padding: 0.5rem;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				font-size: 1rem;
+			}
+			button {
+				background: #4f46e5;
+				color: white;
+				border: none;
+				padding: 0.75rem 1.5rem;
+				border-radius: 6px;
+				font-size: 1rem;
+				font-weight: 600;
+				cursor: pointer;
+				transition: background 0.2s;
+			}
+			button:hover {
+				background: #4338ca;
+			}
+			button:disabled {
+				background: #9ca3af;
+				cursor: not-allowed;
+			}
+			.dice-display {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+				margin: 2rem 0;
+			}
+			.die {
+				width: 80px;
+				height: 80px;
+				background: white;
+				border: 2px solid #333;
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2.5rem;
+				font-weight: bold;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+				animation: rollAnimation 0.5s ease-out;
+			}
+			@keyframes rollAnimation {
+				0% { transform: rotateX(0deg) rotateY(0deg); }
+				50% { transform: rotateX(180deg) rotateY(180deg); }
+				100% { transform: rotateX(360deg) rotateY(360deg); }
+			}
+			.stats {
+				background: white;
+				border-radius: 8px;
+				padding: 1.5rem;
+				margin-top: 2rem;
+			}
+			.stats h3 {
+				margin-top: 0;
+			}
+			.stat-row {
+				display: flex;
+				justify-content: space-between;
+				padding: 0.5rem 0;
+				border-bottom: 1px solid #e5e7eb;
+			}
+			.stat-row:last-child {
+				border-bottom: none;
+			}
+			.chart {
+				margin-top: 2rem;
+				display: flex;
+				align-items: flex-end;
+				gap: 0.5rem;
+				height: 200px;
+			}
+			.bar-container {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.25rem;
+			}
+			.bar {
+				width: 100%;
+				background: #4f46e5;
+				border-radius: 4px 4px 0 0;
+				transition: height 0.3s ease;
+			}
+			.bar-label {
+				font-size: 0.75rem;
+				font-weight: 600;
+			}
+			.bar-value {
+				font-size: 0.7rem;
+				color: #666;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🎲 Data Dice</h1>
+			<p>Roll virtual dice and explore probability distributions in real-time. Watch as the law of large numbers emerges!</p>
+			
+			<div class="game-container">
+				<div class="controls">
+					<div class="control-group">
+						<label for="numDice">Number of Dice:</label>
+						<input type="number" id="numDice" min="1" max="10" value="2" />
+					</div>
+					<div class="control-group">
+						<label for="diceSides">Sides per Die:</label>
+						<select id="diceSides">
+							<option value="4">4-sided (d4)</option>
+							<option value="6" selected>6-sided (d6)</option>
+							<option value="8">8-sided (d8)</option>
+							<option value="10">10-sided (d10)</option>
+							<option value="12">12-sided (d12)</option>
+							<option value="20">20-sided (d20)</option>
+						</select>
+					</div>
+					<div class="control-group">
+						<label for="numRolls">Number of Rolls:</label>
+						<input type="number" id="numRolls" min="1" max="1000" value="1" />
+					</div>
+				</div>
+				
+				<button id="rollBtn">Roll Dice</button>
+				<button id="resetBtn" style="background: #6b7280; margin-left: 1rem;">Reset Statistics</button>
+				
+				<div class="dice-display" id="diceDisplay"></div>
+				
+				<div class="stats">
+					<h3>Statistics</h3>
+					<div class="stat-row">
+						<span>Current Sum:</span>
+						<span id="currentSum">-</span>
+					</div>
+					<div class="stat-row">
+						<span>Total Rolls:</span>
+						<span id="totalRolls">0</span>
+					</div>
+					<div class="stat-row">
+						<span>Average Sum:</span>
+						<span id="avgSum">-</span>
+					</div>
+					<div class="stat-row">
+						<span>Min Sum:</span>
+						<span id="minSum">-</span>
+					</div>
+					<div class="stat-row">
+						<span>Max Sum:</span>
+						<span id="maxSum">-</span>
+					</div>
+					<div class="stat-row">
+						<span>Expected Average:</span>
+						<span id="expectedAvg">-</span>
+					</div>
+				</div>
+				
+				<div class="stats">
+					<h3>Sum Distribution</h3>
+					<div class="chart" id="chart"></div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+		
+		<script>
+			const state = {
+				history: [],
+				distribution: {}
+			};
+			
+			const elements = {
+				numDice: document.getElementById('numDice'),
+				diceSides: document.getElementById('diceSides'),
+				numRolls: document.getElementById('numRolls'),
+				rollBtn: document.getElementById('rollBtn'),
+				resetBtn: document.getElementById('resetBtn'),
+				diceDisplay: document.getElementById('diceDisplay'),
+				currentSum: document.getElementById('currentSum'),
+				totalRolls: document.getElementById('totalRolls'),
+				avgSum: document.getElementById('avgSum'),
+				minSum: document.getElementById('minSum'),
+				maxSum: document.getElementById('maxSum'),
+				expectedAvg: document.getElementById('expectedAvg'),
+				chart: document.getElementById('chart')
+			};
+			
+			function rollDie(sides) {
+				return Math.floor(Math.random() * sides) + 1;
+			}
+			
+			function rollDice() {
+				const numDice = parseInt(elements.numDice.value);
+				const sides = parseInt(elements.diceSides.value);
+				const numRolls = parseInt(elements.numRolls.value);
+				
+				for (let r = 0; r < numRolls; r++) {
+					const rolls = [];
+					let sum = 0;
+					
+					for (let i = 0; i < numDice; i++) {
+						const roll = rollDie(sides);
+						rolls.push(roll);
+						sum += roll;
+					}
+					
+					state.history.push(sum);
+					state.distribution[sum] = (state.distribution[sum] || 0) + 1;
+					
+					if (r === numRolls - 1) {
+						displayDice(rolls);
+					}
+				}
+				
+				updateStats();
+				updateChart();
+			}
+			
+			function displayDice(rolls) {
+				elements.diceDisplay.innerHTML = rolls.map(roll => 
+					`<div class="die">${roll}</div>`
+				).join('');
+			}
+			
+			function updateStats() {
+				const numDice = parseInt(elements.numDice.value);
+				const sides = parseInt(elements.diceSides.value);
+				
+				if (state.history.length === 0) return;
+				
+				const currentSum = state.history[state.history.length - 1];
+				const totalRolls = state.history.length;
+				const avgSum = (state.history.reduce((a, b) => a + b, 0) / totalRolls).toFixed(2);
+				const minSum = Math.min(...state.history);
+				const maxSum = Math.max(...state.history);
+				const expectedAvg = (numDice * (sides + 1) / 2).toFixed(2);
+				
+				elements.currentSum.textContent = currentSum;
+				elements.totalRolls.textContent = totalRolls;
+				elements.avgSum.textContent = avgSum;
+				elements.minSum.textContent = minSum;
+				elements.maxSum.textContent = maxSum;
+				elements.expectedAvg.textContent = expectedAvg;
+			}
+			
+			function updateChart() {
+				const maxCount = Math.max(...Object.values(state.distribution));
+				const sortedSums = Object.keys(state.distribution).sort((a, b) => parseInt(a) - parseInt(b));
+				
+				elements.chart.innerHTML = sortedSums.map(sum => {
+					const count = state.distribution[sum];
+					const percentage = (count / state.history.length * 100).toFixed(1);
+					const height = (count / maxCount * 100).toFixed(1);
+					
+					return `
+						<div class="bar-container">
+							<div class="bar-value">${count}</div>
+							<div class="bar" style="height: ${height}%"></div>
+							<div class="bar-label">${sum}</div>
+						</div>
+					`;
+				}).join('');
+			}
+			
+			function reset() {
+				state.history = [];
+				state.distribution = {};
+				elements.diceDisplay.innerHTML = '';
+				elements.currentSum.textContent = '-';
+				elements.totalRolls.textContent = '0';
+				elements.avgSum.textContent = '-';
+				elements.minSum.textContent = '-';
+				elements.maxSum.textContent = '-';
+				elements.chart.innerHTML = '';
+				updateExpectedAvg();
+			}
+			
+			function updateExpectedAvg() {
+				const numDice = parseInt(elements.numDice.value);
+				const sides = parseInt(elements.diceSides.value);
+				const expectedAvg = (numDice * (sides + 1) / 2).toFixed(2);
+				elements.expectedAvg.textContent = expectedAvg;
+			}
+			
+			elements.rollBtn.addEventListener('click', rollDice);
+			elements.resetBtn.addEventListener('click', reset);
+			elements.numDice.addEventListener('change', updateExpectedAvg);
+			elements.diceSides.addEventListener('change', updateExpectedAvg);
+			
+			// Initialize
+			updateExpectedAvg();
+		</script>
+	</body>
+</html>

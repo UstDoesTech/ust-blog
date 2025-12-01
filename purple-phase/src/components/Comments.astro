@@ -1,0 +1,19 @@
+---
+const disqusShortname = 'ustdoes-tech';
+const { slug } = Astro.props;
+const pageUrl = `https://ustdoes.tech/posts/${slug}`;
+---
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "{pageUrl}";
+  this.page.identifier = "{slug}";
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://ustdoes-tech.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
