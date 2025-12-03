@@ -98,6 +98,7 @@ const personalSummary = [
 		justify-content: center;
 		gap: 1.5rem;
 		margin-bottom: 2rem;
+		flex-wrap: wrap;
 	}
 	.social-links a {
 		color: var(--text-color);
@@ -107,9 +108,14 @@ const personalSummary = [
 		color: var(--accent);
 	}
 	.personal-list {
-		columns: 2;
+		columns: 1;
 		list-style-type: disc;
 		padding-left: 1.5rem;
+	}
+	@media (min-width: 768px) {
+		.personal-list {
+			columns: 2;
+		}
 	}
 	.skills-grid {
 		display: grid;

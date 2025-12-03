@@ -131,4 +131,22 @@ import HeaderLink from './HeaderLink.astro';
 	
 	/* Default state (if no class) - assume light or handle via media query in CSS */
 	/* But since we set class on load, this should be fine. */
+
+	@media (max-width: 720px) {
+		nav {
+			flex-wrap: wrap;
+		}
+		.internal-links {
+			order: 3;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			gap: 0.5em;
+			margin-top: 0.5em;
+			flex-wrap: wrap;
+		}
+		.internal-links a {
+			padding: 0.5em;
+		}
+	}
 </style>

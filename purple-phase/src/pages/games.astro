@@ -76,6 +76,13 @@ import { SITE_TITLE } from '../consts';
 			pointer-events: none;
 			opacity: 0.3;
 		}
+
+		@media (max-width: 720px) {
+			.games-grid {
+				gap: 2rem;
+				grid-template-columns: 1fr;
+			}
+		}
 	</style>
 
 	<div class="games-grid">

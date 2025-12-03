@@ -70,6 +70,9 @@ const posts = (await getCollection('blog')).sort(
 				box-shadow: var(--box-shadow);
 			}
 			@media (max-width: 720px) {
+				main {
+					width: 100%;
+				}
 				ul {
 					gap: 0.5em;
 				}
