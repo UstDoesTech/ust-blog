@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: purple-phase/package-lock.json
       
@@ -45,9 +45,9 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           ###### Repository/Build Configurations ######
-          app_location: "purple-phase"
+          app_location: "purple-phase/dist"
           api_location: ""
-          output_location: "dist"
+          output_location: ""
           skip_app_build: true
           ###### End of Repository/Build Configurations ######
 
