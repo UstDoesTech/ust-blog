@@ -5,7 +5,7 @@ description: "Auto Loader's Inferred Schema - what is it and how can we amend it
 tags: ["databricks"]
 categories: ["databricks"]
 slug: "databricks/autoloader-inferred-schema"
-heroImage: "/images/databricks/autoloader-inferred-schema/images/original-schema.png"
+heroImage: "../../assets/autoloader-inferred-schema-original-schema.png"
 ---
 
 ## Problem
@@ -33,7 +33,7 @@ In terms of taking that inferred schema and amending it to what you were expecti
 
 [Schema hints](https://docs.databricks.com/spark/latest/structured-streaming/auto-loader-schema.html#schema-hints) are really useful if the schema Databricks infers for you has data types which you think or know are incorrect. When you provide a schema hint, this overrides the inferred schema for the fields you've provided hints for.
 
-<div align="center"><img src="/images/databricks/autoloader-inferred-schema/images/original-schema.png" alt="inferred schema of the dataframe" width="400" /></div>
+<div align="center"><img src="../../assets/autoloader-inferred-schema-original-schema.png" alt="inferred schema of the dataframe" width="400" /></div>
 
 In this example, our inferred schema has detected our Date field as a String; Quantity as an Integer; and Amount as an Integer. But what if Date is a date and Amount is actually a float?
 
@@ -45,7 +45,7 @@ This is where the schema hint comes in handy. We don't need to modify the entire
 
 Which will produce a schema of:
 
-<div align="center"><img src="/images/databricks/autoloader-inferred-schema/images/amended-schema.png" alt="amended inferred schema of the dataframe using hints" width="400" /></div>
+<div align="center"><img src="../../assets/autoloader-inferred-schema-amended-schema.png" alt="amended inferred schema of the dataframe using hints" width="400" /></div>
 
 This is great for small amendments to a schema, particularly if it's a large one. If you need to make significant changes then you might want to define the schema upfront or take a look at the other option...
 
@@ -66,7 +66,7 @@ The file is often called 0, though could be called any form of integer if the sc
 
 If you have a large and / or complex schema, editing this json block could be a challenge. But if your large / and or complex schema contains sensitive fields, it may be necessary to edit this block.
 
-<div align="center"><img src="/images/databricks/autoloader-inferred-schema/images/sensitive-fields.png" alt="inferred schema with sensitive fields" width="900" /></div>
+<div align="center"><img src="../../assets/autoloader-inferred-schema-sensitive-fields.png" alt="inferred schema with sensitive fields" width="900" /></div>
 
 In this example, we have sensitive fields (highlighted) that we do not want to have in our data platform because:
 
@@ -79,7 +79,7 @@ Therefore it's safer to remove them from the platform before they get ingested. 
 {\"name\":\"fieldName\",\"type\":\"dataType\",\"nullable\":boolean,\"metadata\":{}}
 ```
 
-<div align="center"><img src="/images/databricks/autoloader-inferred-schema/images/sensitive-fields-removed.png" alt="inferred schema with sensitive fields removed" width="900" /></div>
+<div align="center"><img src="../../assets/autoloader-inferred-schema-sensitive-fields-removed.png" alt="inferred schema with sensitive fields removed" width="900" /></div>
 
 Depending on the number of fields, this could significantly reduce the number of fields in your schema. Depending on what's left over, it may be easier and safer to define the schema up front.
 

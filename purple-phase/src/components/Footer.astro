@@ -3,7 +3,15 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Your name here. All rights reserved.
+	<div class="system-status">
+		<span class="status-label">SYSTEM STATUS:</span>
+		<span id="status-value" class="status-value">INITIALIZING...</span>
+	</div>
+	
+	<div class="copyright">
+		&copy; {today.getFullYear()} Ust Oldfield. All rights reserved.
+	</div>
+	
 	<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
@@ -39,12 +47,71 @@ const today = new Date();
 		</a>
 	</div>
 </footer>
+
+<script>
+	const stats = [
+		"SYSTEM ONLINE",
+		"MOON PHASE: WANING GIBBOUS",
+		"CO2 LEVELS: 421 PPM",
+		"NEXT BACKUP: 02:00 UTC",
+		"VISITORS: 1 (YOU)",
+		"BUILD STATUS: PASSING",
+		"KERNEL: 5.15.0-76",
+		"UPTIME: 99.9%",
+		"DATA LAKE: STABLE",
+		"PIPELINES: RUNNING",
+		"MEMORY USAGE: 42%",
+		"LATENCY: 24ms"
+	];
+
+	const statusValue = document.getElementById('status-value');
+	
+	if (statusValue) {
+		// Pick a random stat
+		const randomStat = stats[Math.floor(Math.random() * stats.length)];
+		
+		// Typing effect
+		let i = 0;
+		statusValue.textContent = '';
+		
+		function typeWriter() {
+			if (i < randomStat.length) {
+				statusValue.textContent += randomStat.charAt(i);
+				i++;
+				setTimeout(typeWriter, 50);
+			}
+		}
+		
+		// Start typing after a small delay
+		setTimeout(typeWriter, 500);
+	}
+</script>
+
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
+		background: var(--bg-color);
+		color: var(--text-color);
 		text-align: center;
+		border-top: 1px solid var(--accent);
+		margin-top: 4rem;
+	}
+	.system-status {
+		font-family: var(--font-ui);
+		font-size: 0.85rem;
+		margin-bottom: 1.5rem;
+		padding: 0.5rem;
+		border: 1px dashed var(--gray);
+		display: inline-block;
+		background: var(--code-bg);
+		color: var(--accent);
+	}
+	.status-label {
+		font-weight: bold;
+		margin-right: 0.5rem;
+	}
+	.status-value {
+		color: var(--text-color);
 	}
 	.social-links {
 		display: flex;
@@ -54,9 +121,9 @@ const today = new Date();
 	}
 	.social-links a {
 		text-decoration: none;
-		color: rgb(var(--gray));
+		color: var(--text-color);
 	}
 	.social-links a:hover {
-		color: rgb(var(--gray-dark));
+		color: var(--accent);
 	}
 </style>

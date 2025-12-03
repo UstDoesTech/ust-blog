@@ -5,7 +5,7 @@ description: "Exploring system design and how we impact our systems"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/what-our-systems-say-about-us"
-heroImage: "/images/strategy/what-our-systems-say-about-us/images/what-our-systems-say-about-us.png"
+heroImage: "../../assets/what-our-systems-say-about-us-what-our-systems-say-about-us.png"
 ---
 
 Hey blog!
@@ -14,7 +14,7 @@ It has been a while! Life happens and has a way of distracting us from some of t
 
 I have been reflecting recently on the systems we create and how they reflect our values. I have also been thinking about novel applications to mathematics, but that is for a different day.
 
-<div align="center"><img src="/images/strategy/what-our-systems-say-about-us/images/what-our-systems-say-about-us.png" alt="What Our Systems Say About Us" width="500" /></div>
+<div align="center"><img src="../../assets/what-our-systems-say-about-us-what-our-systems-say-about-us.png" alt="What Our Systems Say About Us" width="500" /></div>
 
 When it comes to the systems we build - be it software, hardware, or even social systems - they are a reflection of our philosophies and beliefs. The choices we make in the design and implementation of these systems can tell us a lot about what we value as individuals and as a society.
 

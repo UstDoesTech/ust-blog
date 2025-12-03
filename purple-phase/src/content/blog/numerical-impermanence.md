@@ -5,7 +5,7 @@ description: "Expanding on numerical impermanence"
 tags: ["maths"]
 categories: ["maths"]
 slug: "maths/numerical-impermanence"
-heroImage: "/images/maths/numerical-impermanence/images/fuzzy.png"
+heroImage: "../../assets/numerical-impermanence-fuzzy.png"
 ---
 
 In a recent blog post I introduced the concept of [**numerical impermanence**](https://ustdoes.tech/posts/strategy/numerical-impermanence-intro/). In this post, I want to expand on that idea, and introduce the theorem in more detail.
@@ -151,7 +151,7 @@ Let $C(t_1)$ be a context in which fuzzy logic replaces classical logic. In this
 - The law of excluded middle no longer applies
 - $N(t_1)$ is no longer definitively odd or even, but has degrees of membership in both categories
 
-<div align="center"><img src="/images/maths/numerical-impermanence/images/fuzzy.png" alt="Fuzzy Context" width="500" /></div>
+<div align="center"><img src="../../assets/numerical-impermanence-fuzzy.png" alt="Fuzzy Context" width="500" /></div>
 
 **Probabilistic Context**
 Let $C(t_2)$ be a probabilistic context where numbers are represented as random variables. In this context:
@@ -160,7 +160,7 @@ Let $C(t_2)$ be a probabilistic context where numbers are represented as random 
 - Deterministic outcomes are replaced by expected values and confidence intervals
 - $N(t_2)$ has probability $P$ of being odd and probability $1-P$ of being even
 
-<div align="center"><img src="/images/maths/numerical-impermanence/images/probability.png" alt="Probabilistic Context" width="500" /></div>
+<div align="center"><img src="../../assets/numerical-impermanence-probability.png" alt="Probabilistic Context" width="500" /></div>
 
 **Quantum Context**
 Let $C(t_3)$ be a quantum context where numbers are represented as quantum states. In this context:
@@ -169,4 +169,4 @@ Let $C(t_3)$ be a quantum context where numbers are represented as quantum state
 - Complementary properties cannot be simultaneously measured with precision
 - $N(t_3)$ can be in a state of being both odd and even until measured
 
-<div align="center"><img src="/images/maths/numerical-impermanence/images/quantum.png" alt="Quantum Context" width="500" /></div>
+<div align="center"><img src="../../assets/numerical-impermanence-quantum.png" alt="Quantum Context" width="500" /></div>

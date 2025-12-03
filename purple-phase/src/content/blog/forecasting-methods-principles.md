@@ -5,7 +5,7 @@ description: "Introduction to the Databricks Data Generator"
 tags: ["data-science"]
 categories: ["data-science"]
 slug: "data-science/forecasting-methods-principles"
-heroImage: "/images/data-science/forecasting-methods-principles/images/forecast_average.jpg"
+heroImage: "../../assets/forecasting-methods-principles-forecast_average.jpg"
 ---
 
 What comes to your mind when you hear the words forecasting, forecasts etc?
@@ -41,41 +41,41 @@ Often in forecasting, a key step is knowing when something can be forecast accur
 1. Average Approach
     - The prediction of all future values are the mean of the past values.
 
-<div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_average.jpg" alt="Output of Average Forecast method" width="600" /></div>
+<div align="center"><img src="../../assets/forecasting-methods-principles-forecast_average.jpg" alt="Output of Average Forecast method" width="600" /></div>
 
 2. Naive Approach
     - The prediction of all future values is that of the last observed value
     - Approach is cost effective and provides a benchmark for more sophisticated models
 
-<div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_naive.jpg" alt="Output of Naive Forecast Method" width="600" /></div>
+<div align="center"><img src="../../assets/forecasting-methods-principles-forecast_naive.jpg" alt="Output of Naive Forecast Method" width="600" /></div>
 
 3. Drift Method
     - A variation of the Naive method, whereby the increase or decrease (drift) is the average change seen across the historical data
 
-<div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_drift.jpg" alt="Output of Drift Forecast Method" width="600" /></div>
+<div align="center"><img src="../../assets/forecasting-methods-principles-forecast_drift.jpg" alt="Output of Drift Forecast Method" width="600" /></div>
 
 4. Seasonal Naive
     - Accounts for seasonal changes in the data and sets each prediction to the last observed value in the same season
 
-<div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_seasonal_naive.jpg" alt="Output of Seasonal Naive Forecast Method" width="600" /></div>
+<div align="center"><img src="../../assets/forecasting-methods-principles-forecast_seasonal_naive.jpg" alt="Output of Seasonal Naive Forecast Method" width="600" /></div>
 
 5. Autoregressive Integrated Moving Average (ARIMA)
     - Used to apply a better understanding of the data or to predict future points
 
-<div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_ARIMA.jpg" alt="Output of ARIMA Forecast Method" width="600" /></div>
+<div align="center"><img src="../../assets/forecasting-methods-principles-forecast_arima.jpg" alt="Output of ARIMA Forecast Method" width="600" /></div>
 
 6. Exponential Smoothing
     - Applies smoothing to the data in order to remove noise
     - Three types
     1. Simple Exponential
         - Models level
-        <div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_simple_exponential.jpg" alt="Output of Simple Exponential Forecast Method" width="600" /></div>
+        <div align="center"><img src="../../assets/forecasting-methods-principles-forecast_simple_exponential.jpg" alt="Output of Simple Exponential Forecast Method" width="600" /></div>
     2. Double Exponential
         - Models level and trend
-         <div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_double_exponential.jpg" alt="Output of Double Exponential Forecast Method" width="600" /></div>
+         <div align="center"><img src="../../assets/forecasting-methods-principles-forecast_double_exponential.jpg" alt="Output of Double Exponential Forecast Method" width="600" /></div>
     3. Triple Exponential
         - Models trend and seasonal components
-         <div align="center"><img src="/images/data-science/forecasting-methods-principles/images/forecast_triple_exponential.jpg" alt="Output of Triple Exponential Forecast Method" width="600" /></div>
+         <div align="center"><img src="../../assets/forecasting-methods-principles-forecast_triple_exponential.jpg" alt="Output of Triple Exponential Forecast Method" width="600" /></div>
 
 7. Probalistic
 - Assign a probability value to each of a variety of different outcomes, and the complete set of probabilities represents a probability forecast.

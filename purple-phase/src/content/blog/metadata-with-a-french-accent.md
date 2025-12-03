@@ -5,7 +5,7 @@ description: "Give your metadata some je ne sais quoi. By applying the logic of 
 tags: ["governance"]
 categories: ["governance"]
 slug: "governance/metadata-with-a-french-accent"
-heroImage: "/images/governance/metadata-with-a-french-accent/images/metadata-with-a-french-accent.png"
+heroImage: "../../assets/metadata-with-a-french-accent-metadata-with-a-french-accent.png"
 ---
 
 I never thought I would be writing a post about French verbs. Metadata, sure. That goes with the territory. But French verbs?
@@ -20,7 +20,7 @@ The French like to think of themselves as a philosophical nation. They have a lo
 
 So, if one verb can be used to make sense of metadata, why not use other verbs to enrich our understanding of it?
 
-<div align="center"><img src="/images/governance/metadata-with-a-french-accent/images/metadata-with-a-french-accent.png" alt="Metadata With a French Accent" width="500" /></div>
+<div align="center"><img src="../../assets/metadata-with-a-french-accent-metadata-with-a-french-accent.png" alt="Metadata With a French Accent" width="500" /></div>
 
 Here's a list of French verbs, their meanings, and background information on their philosophical implications:
 

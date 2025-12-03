@@ -5,7 +5,7 @@ description: "Understanding the value of data in business decisions and how to m
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/assessing-roi"
-heroImage: "/images/strategy/assessing-roi/images/data-roi.png"
+heroImage: "../../assets/assessing-roi-data-roi.png"
 ---
 
 This post is inspired by a LinkedIn post by [Pierre-Yves Calloc'h](https://www.linkedin.com/feed/update/urn:li:activity:7335885538001907712?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7335885538001907712%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29), which goes into detail about how to calculate ROI for AI initiatives. The post got me thinking about how we can assess the ROI of data in general, and how we can forecast the value of data before we invest in it.
@@ -44,7 +44,7 @@ Both definitions can be difficult to apply to data, as it can be hard to quantif
 
 ## Why Data ROI Matters
 
-<div align="center"><img src="/images/strategy/assessing-roi/images/data-roi.png" alt="CDO rolling in ROI" width="500" /></div>
+<div align="center"><img src="../../assets/assessing-roi-data-roi.png" alt="CDO rolling in ROI" width="500" /></div>
 
 Data ROI matters because it helps organisations make informed decisions about their data investments. By understanding the value that data brings to the organisation, businesses can prioritise their data initiatives, allocate resources effectively, and measure the success of their data strategies.
 

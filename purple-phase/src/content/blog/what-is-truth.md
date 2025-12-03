@@ -5,12 +5,12 @@ description: "Exploring the concept of truth and its implications on our systems
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/what-is-truth"
-heroImage: "/images/strategy/what-is-truth/images/What-is-truth.jpg"
+heroImage: "../../assets/what-is-truth-what-is-truth.jpg"
 ---
 
 Pontius Pilate, of biblical fame, asked the question "Quid est veritas?" - "What is truth?". It was asked in response to Jesus' claim that he was "witness to the truth".
 
-<div align="center"><img src="/images/strategy/what-is-truth/images/What-is-truth.jpg" alt="What is truth?, Nikolai Ge (1890)" width="500" /></div>
+<div align="center"><img src="../../assets/what-is-truth-what-is-truth.jpg" alt="What is truth?, Nikolai Ge (1890)" width="500" /></div>
 
 In data, we talk about truth a lot - particularly in the context of ontological truth. We are seeking a single source of truth (SSOT) - which is often a single enterprise wide ontology, or a single enterprise data model. The reality is that there are truths, rather than a single truth.
 

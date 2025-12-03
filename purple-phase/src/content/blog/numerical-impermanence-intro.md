@@ -5,7 +5,7 @@ description: "Exploring numerical impermanence and its implications on system de
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/numerical-impermanence-intro"
-heroImage: "/images/strategy/numerical-impermanence-intro/images/numerical-impermanence.png"
+heroImage: "../../assets/numerical-impermanence-intro-numerical-impermanence.png"
 ---
 
 In a recent blog post I mentioned that I have been thinking about novel applications to mathematics. One of the areas I have been exploring is the concept of **numerical impermanence**. And you're probably thinking, "are you on drugs?" - which is what my wife asked me when I said I had been having fun with maths (she misheard me and thought I said "meth").
@@ -14,7 +14,7 @@ Since moving to France in 2022 and having my world turned upside down with the m
 
 ## What is Numerical Impermanence?
 
-<div align="center"><img src="/images/strategy/numerical-impermanence-intro/images/numerical-impermanence.png" alt="Numerical Impermanence" width="500" /></div>
+<div align="center"><img src="../../assets/numerical-impermanence-intro-numerical-impermanence.png" alt="Numerical Impermanence" width="500" /></div>
 
 Before getting into the details, let's start with impermanence.
 

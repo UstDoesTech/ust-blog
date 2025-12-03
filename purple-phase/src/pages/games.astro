@@ -1,100 +1,130 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import LabBench from '../layouts/LabBench.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Games | ${SITE_TITLE}`} description="Interactive mini-games and experiments" />
-		<style>
-			.games-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-				gap: 2rem;
-				padding: 2rem 0;
-			}
-			.game-card {
-				border: 1px solid #ddd;
-				border-radius: 8px;
-				padding: 1.5rem;
-				text-align: center;
-				transition: transform 0.2s, box-shadow 0.2s;
-			}
-			.game-card:hover {
-				transform: translateY(-4px);
-				box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-			}
-			.game-card h3 {
-				margin-top: 0;
-			}
-			.game-card p {
-				color: #666;
-				font-size: 0.9rem;
-			}
-			.coming-soon {
-				background: #f5f5f5;
-				color: #999;
-				padding: 0.5rem 1rem;
-				border-radius: 4px;
-				font-size: 0.85rem;
-				display: inline-block;
-				margin-top: 0.5rem;
-			}
-			main {
-				width: calc(100% - 2em);
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 2rem 1rem;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>Games & Experiments</h1>
-			<p>Interactive mini-games, data visualizations, and experimental projects.</p>
-			
-			<div class="games-grid">
-				<a href="/games/data-dice" class="game-card" style="text-decoration: none; color: inherit;">
-					<h3>🎲 Data Dice</h3>
-					<p>Explore probability distributions through interactive dice rolling</p>
-					<span class="coming-soon" style="background: #4f46e5; color: white;">Play Now →</span>
-				</a>
+<LabBench title={`Games | ${SITE_TITLE}`} description="Interactive mini-games and experiments">
+	<style>
+		.games-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 4rem;
+			padding: 2rem 0;
+		}
+		.game-card {
+			background: var(--surface-color);
+			border: 1px solid var(--accent);
+			border-radius: 8px;
+			padding: 1.5rem;
+			text-align: center;
+			transition: transform 0.2s, box-shadow 0.2s;
+			text-decoration: none;
+			color: var(--text-color);
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		.game-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+		}
+		.game-card h3 {
+			margin-top: 0;
+			color: var(--accent);
+			font-family: var(--font-ui);
+		}
+		.game-card p {
+			color: var(--gray);
+			font-size: 0.9rem;
+			flex-grow: 1;
+			font-family: var(--font-ui);
+		}
+		.status-badge {
+			background: var(--surface-color);
+			color: var(--gray);
+			padding: 0.5rem 1rem;
+			border-radius: 4px;
+			font-size: 0.85rem;
+			display: inline-block;
+			margin-top: 1rem;
+			border: 1px solid var(--gray);
+			font-family: var(--font-ui);
+		}
+		.play-now {
+			background: var(--accent);
+			color: var(--bg-color);
+			border: none;
+			font-weight: bold;
+		}
+		
+		/* Scanline effect for cards */
+		.game-card::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				to bottom,
+				transparent 50%,
+				rgba(0, 0, 0, 0.1) 51%
+			);
+			background-size: 100% 4px;
+			pointer-events: none;
+			opacity: 0.3;
+		}
+	</style>
 
-				<div class="game-card">
-					<h3>🧮 Numerical Playground</h3>
-					<p>Interactive demonstrations of numerical impermanence concepts</p>
-					<span class="coming-soon">Coming Soon</span>
-				</div>
+	<div class="games-grid">
+		<a href="/games/data-dice" class="game-card">
+			<h3>🎲 Data Dice</h3>
+			<p>Explore probability distributions through interactive dice rolling. Watch the law of large numbers in action.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
 
-				<div class="game-card">
-					<h3>📊 Query Builder</h3>
-					<p>Visual SQL query constructor and optimizer</p>
-					<span class="coming-soon">Coming Soon</span>
-				</div>
+		<a href="/games/redaction-racer" class="game-card">
+			<h3>🕵️ Redaction Racer</h3>
+			<p>Classified documents are leaking! Redact sensitive keywords before they reach the public domain.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
 
-				<div class="game-card">
-					<h3>🌐 Data Mesh Simulator</h3>
-					<p>Simulate data mesh architectures and interactions</p>
-					<span class="coming-soon">Coming Soon</span>
-				</div>
+		<a href="/games/data-bouncer" class="game-card">
+			<h3>🛡️ Data Bouncer</h3>
+			<p>You are the firewall. Approve or deny data access requests based on role-based access control.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
 
-				<div class="game-card">
-					<h3>🎯 ETL Puzzle</h3>
-					<p>Challenge yourself with data transformation puzzles</p>
-					<span class="coming-soon">Coming Soon</span>
-				</div>
+		<div class="game-card">
+			<h3>🧮 Numerical Playground</h3>
+			<p>Interactive demonstrations of numerical impermanence concepts and floating point oddities.</p>
+			<span class="status-badge">Offline</span>
+		</div>
 
-				<div class="game-card">
-					<h3>🔮 Forecasting Lab</h3>
-					<p>Interactive time series forecasting experiments</p>
-					<span class="coming-soon">Coming Soon</span>
-				</div>
-			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
+		<div class="game-card">
+			<h3>📊 Query Builder</h3>
+			<p>Visual SQL query constructor and optimizer. Build complex joins visually.</p>
+			<span class="status-badge">Offline</span>
+		</div>
+
+		<div class="game-card">
+			<h3>🌐 Data Mesh Simulator</h3>
+			<p>Simulate data mesh architectures, domain interactions, and data product lifecycles.</p>
+			<span class="status-badge">Offline</span>
+		</div>
+
+		<div class="game-card">
+			<h3>🎯 ETL Puzzle</h3>
+			<p>Challenge yourself with data transformation puzzles. Connect sources to sinks.</p>
+			<span class="status-badge">Offline</span>
+		</div>
+
+		<div class="game-card">
+			<h3>🔮 Forecasting Lab</h3>
+			<p>Interactive time series forecasting experiments. Test different models against datasets.</p>
+			<span class="status-badge">Offline</span>
+		</div>
+	</div>
+</LabBench>

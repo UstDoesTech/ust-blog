@@ -5,7 +5,7 @@ description: "Scheduling Interactive and SQL Warehouse Clusters in Databricks"
 tags: ["databricks"]
 categories: ["databricks"]
 slug: "databricks/cluster-scheduling"
-heroImage: "/images/databricks/cluster-scheduling/images/ClusterScheduleProcess.png"
+heroImage: "../../assets/cluster-scheduling-clusterscheduleprocess.png"
 ---
 
 ## Problem
@@ -24,7 +24,7 @@ The [Databricks API](https://docs.databricks.com/dev-tools/api/latest/index.html
 
 The process for the programmatically scheduling the warm-up of Engineering and Warehouse clusters are the same but the API endpoints are different, therefore the code is different (notebooks below).
 
-<div align="center"><img src="/images/databricks/cluster-scheduling/images/ClusterScheduleProcess.png" alt="Cluster Scheduling Process: Pass in Params, Generate Bearer Token, Start / Stop Cluster(s)" width="300" /></div>
+<div align="center"><img src="../../assets/cluster-scheduling-clusterscheduleprocess.png" alt="Cluster Scheduling Process: Pass in Params, Generate Bearer Token, Start / Stop Cluster(s)" width="300" /></div>
 
 ### Engineering Cluster Notebook
 

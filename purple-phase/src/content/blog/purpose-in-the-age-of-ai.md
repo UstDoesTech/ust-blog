@@ -11,7 +11,7 @@ I had written a post entitled The Intent Deficit but as I was doing wider readin
 
 I pivoted to "what is the meaning of life" because there are existential challenges that we face as a species. We are at a crossroads in our evolution. We have the ability to create life, but we also have the ability to destroy ourselves.
 
-{{< figure src="/images/ai/purpose-in-the-age-of-ai/images/hal9000.jpg" alt="HAL 9000" width="500" align="center">}}
+{{< figure src="../../assets/purpose-in-the-age-of-ai-hal9000.jpg" alt="HAL 9000" width="500" align="center">}}
 
 ## Where did it go wrong?
 

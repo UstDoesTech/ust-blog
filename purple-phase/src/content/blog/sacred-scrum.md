@@ -5,7 +5,7 @@ description: "Exploring the parallels between Scrum and Catholicism"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/sacred-scrum"
-heroImage: "/images/strategy/sacred-scrum/images/sacred-scrum.png"
+heroImage: "../../assets/sacred-scrum-sacred-scrum.png"
 ---
 
 A new pope wears the ring of the fisherman, Conclave was among the best film nominees at the 2025 Oscars, and church attendance among young men in the UK is up - Roman Catholicism is back in the zeitgeist for the first time since the reformation.
@@ -14,7 +14,7 @@ Scrum is one of the most widely adopted agile frameworks in the world. But long 
 
 This post explores the structural and cultural parallels between the Catholic Church and Scrum; and what Scrum might learn from centuries of theological agility.
 
-<div align="center"><img src="/images/strategy/sacred-scrum/images/sacred-scrum.png" alt="Jesus as a Scrum Master" width="500" /></div>
+<div align="center"><img src="../../assets/sacred-scrum-sacred-scrum.png" alt="Jesus as a Scrum Master" width="500" /></div>
 
 ## Rituals create rhythm and identity
 

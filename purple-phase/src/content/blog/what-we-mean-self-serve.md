@@ -5,7 +5,7 @@ description: "Exploring the different self-serve options"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/what-we-mean-self-serve"
-heroImage: "/images/strategy/what-we-mean-self-serve/images/self-serve-levels.png"
+heroImage: "../../assets/what-we-mean-self-serve-self-serve-levels.png"
 ---
 
 Self-serve, or self-service, has been around in various guises for decades from Automatic Teller Machines (ATMs) through to self-serve analytics. With the advent of spreadsheeting tools, self-serve analytics has arguably been around for a long time, and with the more recent introduction of dedicated self-serve Business Intelligence tools, self-serve has become embedded in the analytics vernacular.
@@ -58,7 +58,7 @@ With analytics, this would be end-users contributing to best practice and the wi
 
 We've explored the analogy above, and mapped the different self-serve levels to the different types of restaurants. Now let's look at the different self-serve levels in more detail.
 
-<div align="center"><img src="/images/strategy/what-we-mean-self-serve/images/self-serve-levels.png" alt="Self-Serve Levels" width="500" /></div>
+<div align="center"><img src="../../assets/what-we-mean-self-serve-self-serve-levels.png" alt="Self-Serve Levels" width="500" /></div>
 
 ### Level 0: Automated Reports
 

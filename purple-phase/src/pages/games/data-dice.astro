@@ -1,32 +1,20 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE } from '../../consts';
+import LabBench from '../../layouts/LabBench.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Data Dice | ${SITE_TITLE}`} description="Explore probability distributions through interactive dice rolling" />
+<LabBench title="Data Dice" description="Explore probability distributions through interactive dice rolling">
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 800px;
-				margin: 0 auto;
-				padding: 2rem 1rem;
-			}
 			.game-container {
-				background: #f8f9fa;
-				border-radius: 12px;
-				padding: 2rem;
-				margin: 2rem 0;
+				/* Removed background/border as it's now handled by the layout window */
+				padding: 0; 
+				margin: 0;
 			}
 			.controls {
 				display: flex;
 				gap: 1rem;
 				margin-bottom: 2rem;
 				flex-wrap: wrap;
+				font-family: var(--font-ui);
 			}
 			.control-group {
 				display: flex;
@@ -36,29 +24,34 @@ import { SITE_TITLE } from '../../consts';
 			label {
 				font-weight: 600;
 				font-size: 0.9rem;
+				color: var(--text-color);
 			}
 			input[type="number"], select {
 				padding: 0.5rem;
-				border: 1px solid #ddd;
+				border: 1px solid var(--accent);
+				background: var(--surface-color);
+				color: var(--text-color);
 				border-radius: 4px;
 				font-size: 1rem;
+				font-family: var(--font-ui);
 			}
 			button {
-				background: #4f46e5;
-				color: white;
+				background: var(--accent);
+				color: var(--bg-color);
 				border: none;
 				padding: 0.75rem 1.5rem;
 				border-radius: 6px;
 				font-size: 1rem;
 				font-weight: 600;
 				cursor: pointer;
-				transition: background 0.2s;
+				transition: opacity 0.2s;
+				font-family: var(--font-ui);
 			}
 			button:hover {
-				background: #4338ca;
+				opacity: 0.9;
 			}
 			button:disabled {
-				background: #9ca3af;
+				background: var(--gray);
 				cursor: not-allowed;
 			}
 			.dice-display {
@@ -71,16 +64,18 @@ import { SITE_TITLE } from '../../consts';
 			.die {
 				width: 80px;
 				height: 80px;
-				background: white;
-				border: 2px solid #333;
+				background: var(--surface-color);
+				color: var(--accent);
+				border: 2px solid var(--accent);
 				border-radius: 12px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				font-size: 2.5rem;
 				font-weight: bold;
-				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+				box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 				animation: rollAnimation 0.5s ease-out;
+				font-family: var(--font-ui);
 			}
 			@keyframes rollAnimation {
 				0% { transform: rotateX(0deg) rotateY(0deg); }
@@ -88,19 +83,24 @@ import { SITE_TITLE } from '../../consts';
 				100% { transform: rotateX(360deg) rotateY(360deg); }
 			}
 			.stats {
-				background: white;
+				background: var(--surface-color);
+				border: 1px solid var(--gray-light);
 				border-radius: 8px;
 				padding: 1.5rem;
 				margin-top: 2rem;
 			}
 			.stats h3 {
 				margin-top: 0;
+				font-family: var(--font-ui);
+				color: var(--accent);
 			}
 			.stat-row {
 				display: flex;
 				justify-content: space-between;
 				padding: 0.5rem 0;
-				border-bottom: 1px solid #e5e7eb;
+				border-bottom: 1px solid var(--gray-light);
+				font-family: var(--font-ui);
+				font-size: 0.9rem;
 			}
 			.stat-row:last-child {
 				border-bottom: none;
@@ -121,26 +121,26 @@ import { SITE_TITLE } from '../../consts';
 			}
 			.bar {
 				width: 100%;
-				background: #4f46e5;
+				background: var(--accent);
 				border-radius: 4px 4px 0 0;
 				transition: height 0.3s ease;
+				opacity: 0.8;
+			}
+			.bar:hover {
+				opacity: 1;
 			}
 			.bar-label {
 				font-size: 0.75rem;
 				font-weight: 600;
+				font-family: var(--font-ui);
 			}
 			.bar-value {
 				font-size: 0.7rem;
-				color: #666;
+				color: var(--gray);
+				font-family: var(--font-ui);
 			}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🎲 Data Dice</h1>
-			<p>Roll virtual dice and explore probability distributions in real-time. Watch as the law of large numbers emerges!</p>
-			
+
 			<div class="game-container">
 				<div class="controls">
 					<div class="control-group">
@@ -165,7 +165,7 @@ import { SITE_TITLE } from '../../consts';
 				</div>
 				
 				<button id="rollBtn">Roll Dice</button>
-				<button id="resetBtn" style="background: #6b7280; margin-left: 1rem;">Reset Statistics</button>
+				<button id="resetBtn" style="background: var(--surface-color); color: var(--text-color); border: 1px solid var(--gray); margin-left: 1rem;">Reset Statistics</button>
 				
 				<div class="dice-display" id="diceDisplay"></div>
 				
@@ -202,8 +202,6 @@ import { SITE_TITLE } from '../../consts';
 					<div class="chart" id="chart"></div>
 				</div>
 			</div>
-		</main>
-		<Footer />
 		
 		<script>
 			const state = {
@@ -332,5 +330,4 @@ import { SITE_TITLE } from '../../consts';
 			// Initialize
 			updateExpectedAvg();
 		</script>
-	</body>
-</html>
+</LabBench>
