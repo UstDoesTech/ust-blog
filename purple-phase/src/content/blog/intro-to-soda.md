@@ -26,7 +26,7 @@ And if you want even more detail, go buy and read the book.
 
 ## Introducing SODA: Service-Oriented Data Architecture
 
-There is a solitary post about SODA from 2023 (SODA: Leveraging Service Oriented Data Architecture by Ronak Shah), which is really about applying Service-Oriented Architecture (SOA) principles to data. There’s lots of good stuff in SOA, and you'll see some of it in SODA. However, we're not taking the tech-first approach of SOA; we're applying the Service Design principles mentioned above—which are people-first—to data architecture.
+There is a solitary post about SODA from 2023 ([SODA: Leveraging Service Oriented Data Architecture by Ronak Shah](https://medium.com/@ronyinusc/soda-leveraging-service-oriented-data-architecture-ab41cb371f0b)), which is really about applying [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture) (SOA) principles to data. There’s lots of good stuff in SOA, and you'll see some of it in SODA. However, we're not taking the tech-first approach of SOA; we're applying the Service Design principles mentioned above—which are people-first—to data architecture.
 
 Why? Because if people cannot or will not use your product, you have a problem—no matter how great the underlying technology is.
 
