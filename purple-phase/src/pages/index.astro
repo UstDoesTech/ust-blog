@@ -43,10 +43,19 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
                 font-size: 2.5rem;
             }
             .hero-content p {
-                margin: 0;
+                margin: 0 0 1rem 0;
                 font-size: 1.1rem;
                 color: var(--text-color);
                 line-height: 1.6;
+            }
+            .hero-link {
+                display: inline-block;
+                font-weight: bold;
+                color: var(--accent);
+                text-decoration: none;
+            }
+            .hero-link:hover {
+                text-decoration: underline;
             }
             .section-title {
                 display: flex;
@@ -168,6 +177,7 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
                 <div class="hero-content">
                     <h1>Hi, I am Ust Oldfield</h1>
                     <p>Father, Consultant, Swimmer, DevOps & Automation enthusiast. I work on Data Engineering, Analytics and AI projects.</p>
+                    <a href="/about" class="hero-link">More about me →</a>
                 </div>
             </section>
 

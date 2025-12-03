@@ -1,424 +1,230 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ShieldAlert, Play, RotateCcw } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Timer, RefreshCw, CheckCircle, AlertTriangle } from 'lucide-react';
 
-// --- Configuration & Data ---
-const CONFIG = {
-  baseSpeed: 0.15, // Speed multiplier
-  spawnInterval: 120, // Frames
-  maxStrikes: 3
-};
+// --- Data Generators ---
 
-const FILLER_WORDS = [
-  "the", "of", "and", "a", "to", "in", "is", "you", "that", "it", "he", "was", "for", "on", "are", "as", "with", "his", "they", "I", "at", "be", "this", "have", "from", "or", "one", "had", "by", "word", "but", "not", "what", "all", "were", "we", "when", "your", "can", "said", "there", "use", "an", "each", "which", "she", "do", "how", "their", "if", "will", "up", "other", "about", "out", "many", "then", "them", "these", "so", "some", "her", "would", "make", "like", "him", "into", "time", "has", "look", "two", "more", "write", "go", "see", "number", "no", "way", "could", "people", "my", "than", "first", "water", "been", "call", "who", "oil", "its", "now", "find"
+const SENTENCES = [
+  "The audit revealed a discrepancy in the accounts.",
+  "Please verify the customer's identity before proceeding.",
+  "The data breach occurred late last night.",
+  "Secure transmission of files is mandatory.",
+  "Review the attached documents for accuracy.",
+  "The system update will require a restart.",
+  "Confidentiality agreements must be signed.",
+  "Access to the server room is restricted.",
+  "The financial report is due by Friday.",
+  "Employee records are stored securely."
 ];
 
-const SENSITIVE_CATEGORIES: Record<string, string[]> = {
-  'ALIENS': ["Alien", "UFO", "Grey", "Martian", "Saucer", "Roswell", "E.T.", "Abduct", "Probe", "Signal", "Space", "Galaxy"],
-  'SPIES': ["Mole", "Agent", "Cipher", "Code", "Wire", "Asset", "Drop", "Cover", "Double", "Intel", "Nuke", "Bomb"],
-  'POLITICS': ["Senator", "Bribe", "Vote", "Scandal", "Fraud", "Tax", "Lobby", "Bill", "Law", "Mayor", "Funds", "Leak"],
-  'CRYPTIDS': ["Bigfoot", "Yeti", "Nessie", "Mothman", "Chupa", "Beast", "Ghost", "Spirit", "Demon", "Swamp", "Cave", "Tracks"]
+const generateRandomSSN = () => {
+  const d = () => Math.floor(Math.random() * 10);
+  return `${d()}${d()}${d()}-${d()}${d()}-${d()}${d()}${d()}${d()}`;
 };
 
-// --- Helper Functions ---
-const getRandomElement = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
-const generateId = () => Math.random().toString(36).substr(2, 9);
+const generateRandomCC = () => {
+  const d = () => Math.floor(Math.random() * 10);
+  const g = () => `${d()}${d()}${d()}${d()}`;
+  return `${g()}-${g()}-${g()}-${g()}`;
+};
 
-interface Word {
+interface TextSegment {
   id: string;
   text: string;
-  type: string;
-  status: 'normal' | 'redacted' | 'mistake';
+  type: 'normal' | 'pii';
+  isRedacted: boolean;
 }
 
-interface Line {
-  id: string;
-  y: number;
-  words: Word[];
-}
+const generateGameContent = (): TextSegment[] => {
+  const segments: TextSegment[] = [];
+  let idCounter = 0;
 
-interface Particle {
-  id: string;
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  life: number;
-}
-
-export default function RedactionRacer() {
-  // --- State ---
-  const [gameState, setGameState] = useState('start'); // 'start', 'playing', 'gameover'
-  const [score, setScore] = useState(0);
-  const [strikes, setStrikes] = useState(0);
-  const [targetCategory, setTargetCategory] = useState('ALIENS');
-  const [lines, setLines] = useState<Line[]>([]);
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  // --- Refs for Game Loop (Mutable state without re-renders for logic) ---
-  const requestRef = useRef<number>();
-  const stateRef = useRef({
-    score: 0,
-    strikes: 0,
-    speed: 1,
-    frames: 0,
-    difficultyLevel: 1,
-    targetCategory: 'ALIENS',
-    isActive: false
-  });
-
-  // --- Audio / Visual Effects ---
-  const triggerShake = () => {
-    document.body.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
-    setTimeout(() => document.body.style.transform = "none", 100);
-  };
-
-  const spawnParticles = (x: number, y: number) => {
-    const newParticles = Array.from({ length: 5 }).map(() => ({
-      id: generateId(),
-      x,
-      y,
-      vx: (Math.random() - 0.5) * 100,
-      vy: (Math.random() - 0.5) * 100,
-      life: 1
-    }));
-    setParticles(prev => [...prev, ...newParticles]);
-  };
-
-  // --- Game Logic ---
-
-  const startGame = useCallback(() => {
-    setGameState('playing');
-    setScore(0);
-    setStrikes(0);
-    setLines([]);
-    setParticles([]);
+  // Generate 3-5 sentences
+  const numSentences = 3 + Math.floor(Math.random() * 3);
+  
+  for (let i = 0; i < numSentences; i++) {
+    const sentence = SENTENCES[Math.floor(Math.random() * SENTENCES.length)];
+    const words = sentence.split(' ');
     
-    // Reset Refs
-    stateRef.current = {
-      score: 0,
-      strikes: 0,
-      speed: 1,
-      frames: 0,
-      difficultyLevel: 1,
-      targetCategory: Object.keys(SENSITIVE_CATEGORIES)[0], // Start with Aliens or random
-      isActive: true
-    };
+    // Insert PII randomly into the sentence
+    const insertAt = Math.floor(Math.random() * (words.length + 1));
+    const piiType = Math.random() > 0.5 ? 'SSN' : 'CC';
+    const piiText = piiType === 'SSN' ? generateRandomSSN() : generateRandomCC();
     
-    pickNewTarget();
-  }, []);
-
-  const pickNewTarget = () => {
-    const keys = Object.keys(SENSITIVE_CATEGORIES);
-    const newTarget = getRandomElement(keys);
-    setTargetCategory(newTarget);
-    stateRef.current.targetCategory = newTarget;
-  };
-
-  const handleStrike = useCallback(() => {
-    stateRef.current.strikes += 1;
-    setStrikes(stateRef.current.strikes);
-    triggerShake();
-
-    if (stateRef.current.strikes >= CONFIG.maxStrikes) {
-      endGame();
-    }
-  }, []);
-
-  const endGame = () => {
-    stateRef.current.isActive = false;
-    setGameState('gameover');
-    if (requestRef.current) cancelAnimationFrame(requestRef.current);
-  };
-
-  const spawnLine = () => {
-    const numWords = 3 + Math.floor(Math.random() * 3);
-    const includeSensitive = Math.random() > 0.3;
-    const currentTarget = stateRef.current.targetCategory;
-    
-    const words: Word[] = [];
-    const sensitiveIndex = includeSensitive ? Math.floor(Math.random() * numWords) : -1;
-
-    for (let i = 0; i < numWords; i++) {
-      let text = "";
-      let type = "filler";
-
-      if (i === sensitiveIndex) {
-        text = getRandomElement(SENSITIVE_CATEGORIES[currentTarget]);
-        type = "sensitive";
-      } else if (Math.random() < 0.1) {
-        // Decoy
-        const allKeys = Object.keys(SENSITIVE_CATEGORIES);
-        const wrongKey = allKeys.find(k => k !== currentTarget) || allKeys[0];
-        text = getRandomElement(SENSITIVE_CATEGORIES[wrongKey]);
-        type = "decoy";
-      } else {
-        text = getRandomElement(FILLER_WORDS);
-      }
-
-      words.push({
-        id: generateId(),
-        text,
-        type,
-        status: 'normal' // 'normal', 'redacted', 'mistake'
-      });
-    }
-
-    setLines(prev => [
-      ...prev,
-      {
-        id: generateId(),
-        y: 100, // Starts at bottom (100%)
-        words
-      }
-    ]);
-  };
-
-  const handleWordClick = (lineId: string, wordId: string, e: React.MouseEvent | React.TouchEvent) => {
-    if (gameState !== 'playing') return;
-
-    // Use client coordinates for particles
-    // @ts-ignore
-    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-    // @ts-ignore
-    const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-
-    setLines(prevLines => prevLines.map(line => {
-      if (line.id !== lineId) return line;
-      
-      const newWords = line.words.map(word => {
-        if (word.id !== wordId) return word;
-        if (word.status !== 'normal') return word; // Already clicked
-
-        if (word.type === 'sensitive') {
-          // Correct
-          stateRef.current.score += 10;
-          setScore(stateRef.current.score);
-          spawnParticles(clientX, clientY);
-          
-          // Difficulty scaling
-          if (stateRef.current.score % 50 === 0) {
-             stateRef.current.speed += 0.2;
-             stateRef.current.difficultyLevel++;
-             pickNewTarget();
-          }
-          return { ...word, status: 'redacted' as const };
-        } else {
-          // Mistake
-          handleStrike();
-          return { ...word, status: 'mistake' as const };
-        }
-      });
-      
-      return { ...line, words: newWords };
-    }));
-  };
-
-  // --- The Game Loop ---
-  const updateGame = useCallback(() => {
-    if (!stateRef.current.isActive) return;
-
-    stateRef.current.frames++;
-
-    // Spawning
-    const currentInterval = Math.max(30, CONFIG.spawnInterval - (stateRef.current.difficultyLevel * 5));
-    if (stateRef.current.frames % currentInterval === 0) {
-      spawnLine();
-    }
-
-    // Moving & Checking Bounds
-    setLines(prevLines => {
-      const moveStep = CONFIG.baseSpeed * stateRef.current.speed;
-      const nextLines: Line[] = [];
-
-      prevLines.forEach(line => {
-        const newY = line.y - moveStep;
-
-        // Check for leaks (reached top without redaction)
-        if (newY < 5) { // Crossed the "Leak Zone" threshold
-            let lineModified = false;
-            const newWords = line.words.map(w => {
-                if (w.type === 'sensitive' && w.status === 'normal') {
-                    handleStrike();
-                    lineModified = true;
-                    return { ...w, status: 'mistake' as const }; // Auto-fail it visually
-                }
-                return w;
-            });
-            
-            if (newY > -10) {
-                 nextLines.push(lineModified ? { ...line, y: newY, words: newWords } : { ...line, y: newY });
-            }
-        } else if (newY > -10) {
-             // Keep line if still visible
-             nextLines.push({ ...line, y: newY });
-        }
-      });
-      return nextLines;
+    // Add words before PII
+    words.slice(0, insertAt).forEach(word => {
+      segments.push({ id: `seg-${idCounter++}`, text: word, type: 'normal', isRedacted: false });
     });
     
-    // Particle Animation
-    setParticles(prev => prev.map(p => ({
-        ...p,
-        x: p.x + p.vx * 0.016,
-        y: p.y + p.vy * 0.016,
-        life: p.life - 0.05
-    })).filter(p => p.life > 0));
+    // Add PII
+    segments.push({ id: `seg-${idCounter++}`, text: piiText, type: 'pii', isRedacted: false });
+    
+    // Add words after PII
+    words.slice(insertAt).forEach(word => {
+      segments.push({ id: `seg-${idCounter++}`, text: word, type: 'normal', isRedacted: false });
+    });
+  }
 
-    requestRef.current = requestAnimationFrame(updateGame);
-  }, [handleStrike]);
+  return segments;
+};
 
+export default function RedactionRacer() {
+  const [segments, setSegments] = useState<TextSegment[]>([]);
+  const [timeLeft, setTimeLeft] = useState(10);
+  const [gameState, setGameState] = useState<'start' | 'playing' | 'won' | 'lost'>('start');
+  const [feedback, setFeedback] = useState<{id: string, type: 'good' | 'bad'} | null>(null);
+
+  // Initialize Game
+  const startGame = useCallback(() => {
+    setSegments(generateGameContent());
+    setTimeLeft(10);
+    setGameState('playing');
+    setFeedback(null);
+  }, []);
+
+  // Timer Logic
+  useEffect(() => {
+    if (gameState !== 'playing') return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          setGameState('lost');
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [gameState]);
+
+  // Check Win Condition
   useEffect(() => {
     if (gameState === 'playing') {
-      requestRef.current = requestAnimationFrame(updateGame);
+      const remainingPII = segments.filter(s => s.type === 'pii' && !s.isRedacted);
+      if (remainingPII.length === 0 && segments.length > 0) {
+        setGameState('won');
+      }
     }
-    return () => {
-        if (requestRef.current) cancelAnimationFrame(requestRef.current);
-    };
-  }, [gameState, updateGame]);
+  }, [segments, gameState]);
 
+  const handleSegmentClick = (id: string) => {
+    if (gameState !== 'playing') return;
 
-  // --- Render Helpers ---
-  return (
-    <div className="relative w-full h-screen overflow-hidden bg-neutral-800 flex flex-col items-center justify-center font-mono select-none">
+    setSegments(prev => prev.map(seg => {
+      if (seg.id !== id) return seg;
       
-      {/* External Fonts & Styles */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap');
+      if (seg.isRedacted) return seg; // Already redacted
+
+      if (seg.type === 'pii') {
+        // Correct click
+        setFeedback({ id, type: 'good' });
+        setTimeout(() => setFeedback(null), 500);
+        return { ...seg, isRedacted: true };
+      } else {
+        // Wrong click - Penalty
+        setTimeLeft(t => Math.max(0, t - 1));
+        setFeedback({ id, type: 'bad' });
+        setTimeout(() => setFeedback(null), 500);
+        return seg;
+      }
+    }));
+  };
+
+  // Custom Marker Cursor SVG
+  const markerCursor = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 19l7-7 3 3-7 7-3-3z'></path><path d='M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z'></path><path d='M2 2l7.586 7.586'></path><circle cx='11' cy='11' r='2'></circle></svg>") 0 32, auto`;
+
+  return (
+    <div className="w-full max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-lg border-2 border-gray-200 font-mono">
+      
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6 border-b-2 border-gray-100 pb-4">
+        <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+          <span className="bg-black text-white px-2 py-1 rounded text-lg">REDACTION</span> RACER
+        </h2>
         
-        .font-typewriter { font-family: 'Courier Prime', monospace; }
-        .font-stamp { font-family: 'Special Elite', cursive; }
-        
-        .paper-texture {
-            background-color: #f0e6d2;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-        }
-        
-        .scanlines {
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 2px, 3px 100%;
-        }
-
-        .redacted-texture {
-            background-color: #111;
-            color: transparent;
-        }
-        .redacted-texture::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3h1v1H1V3zm2-2h1v1H3V1z' fill='%23333' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-      `}</style>
-
-      {/* Main Game Container */}
-      <div className="relative w-full max-w-2xl h-full paper-texture shadow-2xl flex flex-col overflow-hidden">
-        
-        {/* CRT Overlay */}
-        <div className="absolute inset-0 scanlines pointer-events-none z-20"></div>
-
-        {/* Particles */}
-        {particles.map(p => (
-            <div 
-                key={p.id}
-                className="absolute w-1 h-1 bg-black rounded-full pointer-events-none z-30"
-                style={{ left: p.x, top: p.y, opacity: p.life }}
-            />
-        ))}
-
-        {/* Header */}
-        <header className="bg-neutral-900 text-neutral-100 p-3 flex justify-between items-center z-30 border-b-4 border-red-700 shadow-md">
-          <div className="text-center">
-            <div className="text-xs uppercase tracking-widest opacity-70">Clearance</div>
-            <div className="text-xl font-stamp font-bold">{score}</div>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="text-center">
-                <div className="text-xs uppercase tracking-widest opacity-70">Breaches</div>
-                <div className={`text-xl font-stamp font-bold ${strikes > 0 ? 'text-red-500' : 'text-white'}`}>
-                    {strikes}/{CONFIG.maxStrikes}
-                </div>
-            </div>
-          </div>
-        </header>
-
-        {/* Directive Banner */}
-        <div className="bg-neutral-200 p-2 text-center border-b border-neutral-400 z-20 shadow-sm text-sm md:text-base font-typewriter">
-           DIRECTIVE: REDACT ALL MENTIONS OF <span className="font-sans font-black text-red-700 text-lg uppercase tracking-wide ml-1">{targetCategory}</span>
+        <div className={`flex items-center gap-2 text-xl font-bold ${timeLeft <= 3 ? 'text-red-600 animate-pulse' : 'text-gray-700'}`}>
+          <Timer className="w-6 h-6" />
+          {timeLeft}s
         </div>
+      </div>
 
-        {/* Game Area */}
-        <div className="flex-grow relative overflow-hidden cursor-text" onMouseDown={(e) => e.preventDefault()}>
-            
-            {/* Shredder/Leak Zone */}
-            <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-red-500/20 to-transparent border-b border-dashed border-red-500/50 z-10 flex justify-center pt-1 pointer-events-none">
-                <span className="text-red-700 text-xs font-bold tracking-[0.2em] uppercase">Leak Zone - Do Not Cross</span>
-            </div>
-
-            {/* Moving Lines */}
-            {lines.map(line => (
-                <div 
-                    key={line.id} 
-                    className="absolute w-full flex justify-center flex-wrap px-4 transition-transform duration-75 ease-linear font-typewriter text-lg md:text-xl leading-relaxed text-neutral-900"
-                    style={{ top: `${line.y}%` }}
-                >
-                    {line.words.map(word => (
-                        <span 
-                            key={word.id}
-                            onMouseDown={(e) => handleWordClick(line.id, word.id, e)}
-                            onTouchStart={(e) => handleWordClick(line.id, word.id, e)}
-                            className={`
-                                m-1 px-1 rounded-sm cursor-pointer transition-colors duration-100 relative
-                                ${word.status === 'normal' ? 'hover:bg-neutral-300' : ''}
-                                ${word.status === 'redacted' ? 'redacted-texture pointer-events-none' : ''}
-                                ${word.status === 'mistake' ? 'bg-red-500/30 line-through text-red-700' : ''}
-                            `}
-                        >
-                            {word.text}
-                        </span>
-                    ))}
-                </div>
-            ))}
-        </div>
-
-        {/* Start Screen */}
+      {/* Game Area */}
+      <div 
+        className="relative min-h-[300px] bg-[#f8f9fa] p-8 rounded-lg border border-gray-300 leading-loose text-lg shadow-inner"
+        style={{ cursor: gameState === 'playing' ? markerCursor : 'default' }}
+      >
         {gameState === 'start' && (
-            <div className="absolute inset-0 bg-neutral-900/90 z-50 flex flex-col items-center justify-center text-white text-center p-6 backdrop-blur-sm">
-                <ShieldAlert size={64} className="text-red-600 mb-4" />
-                <h1 className="font-stamp text-4xl md:text-6xl text-red-500 mb-4 -rotate-2 drop-shadow-md">TOP SECRET</h1>
-                <div className="max-w-md space-y-4 font-typewriter text-sm md:text-base mb-8">
-                    <p><strong>MISSION:</strong> Classified documents are being leaked.</p> 
-                    <p>You must <span className="bg-black px-1">REDACT</span> sensitive keywords before they reach the public domain.</p>
-                    <p>Tap the <span className="text-red-400 font-bold">RED</span> keywords specified in your directive.</p>
-                </div>
-                <button 
-                    onClick={startGame}
-                    className="bg-[#f0e6d2] text-neutral-900 px-8 py-4 font-stamp text-xl md:text-2xl shadow-[4px_4px_0px_0px_#000] active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0px_0px_#000] transition-all flex items-center gap-2 hover:bg-white"
-                >
-                    <Play size={24} /> ACCEPT ASSIGNMENT
-                </button>
-            </div>
+          <div className="absolute inset-0 bg-white/90 z-10 flex flex-col items-center justify-center text-center p-6">
+            <h3 className="text-2xl font-bold mb-4">Security Clearance Required</h3>
+            <p className="mb-6 max-w-md text-gray-600">
+              Find and redact (click) all <strong>Social Security Numbers</strong> (XXX-XX-XXXX) and <strong>Credit Card Numbers</strong> (XXXX-XXXX-XXXX-XXXX) before time runs out.
+            </p>
+            <p className="mb-6 text-sm text-red-500 font-bold">Warning: Redacting innocent text costs 1 second!</p>
+            <button 
+              onClick={startGame}
+              className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors flex items-center gap-2"
+            >
+              Start Mission
+            </button>
+          </div>
         )}
 
-        {/* Game Over Screen */}
-        {gameState === 'gameover' && (
-            <div className="absolute inset-0 bg-neutral-900/90 z-50 flex flex-col items-center justify-center text-white text-center p-6 backdrop-blur-sm">
-                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 font-stamp text-6xl text-red-600 border-8 border-red-600 p-4 -rotate-12 opacity-90 animate-pulse whitespace-nowrap">
-                    TERMINATED
-                </div>
-                
-                <div className="mt-32 max-w-md font-typewriter mb-8">
-                    <p className="text-lg mb-2">You let too many secrets slip, Agent.</p>
-                    <p className="text-2xl">Final Clearance: <span className="font-stamp text-red-500 text-3xl">{score}</span></p>
-                </div>
-
-                <button 
-                    onClick={startGame}
-                    className="bg-[#f0e6d2] text-neutral-900 px-8 py-4 font-stamp text-xl md:text-2xl shadow-[4px_4px_0px_0px_#000] active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0px_0px_#000] transition-all flex items-center gap-2 hover:bg-white"
-                >
-                    <RotateCcw size={24} /> RETRY MISSION
-                </button>
-            </div>
+        {gameState === 'won' && (
+          <div className="absolute inset-0 bg-green-50/95 z-10 flex flex-col items-center justify-center text-center p-6">
+            <CheckCircle className="w-16 h-16 text-green-600 mb-4" />
+            <h3 className="text-3xl font-bold text-green-800 mb-2">Mission Accomplished!</h3>
+            <p className="mb-6 text-green-700">All sensitive data has been secured.</p>
+            <button 
+              onClick={startGame}
+              className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors flex items-center gap-2"
+            >
+              <RefreshCw className="w-5 h-5" /> Play Again
+            </button>
+          </div>
         )}
+
+        {gameState === 'lost' && (
+          <div className="absolute inset-0 bg-red-50/95 z-10 flex flex-col items-center justify-center text-center p-6">
+            <AlertTriangle className="w-16 h-16 text-red-600 mb-4" />
+            <h3 className="text-3xl font-bold text-red-800 mb-2">Data Breach!</h3>
+            <p className="mb-6 text-red-700">You failed to secure the PII in time.</p>
+            <button 
+              onClick={startGame}
+              className="bg-red-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors flex items-center gap-2"
+            >
+              <RefreshCw className="w-5 h-5" /> Try Again
+            </button>
+          </div>
+        )}
+
+        {/* Text Content */}
+        <div className="flex flex-wrap gap-x-2 gap-y-4 select-none">
+          {segments.map((seg) => (
+            <span
+              key={seg.id}
+              onClick={() => handleSegmentClick(seg.id)}
+              className={`
+                relative px-1 rounded transition-all duration-200
+                ${gameState === 'playing' ? 'hover:bg-yellow-200 cursor-pointer' : ''}
+                ${seg.isRedacted ? 'bg-black text-black hover:bg-black' : 'text-gray-800'}
+              `}
+            >
+              {seg.isRedacted ? '████████' : seg.text}
+              
+              {/* Feedback Animations */}
+              {feedback?.id === seg.id && feedback.type === 'bad' && (
+                <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-red-600 font-bold text-sm animate-bounce whitespace-nowrap">
+                  -1s
+                </span>
+              )}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      <div className="mt-4 text-sm text-gray-500 text-center">
+        Use your marker to black out sensitive information.
       </div>
     </div>
   );

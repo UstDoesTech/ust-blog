@@ -7,16 +7,23 @@ import { remarkMermaid } from './src/plugins/remark-mermaid.js'; // Import the n
 
 import react from '@astrojs/react';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://ustdoes.tech',
-    integrations: [mdx(), sitemap(), react()],
-    markdown: {
-        remarkPlugins: [remarkMermaid], // Add the plugin here
-        shikiConfig: {
-            // Ensure Shiki doesn't try to highlight mermaid if it slips through
-            langs: [],
-            wrap: true,
-        },
-    },
+  site: 'https://ustdoes.tech',
+  integrations: [mdx(), sitemap(), react()],
+
+  markdown: {
+      remarkPlugins: [remarkMermaid], // Add the plugin here
+      shikiConfig: {
+          // Ensure Shiki doesn't try to highlight mermaid if it slips through
+          langs: [],
+          wrap: true,
+      },
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

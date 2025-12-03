@@ -65,71 +65,60 @@ The technical outcome is the same—data lands in the lake—but the experience 
 Our platform, as a whole, is a service, but it is also made up of smaller, discrete services. Think about a vending machine. It is the platform (The Kitchen), and it provides the service of issuing products you have bought. The products themselves provide a service—a can of Coca-Cola provides you with hydration, caffeine, and sugar-high services.
 
 Here is what the SODA Stack looks like when we map it out:
-
 ```mermaid
-graph TD
-    subgraph DE [The Dining Experience - User Actions / Verbs]
-        A[Onboard New Data]
-        B[Find & Understand Data]
-        C[Get Access to Data]
-        D[Build & Publish Products]
-        E[Build a Report]
+block-beta
+    columns 4
+    block:Buttons["Buttons"]:1
+        columns 1
+        A["Onboard New Data"]
+        B["Find & Understand Data"]
+        C["Get Access to Data"]
+        space:2
+        D["Build & Publish Products"]
+        E["Build a Report"]
     end
-
-    subgraph Menu [The Menu - Discrete Services]
-        F[Ingest Service]
-        G[Data Catalog Service]
-        H[Data Access Service]
-        I[Data Product Service]
-        J[BI Service]
+    
+    
+    block:Products["Products"]:1
+        columns 1
+        F["Ingest Service"]
+        G["Data Catalog Service"]
+        H["Data Access Service"]
+        space:2
+        I["Data Product Service"]
+        J["BI Service"]
     end
-
-    subgraph Kitchen [The Kitchen - Platform / Technology]
-        K[Cloud Infrastructure - AWS/Azure/GCP]
-        L[Compute Engine - Databricks/Snowflake]
-        M[Storage - Data Lake]
-        N[Orchestration - Airflow]
-        O[Metadata Store]
+    
+    
+    block:Machine["Machine"]:1
+        columns 1
+        K["Cloud Infrastructure - AWS/Azure/GCP"]
+        L["Compute Engine - Databricks/Snowflake"]
+        M["Storage - Data Lake"]
+        space:2
+        N["Orchestration - Airflow"]
+        O["Metadata Store"]
     end
+    
+    A --> F
+    B --> G
+    C --> H
+    D --> I
+    E --> J
 
-    F --> A
-    G --> B
-    H --> C
-    I --> D
-    J --> E
-
-    K --> F
-    L --> F
-    L --> I
-    L --> J
-    M --> F
-    M --> G
-    M --> I
-    N --> F
-    N --> I
-    O --> G
-    O --> H
-
-    style A fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
-    style B fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
-    style C fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
-    style D fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
-    style E fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
-
-    style F fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
-    style G fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
-    style H fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
-    style I fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
-    style J fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
-
-    style K fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20
-    style L fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20
-    style M fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20
-    style N fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20
-    style O fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20
+    
+    classDef buttons fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
+    classDef products fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
+    classDef machine fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20
+    
+    class A,B,C,D,E buttons
+    class F,G,H,I,J products
+    class K,L,M,N,O machine
 ```
 
-With that in mind, let's look at some potential (and hopefully common) services from "The Menu."
+**Important**: The arrows connecting the "products" to the "machine" aren't displayed as it would just be a mess.
+
+With that in mind, let's look at some potential (and hopefully common) services from "The Products."
 
 ### The Ingest Service aka "Onboard New Data"
 
@@ -163,11 +152,11 @@ We have our rudimentary services—you may have more or fewer, perhaps with diff
 
 |The Tech (Noun) | The Service (Verb) |The User Goal|
 |---| ----|---|
-|Ingestion Framework|Onboard New Data|"I have a file, I need it in the lake."|
-|Data Catalog| Find & Understand Data| "Does this data exist?"|
-|IAM / ACLs| Get Access to Data| "Let me see the data."|
-|Data Product Factory|Build & Publish Products|"I've cleaned this data, I want to share it."|
-|Tableau / PowerBI|Build a Report|"I need to visualise the trend."|
+|Ingestion Service|Onboard New Data|"I have a file, I need it in the lake."|
+|Data  Service| Find & Understand Data| "Does this data exist?"|
+|Data Access Service| Get Access to Data| "Let me see the data."|
+|Data Product Service|Build & Publish Products|"I've cleaned this data, I want to share it."|
+|BI Service|Build a Report|"I need to visualise the trend."|
 
 ## What's Next?
 
