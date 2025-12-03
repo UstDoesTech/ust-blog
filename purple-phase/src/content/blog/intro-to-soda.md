@@ -10,7 +10,7 @@ heroImage: "../../assets/soda.jpg"
 
 ## Have you ever read a book that has changed your life? I have.
 
-Good Services by Lou Downe is one of those books. I started reading it during the Autumn half-term, and it gave me ideas to apply to the data world.
+[Good Services](https://good.services/) by Lou Downe is one of those books. I started reading it during the Autumn half-term, and it gave me ideas to apply to the data world.
 
 The data world is much maligned because most teams operate behind IT tickets or are so focused on the tools and technologies that make up a platform that they forget about the services they provide to their customers.
 
@@ -22,7 +22,7 @@ Very simply, a service is something that helps someone do something—a wrapper 
 
 In more detail, a service should: be easy to find, clearly explain its purpose, set a user’s expectations, enable users to complete the outcome they set out to achieve, work in a familiar way, require no prior knowledge to use, be agnostic of organisational structures, require the minimum possible steps to complete, be consistent throughout, have no dead ends, be usable by everyone equally, encourage the right behaviours from users and service providers, quickly respond to change, clearly explain why a decision has been made, and make it easy to get human assistance.
 
-And if you want even more detail, go buy and read the book.
+And if you want even more detail, go [buy and read the book](https://amzn.eu/d/fHd5xkV).
 
 ## Introducing SODA: Service-Oriented Data Architecture
 
