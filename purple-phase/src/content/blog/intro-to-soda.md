@@ -1,7 +1,7 @@
 ---
 title: "Introduction to SODA"
 pubDate: 2025-12-03T07:00:25+06:00
-description: "Scheduling Interactive and SQL Warehouse Clusters in Databricks"
+description: "Applying Service Design principles to Data Architecture"
 tags: ["strategy"]
 categories: ["strategy"]
 slug: "strategy/intro-to-soda"
