@@ -1,0 +1,9 @@
+---
+import LabBench from '../../layouts/LabBench.astro';
+import RedactionRacerGame from '../../components/games/RedactionRacer';
+import { SITE_TITLE } from '../../consts';
+---
+
+<LabBench title={`Redaction Racer | ${SITE_TITLE}`} description="Race against the clock to redact sensitive PII from documents.">
+	<RedactionRacerGame client:only="react" />
+</LabBench>

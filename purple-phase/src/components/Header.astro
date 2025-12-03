@@ -1,0 +1,152 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/">[ / ] Home</HeaderLink>
+			<HeaderLink href="/about">[ ? ] About</HeaderLink>
+			<HeaderLink href="/blog">[ A ] Log</HeaderLink>
+			<HeaderLink href="/games">[ B ] Lab</HeaderLink>
+		</div>
+		<div class="theme-toggle-container">
+			<button id="theme-toggle" aria-label="Toggle theme">
+				<svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+				<svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+			</button>
+		</div>
+	</nav>
+</header>
+
+<script is:inline>
+	const themeToggle = document.getElementById('theme-toggle');
+	const html = document.documentElement;
+	
+	// Check for saved theme preference or system preference
+	const savedTheme = localStorage.getItem('theme');
+	const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	
+	// Function to set theme
+	function setTheme(theme) {
+		if (theme === 'dark') {
+			html.classList.add('dark');
+			html.classList.remove('light');
+		} else {
+			html.classList.add('light');
+			html.classList.remove('dark');
+		}
+		localStorage.setItem('theme', theme);
+	}
+	
+	// Initialize theme
+	if (savedTheme) {
+		setTheme(savedTheme);
+	} else {
+		// If no saved preference, respect system but don't set class explicitly unless needed
+		// Actually, for the toggle to work visually with the CSS changes I'll make, 
+		// it's better to be explicit if we are going to use classes.
+		// But to avoid FOUC with system preference, we might want to handle this carefully.
+		// For now, let's just set it.
+		setTheme(systemTheme);
+	}
+
+	themeToggle.addEventListener('click', () => {
+		const isDark = html.classList.contains('dark');
+		setTheme(isDark ? 'light' : 'dark');
+	});
+</script>
+
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: var(--bg-color);
+		box-shadow: 0 2px 8px rgba(0,0,0, 5%);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+		color: var(--text-color);
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	nav a {
+		padding: 1em 0.5em;
+		color: var(--text-color);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+	
+	.theme-toggle-container {
+		display: flex;
+		align-items: center;
+	}
+	
+	#theme-toggle {
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: var(--text-color);
+		padding: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+		transition: background-color 0.2s;
+	}
+	
+	#theme-toggle:hover {
+		background-color: var(--code-bg);
+	}
+	
+	/* Show/Hide icons based on theme */
+	:global(html.dark) .sun-icon {
+		display: block;
+	}
+	:global(html.dark) .moon-icon {
+		display: none;
+	}
+	
+	:global(html.light) .sun-icon {
+		display: none;
+	}
+	:global(html.light) .moon-icon {
+		display: block;
+	}
+	
+	/* Default state (if no class) - assume light or handle via media query in CSS */
+	/* But since we set class on load, this should be fine. */
+
+	@media (max-width: 720px) {
+		nav {
+			flex-wrap: wrap;
+		}
+		.internal-links {
+			order: 3;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			gap: 0.5em;
+			margin-top: 0.5em;
+			flex-wrap: wrap;
+		}
+		.internal-links a {
+			padding: 0.5em;
+		}
+	}
+</style>

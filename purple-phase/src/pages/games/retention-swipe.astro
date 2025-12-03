@@ -1,0 +1,9 @@
+---
+import LabBench from '../../layouts/LabBench.astro';
+import RetentionSwipe from '../../components/games/RetentionSwipe';
+import { SITE_TITLE } from '../../consts';
+---
+
+<LabBench title={`Retention Swipe | ${SITE_TITLE}`} description="Decide whether to keep or delete files based on retention policies.">
+	<RetentionSwipe client:only="react" />
+</LabBench>

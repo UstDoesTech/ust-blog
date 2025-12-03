@@ -1,0 +1,125 @@
+---
+import LabBench from '../layouts/LabBench.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<LabBench title={`Games | ${SITE_TITLE}`} description="Interactive mini-games and experiments">
+	<style>
+		.games-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 4rem;
+			padding: 2rem 0;
+		}
+		.game-card {
+			background: var(--surface-color);
+			border: 1px solid var(--accent);
+			border-radius: 8px;
+			padding: 1.5rem;
+			text-align: center;
+			transition: transform 0.2s, box-shadow 0.2s;
+			text-decoration: none;
+			color: var(--text-color);
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		.game-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+		}
+		.game-card h3 {
+			margin-top: 0;
+			color: var(--accent);
+			font-family: var(--font-ui);
+		}
+		.game-card p {
+			color: var(--gray);
+			font-size: 0.9rem;
+			flex-grow: 1;
+			font-family: var(--font-ui);
+		}
+		.status-badge {
+			background: var(--surface-color);
+			color: var(--gray);
+			padding: 0.5rem 1rem;
+			border-radius: 4px;
+			font-size: 0.85rem;
+			display: inline-block;
+			margin-top: 1rem;
+			border: 1px solid var(--gray);
+			font-family: var(--font-ui);
+		}
+		.play-now {
+			background: var(--accent);
+			color: var(--bg-color);
+			border: none;
+			font-weight: bold;
+		}
+		
+		/* Scanline effect for cards */
+		.game-card::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				to bottom,
+				transparent 50%,
+				rgba(0, 0, 0, 0.1) 51%
+			);
+			background-size: 100% 4px;
+			pointer-events: none;
+			opacity: 0.3;
+		}
+
+		@media (max-width: 720px) {
+			.games-grid {
+				gap: 2rem;
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+
+	<div class="games-grid">
+		<a href="/games/data-dice" class="game-card">
+			<h3>🎲 Data Dice</h3>
+			<p>Explore probability distributions through interactive dice rolling. Watch the law of large numbers in action.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
+
+		<a href="/games/redaction-racer" class="game-card">
+			<h3>🕵️ Redaction Racer</h3>
+			<p>Race against the clock to redact sensitive PII (SSN, Credit Cards) from documents.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
+
+		<a href="/games/data-bouncer" class="game-card">
+			<h3>🛡️ Data Bouncer</h3>
+			<p>You are the firewall. Approve or deny data access requests based on role-based access control.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
+
+		<a href="/games/pipeline-plumber" class="game-card">
+			<h3>🔧 Pipeline Plumber</h3>
+			<p>Construct a data pipeline by arranging processing steps in the correct logical order.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
+
+		<a href="/games/retention-swipe" class="game-card">
+			<h3>📅 Retention Swipe</h3>
+			<p>Swipe-style data governance! Decide whether to keep or delete files based on retention policies.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
+
+		<a href="/games/golden-record" class="game-card">
+			<h3>🏆 Golden Record</h3>
+			<p>Master Data Management: Drag the most complete data from multiple systems to create the single source of truth.</p>
+			<span class="status-badge play-now">Initialize Module →</span>
+		</a>
+	</div>
+</LabBench>

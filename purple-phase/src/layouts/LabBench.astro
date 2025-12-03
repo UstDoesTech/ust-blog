@@ -1,0 +1,125 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="lab-mode">
+	<head>
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} />
+		<style>
+			/* Force Dark Mode Variables for Lab Mode */
+			:global(.lab-mode) {
+				--bg-color: #0F172A;
+				--text-color: #E2E8F0;
+				--accent-color: #38BDF8;
+				--surface-color: #1E293B;
+				--code-bg: #1E293B;
+				
+				/* Re-map legacy vars */
+				--accent: var(--accent-color);
+				--black: 226, 232, 240;
+				--gray: 148, 163, 184;
+				--gray-light: 30, 41, 59;
+				--gray-dark: 226, 232, 240;
+			}
+
+			body {
+				background-color: var(--bg-color);
+				color: var(--text-color);
+			}
+
+			main {
+				width: 100%;
+				max-width: 1400px; /* Wide layout */
+				margin: 0 auto;
+				padding: 2rem 1rem;
+			}
+
+			.lab-window {
+				background: var(--bg-color);
+				border: 1px solid var(--accent);
+				border-radius: 4px;
+				box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+				overflow: hidden;
+				margin-top: 2rem;
+			}
+
+			.window-title-bar {
+				background: var(--surface-color);
+				border-bottom: 1px solid var(--accent);
+				padding: 0.5rem 1rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-family: var(--font-ui);
+				font-size: 0.9rem;
+				color: var(--accent);
+			}
+
+			.window-controls {
+				display: flex;
+				gap: 0.5rem;
+			}
+
+			.window-control {
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background: var(--gray);
+			}
+
+			.window-control.close { background: #ef4444; }
+			.window-control.minimize { background: #eab308; }
+			.window-control.maximize { background: #22c55e; }
+
+			.window-content {
+				padding: 2rem;
+			}
+
+			h1 {
+				font-family: var(--font-ui);
+				color: var(--accent);
+				margin-bottom: 0.5rem;
+			}
+
+			.lab-intro {
+				font-family: var(--font-ui);
+				color: var(--gray);
+				margin-bottom: 2rem;
+				max-width: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>&gt; {title}</h1>
+			<p class="lab-intro">// {description}</p>
+			
+			<div class="lab-window">
+				<div class="window-title-bar">
+					<span class="window-title">./{title.toLowerCase().replace(/\s+/g, '-')}.exe</span>
+					<div class="window-controls">
+						<span class="window-control minimize"></span>
+						<span class="window-control maximize"></span>
+						<span class="window-control close"></span>
+					</div>
+				</div>
+				<div class="window-content">
+					<slot />
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,9 @@
+---
+import LabBench from '../../layouts/LabBench.astro';
+import PipelinePlumberGame from '../../components/games/PipelinePlumber';
+import { SITE_TITLE } from '../../consts';
+---
+
+<LabBench title={`Pipeline Plumber | ${SITE_TITLE}`} description="Construct the data pipeline in the correct order to clean the source data.">
+	<PipelinePlumberGame client:only="react" />
+</LabBench>

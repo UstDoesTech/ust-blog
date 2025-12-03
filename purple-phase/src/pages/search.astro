@@ -1,0 +1,77 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+<html lang="en">
+  <head>
+    <BaseHead title={`Search | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <style>
+        main {
+            width: 720px;
+            max-width: calc(100% - 2em);
+            margin: auto;
+            padding: 3em 1em;
+        }
+        input {
+            width: 100%;
+            padding: 0.5em;
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            background: var(--surface-color);
+            color: var(--text-color);
+            border: 1px solid var(--accent);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        a {
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Search</h1>
+      <input id="q" type="search" placeholder="Search posts..." />
+      <ul id="results"></ul>
+    </main>
+    <Footer />
+    <script>
+      const input = document.getElementById('q');
+      const ul = document.getElementById('results');
+      let fuse;
+      async function load() {
+        const res = await fetch('/index.json');
+        const data = await res.json();
+        fuse = new Fuse(data, { keys: ['title', 'description', 'tags', 'categories'] });
+      }
+      function render(items) {
+        ul.innerHTML = '';
+        items.slice(0, 50).forEach((item) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `/posts/${item.item.slug || item.item.id}/`; // Ensure correct URL format
+          a.textContent = item.item.title;
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+      }
+      input.addEventListener('input', () => {
+        const q = input.value.trim();
+        if (!fuse || q.length === 0) { ul.innerHTML = ''; return; }
+        const result = fuse.search(q);
+        render(result);
+      });
+      load();
+    </script>
+  </body>
+</html>

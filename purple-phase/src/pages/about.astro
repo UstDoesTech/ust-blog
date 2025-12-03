@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import UstImage from '../assets/ust.png';
+import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+
+const socialLinks = [
+  { name: 'Github', url: 'https://www.github.com/ustdoestech', icon: Github },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ust-oldfield/', icon: Linkedin },
+  { name: 'Twitter', url: 'https://twitter.com/UstDoesTech', icon: Twitter },
+  { name: 'Email', url: 'mailto:ust@ustdoes.tech', icon: Mail },
+];
+
+const softSkills = [
+  { name: 'Leadership', percentage: 90, color: '#3b82f6' }, // blue
+  { name: 'Team Work', percentage: 85, color: '#eab308' }, // yellow
+  { name: 'Communication', percentage: 85, color: '#ec4899' }, // pink
+  { name: 'Hard Working', percentage: 85, color: '#22c55e' }, // green
+  { name: 'Fast Learner', percentage: 95, color: '#0ea5e9' }, // sky
+  { name: 'Problem Solving', percentage: 90, color: '#f97316' }, // orange
+];
+
+const personalSummary = [
+  "Father", "Consultant", "Swimmer", "DevOps & Automation enthusiast",
+  "Hiking", "Data", "Dogs", "Cloud", "Cooking",
+  "Data Engineering, Analytics and AI projects"
+];
+---
+
+<Layout
+	title="About Me"
+	description="Principal Consultant at Advancing Analytics"
+	pubDate={new Date('August 08 2021')}
+	heroImage={UstImage}
+>
+	<div class="about-content">
+		<p class="lead">
+			I am a passionate data engineer and analytics consultant with over 10 years of working experience. I help my customers overcome the challenges they have with data, allowing them to unlock value and gain valuable insight in their data.
+		</p>
+
+		<div class="work-info">
+			<h3>Principal Consultant</h3>
+			<p>at <a href="https://www.advancinganalytics.co.uk/" target="_blank">Advancing Analytics</a></p>
+		</div>
+
+		<div class="social-links">
+			{socialLinks.map((link) => (
+				<a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+					<link.icon className="w-6 h-6" />
+				</a>
+			))}
+		</div>
+
+		<hr />
+
+		<div class="personal-section">
+			<h3>Who am I?</h3>
+			<ul class="personal-list">
+				{personalSummary.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="skills-section">
+			<h3>Soft Skills</h3>
+			<div class="skills-grid">
+				{softSkills.map((skill) => (
+					<div class="skill-item">
+						<div class="skill-info">
+							<span>{skill.name}</span>
+							<span>{skill.percentage}%</span>
+						</div>
+						<div class="skill-bar-bg">
+							<div 
+								class="skill-bar-fill" 
+								style={`width: ${skill.percentage}%; background-color: ${skill.color};`}
+							></div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.lead {
+		font-size: 1.2em;
+		line-height: 1.6;
+		margin-bottom: 2rem;
+	}
+	.work-info {
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+		flex-wrap: wrap;
+	}
+	.social-links a {
+		color: var(--text-color);
+		transition: color 0.2s;
+	}
+	.social-links a:hover {
+		color: var(--accent);
+	}
+	.personal-list {
+		columns: 1;
+		list-style-type: disc;
+		padding-left: 1.5rem;
+	}
+	@media (min-width: 768px) {
+		.personal-list {
+			columns: 2;
+		}
+	}
+	.skills-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	@media (min-width: 768px) {
+		.skills-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	.skill-item {
+		margin-bottom: 0.5rem;
+	}
+	.skill-info {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0.25rem;
+		font-size: 0.9rem;
+	}
+	.skill-bar-bg {
+		width: 100%;
+		height: 8px;
+		background-color: #e5e7eb;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+	:global(.dark) .skill-bar-bg {
+		background-color: #374151;
+	}
+	.skill-bar-fill {
+		height: 100%;
+		border-radius: 4px;
+		transition: width 1s ease-in-out;
+	}
+</style>

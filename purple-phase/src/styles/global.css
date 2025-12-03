@@ -1,0 +1,248 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap');
+
+@import "tailwindcss";
+
+:root {
+	/* Light Mode (The "Oldfield" Vibe) */
+	--bg-color: #F7F5F0;
+	--text-color: #2D2D2D;
+	--accent-color: #D94E34;
+	--surface-color: #FFFFFF;
+	--code-bg: #E5E9F0;
+
+	/* Typography Variables */
+	--font-heading: 'Bitter', serif;
+	--font-body: 'Inter', sans-serif;
+	--font-ui: 'JetBrains Mono', monospace;
+
+	/* Legacy variables mapped to new palette */
+	--accent: var(--accent-color);
+	--accent-dark: #b93d26; /* Darker shade of orange */
+	--black: 45, 45, 45; /* #2D2D2D */
+	--gray: 100, 116, 139; /* Slate 500 */
+	--gray-light: 229, 233, 240;
+	--gray-dark: 45, 45, 45;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+	
+	/* Brutalist Design Tokens */
+	--border-width: 2px;
+	--shadow-hard: 4px 4px 0px var(--accent);
+	--shadow-hard-hover: 6px 6px 0px var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not(.light) {
+		/* Dark Mode (The "Ust" Vibe) */
+		--bg-color: #0F172A;
+		--text-color: #E2E8F0;
+		--accent-color: #38BDF8;
+		--surface-color: #1E293B;
+		--code-bg: #1E293B;
+
+		/* Legacy variables mapped to new palette */
+		--accent: var(--accent-color);
+		--accent-dark: #0ea5e9; /* Darker shade of sky blue */
+		--black: 226, 232, 240; /* #E2E8F0 */
+		--gray: 148, 163, 184; /* Slate 400 */
+		--gray-light: 30, 41, 59; /* #1E293B */
+		--gray-dark: 226, 232, 240;
+		--gray-gradient: rgba(var(--gray-light), 50%), #0F172A;
+		
+		/* Brutalist Design Tokens (Dark Mode) */
+		--shadow-hard: 4px 4px 0px var(--accent);
+		--shadow-hard-hover: 6px 6px 0px var(--accent);
+	}
+}
+
+:root.dark {
+	/* Dark Mode (The "Ust" Vibe) */
+	--bg-color: #0F172A;
+	--text-color: #E2E8F0;
+	--accent-color: #38BDF8;
+	--surface-color: #1E293B;
+	--code-bg: #1E293B;
+
+	/* Legacy variables mapped to new palette */
+	--accent: var(--accent-color);
+	--accent-dark: #0ea5e9; /* Darker shade of sky blue */
+	--black: 226, 232, 240; /* #E2E8F0 */
+	--gray: 148, 163, 184; /* Slate 400 */
+	--gray-light: 30, 41, 59; /* #1E293B */
+	--gray-dark: 226, 232, 240;
+	--gray-gradient: rgba(var(--gray-light), 50%), #0F172A;
+	
+	/* Brutalist Design Tokens (Dark Mode) */
+	--shadow-hard: 4px 4px 0px var(--accent);
+	--shadow-hard-hover: 6px 6px 0px var(--accent);
+}
+
+/* Removed local font-face definitions in favor of Google Fonts */
+
+body {
+	font-family: var(--font-body);
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--bg-color);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: var(--text-color);
+	font-size: 20px;
+	line-height: 1.7;
+}
+
+main {
+	width: 720px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 3em 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	color: var(--text-color);
+	line-height: 1.2;
+	font-family: var(--font-heading);
+}
+
+h1 {
+	font-size: 3.052em;
+}
+h2 {
+	font-size: 2.441em;
+}
+h3 {
+	font-size: 1.953em;
+}
+h4 {
+	font-size: 1.563em;
+}
+h5 {
+	font-size: 1.25em;
+}
+
+strong,
+b {
+	font-weight: 700;
+}
+
+a {
+	color: var(--accent);
+}
+a:hover {
+	color: var(--accent);
+}
+
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+
+textarea {
+	width: 100%;
+	font-size: 16px;
+	background-color: var(--surface-color);
+	color: var(--text-color);
+	border: 1px solid var(--accent);
+	font-family: var(--font-ui);
+}
+input {
+	font-size: 16px;
+	background-color: var(--surface-color);
+	color: var(--text-color);
+	border: 1px solid var(--accent);
+	font-family: var(--font-ui);
+}
+
+table {
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+code {
+	padding: 2px 5px;
+	background-color: var(--code-bg);
+	color: var(--text-color);
+	border-radius: 2px;
+	font-family: var(--font-ui);
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+	background-color: var(--code-bg);
+}
+pre > code {
+	all: unset;
+	color: var(--text-color);
+	font-family: var(--font-ui);
+}
+
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0;
+	font-size: 1.333em;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--accent);
+	opacity: 0.2;
+}
+
+/* UI Elements Typography */
+nav a, 
+.btn, 
+.date, 
+.last-updated-on,
+.section-title a {
+	font-family: var(--font-ui);
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}

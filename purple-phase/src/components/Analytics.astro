@@ -1,0 +1,18 @@
+---
+// This component handles the injection of self-hosted analytics scripts (e.g., Umami, Plausible)
+// It reads from environment variables to keep the configuration flexible.
+
+const analyticsUrl = import.meta.env.PUBLIC_ANALYTICS_URL;
+const websiteId = import.meta.env.PUBLIC_ANALYTICS_WEBSITE_ID;
+
+// Only render if the URL is provided
+const shouldRender = !!analyticsUrl;
+---
+
+{shouldRender && (
+  <script
+    defer
+    src={analyticsUrl}
+    data-website-id={websiteId}
+  ></script>
+)}

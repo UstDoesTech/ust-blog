@@ -1,0 +1,9 @@
+---
+import LabBench from '../../layouts/LabBench.astro';
+import GoldenRecord from '../../components/games/GoldenRecord';
+import { SITE_TITLE } from '../../consts';
+---
+
+<LabBench title={`Golden Record | ${SITE_TITLE}`} description="Master Data Management: Create the single source of truth from conflicting systems.">
+	<GoldenRecord client:only="react" />
+</LabBench>
