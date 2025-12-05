@@ -1,0 +1,9 @@
+---
+import LabBench from '../../layouts/LabBench.astro';
+import BlockadeRunner from '../../components/games/BlockadeRunner1806';
+import { SITE_TITLE } from '../../consts';
+---
+
+<LabBench title={`Blockade Runner 1806 | ${SITE_TITLE}`} description="Navigate the Continental System, smuggle goods, and outwit Napoleon's customs officers.">
+	<BlockadeRunner client:only="react" />
+</LabBench>

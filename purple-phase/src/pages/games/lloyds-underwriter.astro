@@ -1,0 +1,9 @@
+---
+import LabBench from '../../layouts/LabBench.astro';
+import MaritimeInsuranceGame from '../../components/games/LloydsCoffeeHouseUnderwriter';
+import { SITE_TITLE } from '../../consts';
+---
+
+<LabBench title={`Lloyd's Coffee House Underwriter | ${SITE_TITLE}`} description="Step into 1688 London. Assess risk, underwrite voyages, and build your fortune in the coffee house where modern insurance was born.">
+	<MaritimeInsuranceGame client:only="react" />
+</LabBench>
