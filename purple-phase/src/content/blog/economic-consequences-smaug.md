@@ -5,7 +5,7 @@ description: "An economic analysis of Smaug’s impact on Middle Earth, challeng
 tags: ["economics"]
 categories: ["economics"]
 slug: "economics/economic-consequences-smaug"
-heroImage: "../../assets/hobbit-smaug-howe.png"
+heroImage: "../../assets/hobbit-Smaug-howe.png"
 ---
 
 Due to the release of the Hobbit in cinemas there has been an increase in blogging activity among economic commentators. The vast majority point out that the arrival of Smaug ushered in a downturn in the economy. I disagree. Smaug was an accidental and indirect net contributor to the economy.
