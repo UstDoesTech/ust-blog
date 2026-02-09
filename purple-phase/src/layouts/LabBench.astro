@@ -19,18 +19,20 @@ const { title, description } = Astro.props;
 		<style>
 			/* Force Dark Mode Variables for Lab Mode */
 			:global(.lab-mode) {
-				--bg-color: #0F172A;
-				--text-color: #E2E8F0;
-				--accent-color: #38BDF8;
-				--surface-color: #1E293B;
-				--code-bg: #1E293B;
+				--bg-color: #0D1B2A;
+				--text-color: #E8E4DD;
+				--accent-color: #0A6E6E;
+				--surface-color: #162738;
+				--code-bg: #0A1420;
 				
 				/* Re-map legacy vars */
 				--accent: var(--accent-color);
-				--black: 226, 232, 240;
-				--gray: 148, 163, 184;
-				--gray-light: 30, 41, 59;
-				--gray-dark: 226, 232, 240;
+				--brand-teal: #0A6E6E;
+				--black: 232, 228, 221;
+				--gray: 168, 184, 200;
+				--gray-light: 22, 39, 56;
+				--gray-dark: 232, 228, 221;
+				--border-color: #243B50;
 			}
 
 			body {
@@ -47,23 +49,23 @@ const { title, description } = Astro.props;
 
 			.lab-window {
 				background: var(--bg-color);
-				border: 1px solid var(--accent);
+				border: 1px solid var(--brand-teal);
 				border-radius: 4px;
-				box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+				box-shadow: 0 0 20px rgba(10, 110, 110, 0.1);
 				overflow: hidden;
 				margin-top: 2rem;
 			}
 
 			.window-title-bar {
 				background: var(--surface-color);
-				border-bottom: 1px solid var(--accent);
+				border-bottom: 1px solid var(--brand-teal);
 				padding: 0.5rem 1rem;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				font-family: var(--font-ui);
 				font-size: 0.9rem;
-				color: var(--accent);
+				color: var(--brand-teal);
 			}
 
 			.window-controls {
@@ -88,13 +90,13 @@ const { title, description } = Astro.props;
 
 			h1 {
 				font-family: var(--font-ui);
-				color: var(--accent);
+				color: var(--brand-teal);
 				margin-bottom: 0.5rem;
 			}
 
 			.lab-intro {
 				font-family: var(--font-ui);
-				color: var(--gray);
+				color: var(--text-muted);
 				margin-bottom: 2rem;
 				max-width: 800px;
 			}

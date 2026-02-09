@@ -1,90 +1,115 @@
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+  Ust. Brand Guidelines — Applied
+  Visual identity: ustdoes.tech · Advancing Analytics
+  Approachable expert — deep knowledge, easy manner.
  */
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap');
 
 @import "tailwindcss";
 
+/* ───────────────────────────────────────────────
+   Brand Colour Palette
+   ─────────────────────────────────────────────── */
+
 :root {
-	/* Light Mode (The "Oldfield" Vibe) */
-	--bg-color: #F7F5F0;
-	--text-color: #2D2D2D;
-	--accent-color: #D94E34;
-	--surface-color: #FFFFFF;
-	--code-bg: #E5E9F0;
+	/* ── Light Mode ── */
+	--bg-color: #F4F1EC;           /* Warm off-white */
+	--bg-subtle: #E8E4DD;          /* Secondary backgrounds */
+	--text-color: #0D1B2A;         /* Dark Navy — primary text */
+	--text-secondary: #3D4F5F;     /* Subheadings, descriptions */
+	--text-muted: #6B7C8A;         /* Captions, metadata */
+	--surface-color: #FFFFFF;      /* Cards, elevated panels */
+	--border-color: #D4CFC7;       /* Card borders, dividers */
+	--border-subtle: #E8E4DD;      /* Subtle separation */
+	--code-bg: #0D1B2A;            /* Code block backgrounds */
+	--code-text: #E8E4DD;          /* Code block text */
 
-	/* Typography Variables */
-	--font-heading: 'Bitter', serif;
-	--font-body: 'Inter', sans-serif;
-	--font-ui: 'JetBrains Mono', monospace;
+	/* ── Brand Colours ── */
+	--brand-teal: #0A6E6E;         /* Primary / Brand Anchor */
+	--brand-navy: #0D1B2A;         /* Depth / Authority */
+	--brand-sage: #4A7C6F;         /* Secondary / Organic */
+	--brand-amber: #F5A623;        /* Accent / Warmth */
+	--brand-coral: #FF4F58;        /* Accent / Punch */
 
-	/* Legacy variables mapped to new palette */
-	--accent: var(--accent-color);
-	--accent-dark: #b93d26; /* Darker shade of orange */
-	--black: 45, 45, 45; /* #2D2D2D */
-	--gray: 100, 116, 139; /* Slate 500 */
-	--gray-light: 229, 233, 240;
-	--gray-dark: 45, 45, 45;
+	/* ── Semantic Aliases ── */
+	--accent-color: var(--brand-teal);
+	--accent: var(--brand-teal);
+	--accent-dark: #085858;
+	--accent-warm: var(--brand-amber);
+	--accent-punch: var(--brand-coral);
+
+	/* ── Typography ── */
+	--font-heading: Georgia, 'Times New Roman', serif;
+	--font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	--font-ui: Consolas, 'Courier New', monospace;
+
+	/* ── Legacy variables (backward compat) ── */
+	--black: 13, 27, 42;          /* #0D1B2A */
+	--gray: 107, 124, 138;        /* #6B7C8A */
+	--gray-light: 232, 228, 221;  /* #E8E4DD */
+	--gray-dark: 13, 27, 42;      /* #0D1B2A */
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-	
-	/* Brutalist Design Tokens */
+
+	/* ── Design Tokens ── */
 	--border-width: 2px;
-	--shadow-hard: 4px 4px 0px var(--accent);
-	--shadow-hard-hover: 6px 6px 0px var(--accent);
+	--radius: 8px;
+	--shadow-hard: 4px 4px 0px var(--brand-teal);
+	--shadow-hard-hover: 6px 6px 0px var(--brand-teal);
 }
 
+/* ── Dark Mode (system preference) ── */
 @media (prefers-color-scheme: dark) {
 	:root:not(.light) {
-		/* Dark Mode (The "Ust" Vibe) */
-		--bg-color: #0F172A;
-		--text-color: #E2E8F0;
-		--accent-color: #38BDF8;
-		--surface-color: #1E293B;
-		--code-bg: #1E293B;
+		--bg-color: #0D1B2A;           /* Dark Navy */
+		--bg-subtle: #162738;
+		--text-color: #E8E4DD;         /* Warm off-white */
+		--text-secondary: #A8B8C8;
+		--text-muted: #6B7C8A;
+		--surface-color: #162738;
+		--border-color: #243B50;
+		--border-subtle: #1E3347;
+		--code-bg: #0A1420;
+		--code-text: #A8B8C8;
 
-		/* Legacy variables mapped to new palette */
-		--accent: var(--accent-color);
-		--accent-dark: #0ea5e9; /* Darker shade of sky blue */
-		--black: 226, 232, 240; /* #E2E8F0 */
-		--gray: 148, 163, 184; /* Slate 400 */
-		--gray-light: 30, 41, 59; /* #1E293B */
-		--gray-dark: 226, 232, 240;
-		--gray-gradient: rgba(var(--gray-light), 50%), #0F172A;
-		
-		/* Brutalist Design Tokens (Dark Mode) */
-		--shadow-hard: 4px 4px 0px var(--accent);
-		--shadow-hard-hover: 6px 6px 0px var(--accent);
+		--accent-dark: #0DAEAE;
+		--black: 232, 228, 221;
+		--gray: 168, 184, 200;
+		--gray-light: 22, 39, 56;
+		--gray-dark: 232, 228, 221;
+		--gray-gradient: rgba(var(--gray-light), 50%), #0D1B2A;
+
+		--shadow-hard: 4px 4px 0px var(--brand-teal);
+		--shadow-hard-hover: 6px 6px 0px var(--brand-teal);
 	}
 }
 
+/* ── Dark Mode (explicit class) ── */
 :root.dark {
-	/* Dark Mode (The "Ust" Vibe) */
-	--bg-color: #0F172A;
-	--text-color: #E2E8F0;
-	--accent-color: #38BDF8;
-	--surface-color: #1E293B;
-	--code-bg: #1E293B;
+	--bg-color: #0D1B2A;
+	--bg-subtle: #162738;
+	--text-color: #E8E4DD;
+	--text-secondary: #A8B8C8;
+	--text-muted: #6B7C8A;
+	--surface-color: #162738;
+	--border-color: #243B50;
+	--border-subtle: #1E3347;
+	--code-bg: #0A1420;
+	--code-text: #A8B8C8;
 
-	/* Legacy variables mapped to new palette */
-	--accent: var(--accent-color);
-	--accent-dark: #0ea5e9; /* Darker shade of sky blue */
-	--black: 226, 232, 240; /* #E2E8F0 */
-	--gray: 148, 163, 184; /* Slate 400 */
-	--gray-light: 30, 41, 59; /* #1E293B */
-	--gray-dark: 226, 232, 240;
-	--gray-gradient: rgba(var(--gray-light), 50%), #0F172A;
-	
-	/* Brutalist Design Tokens (Dark Mode) */
-	--shadow-hard: 4px 4px 0px var(--accent);
-	--shadow-hard-hover: 6px 6px 0px var(--accent);
+	--accent-dark: #0DAEAE;
+	--black: 232, 228, 221;
+	--gray: 168, 184, 200;
+	--gray-light: 22, 39, 56;
+	--gray-dark: 232, 228, 221;
+	--gray-gradient: rgba(var(--gray-light), 50%), #0D1B2A;
+
+	--shadow-hard: 4px 4px 0px var(--brand-teal);
+	--shadow-hard-hover: 6px 6px 0px var(--brand-teal);
 }
 
-/* Removed local font-face definitions in favor of Google Fonts */
+/* ───────────────────────────────────────────────
+   Base Elements
+   ─────────────────────────────────────────────── */
 
 body {
 	font-family: var(--font-body);
@@ -95,7 +120,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: var(--text-color);
-	font-size: 20px;
+	font-size: 15px;
 	line-height: 1.7;
 }
 
@@ -106,6 +131,7 @@ main {
 	padding: 3em 1em;
 }
 
+/* ── Headings — Georgia Bold ── */
 h1,
 h2,
 h3,
@@ -116,34 +142,36 @@ h6 {
 	color: var(--text-color);
 	line-height: 1.2;
 	font-family: var(--font-heading);
+	font-weight: bold;
 }
 
 h1 {
-	font-size: 3.052em;
+	font-size: 2.25rem;  /* ~36px */
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 1.625rem; /* ~26px */
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.25rem;  /* ~20px */
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.1rem;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 1rem;
 }
 
 strong,
 b {
-	font-weight: 700;
+	font-weight: 600; /* Segoe UI Semibold */
 }
 
+/* ── Links — Deep Teal ── */
 a {
-	color: var(--accent);
+	color: var(--brand-teal);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 
 p {
@@ -153,20 +181,23 @@ p {
 	margin-bottom: 2em;
 }
 
+/* ── Form Controls ── */
 textarea {
 	width: 100%;
 	font-size: 16px;
 	background-color: var(--surface-color);
 	color: var(--text-color);
-	border: 1px solid var(--accent);
-	font-family: var(--font-ui);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius);
+	font-family: var(--font-body);
 }
 input {
 	font-size: 16px;
 	background-color: var(--surface-color);
 	color: var(--text-color);
-	border: 1px solid var(--accent);
-	font-family: var(--font-ui);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius);
+	font-family: var(--font-body);
 }
 
 table {
@@ -176,30 +207,33 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: var(--radius);
 }
 
+/* ── Code — Consolas on Navy ── */
 code {
 	padding: 2px 5px;
 	background-color: var(--code-bg);
-	color: var(--text-color);
-	border-radius: 2px;
+	color: var(--code-text);
+	border-radius: 4px;
 	font-family: var(--font-ui);
+	font-size: 0.8125rem; /* 13px */
 }
 
 pre {
 	padding: 1.5em;
-	border-radius: 8px;
+	border-radius: var(--radius);
 	background-color: var(--code-bg);
 }
 pre > code {
 	all: unset;
-	color: var(--text-color);
+	color: var(--code-text);
 	font-family: var(--font-ui);
+	font-size: 0.8125rem;
 }
 
 blockquote {
-	border-left: 4px solid var(--accent);
+	border-left: 4px solid var(--brand-teal);
 	padding: 0 0 0 20px;
 	margin: 0;
 	font-size: 1.333em;
@@ -207,22 +241,110 @@ blockquote {
 
 hr {
 	border: none;
-	border-top: 1px solid var(--accent);
-	opacity: 0.2;
+	border-top: 1px solid var(--border-color);
+	opacity: 0.4;
 }
 
-/* UI Elements Typography */
-nav a, 
-.btn, 
-.date, 
+/* ── UI Elements — Consolas for nav, dates, labels ── */
+nav a,
+.btn,
+.date,
 .last-updated-on,
 .section-title a {
 	font-family: var(--font-ui);
 }
 
+/* ── Caption / Label Style ── */
+.caption,
+.label {
+	font-family: var(--font-body);
+	font-size: 0.6875rem; /* 11px */
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--text-muted);
+}
+
+/* ── Brand Buttons ── */
+.btn-primary {
+	display: inline-block;
+	background: var(--brand-teal);
+	color: #FFFFFF;
+	border: none;
+	padding: 0.75rem 2rem;
+	border-radius: var(--radius);
+	font-family: var(--font-body);
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s, transform 0.1s;
+}
+.btn-primary:hover {
+	background: var(--accent-dark);
+	transform: translateY(-1px);
+	color: #FFFFFF;
+}
+
+.btn-secondary {
+	display: inline-block;
+	background: transparent;
+	color: var(--brand-teal);
+	border: 2px solid var(--brand-teal);
+	padding: 0.75rem 2rem;
+	border-radius: var(--radius);
+	font-family: var(--font-body);
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.btn-secondary:hover {
+	background: var(--brand-teal);
+	color: #FFFFFF;
+}
+
+.btn-cta {
+	display: inline-block;
+	background: var(--brand-amber);
+	color: var(--brand-navy);
+	border: none;
+	padding: 0.75rem 2rem;
+	border-radius: var(--radius);
+	font-family: var(--font-body);
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-decoration: none;
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-cta:hover {
+	transform: scale(1.03);
+	box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+	color: var(--brand-navy);
+}
+
+/* ── Content Tags ── */
+.tag {
+	display: inline-block;
+	font-family: var(--font-body);
+	font-weight: 600;
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #FFFFFF;
+	padding: 0.25em 0.75em;
+	border-radius: 4px;
+	background: var(--brand-teal);
+}
+.tag--sage       { background: var(--brand-sage); }
+.tag--amber      { background: var(--brand-amber); color: var(--brand-navy); }
+.tag--coral      { background: var(--brand-coral); }
+
 @media (max-width: 720px) {
 	body {
-		font-size: 18px;
+		font-size: 15px;
 	}
 	main {
 		padding: 1em;
@@ -237,12 +359,8 @@ nav a,
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }

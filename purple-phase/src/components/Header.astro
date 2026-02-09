@@ -5,7 +5,7 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href="/" class="wordmark">Ust<span class="dot-amber">.</span> does<span class="dot-teal">.</span> tech</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">[ / ] Home</HeaderLink>
 			<HeaderLink href="/about">[ ? ] About</HeaderLink>
@@ -64,17 +64,26 @@ import HeaderLink from './HeaderLink.astro';
 		margin: 0;
 		padding: 0 1em;
 		background: var(--bg-color);
-		box-shadow: 0 2px 8px rgba(0,0,0, 5%);
+		border-bottom: 3px solid var(--brand-teal);
 	}
 	h2 {
 		margin: 0;
 		font-size: 1em;
 	}
 
-	h2 a,
-	h2 a.active {
+	.wordmark {
 		text-decoration: none;
 		color: var(--text-color);
+		font-family: Georgia, 'Times New Roman', serif;
+		font-weight: bold;
+		font-size: 1.1rem;
+		letter-spacing: 0.5px;
+	}
+	.dot-amber {
+		color: #F5A623;
+	}
+	.dot-teal {
+		color: #0A6E6E;
 	}
 	nav {
 		display: flex;
@@ -89,7 +98,7 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	nav a.active {
 		text-decoration: none;
-		border-bottom-color: var(--accent);
+		border-bottom-color: var(--brand-teal);
 	}
 	
 	.theme-toggle-container {
@@ -111,7 +120,7 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	
 	#theme-toggle:hover {
-		background-color: var(--code-bg);
+		background-color: var(--bg-subtle);
 	}
 	
 	/* Show/Hide icons based on theme */

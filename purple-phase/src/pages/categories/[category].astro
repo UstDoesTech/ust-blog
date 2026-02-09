@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -14,9 +15,7 @@ const posts = (await getCollection('blog')).filter((p) => (p.data.categories ?? 
 ---
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Category: {category}</title>
+    <BaseHead title={`Category: ${category}`} description={`Posts in ${category}`} />
   </head>
   <body>
     <Header />

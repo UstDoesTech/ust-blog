@@ -27,16 +27,16 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
                 margin-bottom: 4rem;
                 padding: 2rem;
                 background: var(--surface-color);
-                border: var(--border-width) solid var(--text-color);
-                box-shadow: var(--shadow-hard);
+                border: 1px solid var(--border-color);
+                border-left: 6px solid var(--brand-teal);
+                border-radius: var(--radius);
             }
             .hero img {
                 width: 150px;
                 height: 150px;
                 border-radius: 50%;
                 object-fit: cover;
-                border: 4px solid var(--bg-color);
-                box-shadow: var(--shadow-hard);
+                border: 4px solid var(--brand-teal);
             }
             .hero-content h1 {
                 margin: 0 0 0.5rem 0;
@@ -50,28 +50,30 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
             }
             .hero-link {
                 display: inline-block;
-                font-weight: bold;
-                color: var(--accent);
+                font-weight: 600;
+                color: var(--brand-teal);
                 text-decoration: none;
+                font-family: var(--font-body);
             }
             .hero-link:hover {
                 text-decoration: underline;
+                color: var(--accent-dark);
             }
             .section-title {
                 display: flex;
                 justify-content: space-between;
                 align-items: baseline;
                 margin-bottom: 2rem;
-                border-bottom: 2px solid var(--accent);
+                border-bottom: 2px solid var(--brand-teal);
                 padding-bottom: 0.5rem;
             }
             .section-title h2 {
                 margin: 0;
             }
             .section-title a {
-                font-weight: bold;
+                font-weight: 600;
                 text-decoration: none;
-                color: var(--accent);
+                color: var(--brand-teal);
             }
             .posts-grid {
                 display: grid;
@@ -80,20 +82,20 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
                 margin-bottom: 4rem;
             }
             .post-card {
-                border: var(--border-width) solid var(--text-color);
+                border: 1px solid var(--border-color);
                 padding: 1.5rem;
-                transition: transform 0.1s, box-shadow 0.1s;
+                transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
                 text-decoration: none;
                 color: inherit;
                 background: var(--surface-color);
                 display: flex;
                 flex-direction: column;
-                box-shadow: var(--shadow-hard);
+                border-radius: var(--radius);
             }
             .post-card:hover {
-                transform: translate(-2px, -2px);
-                box-shadow: var(--shadow-hard-hover);
-                border-color: var(--accent);
+                transform: translateY(-2px);
+                border-color: var(--brand-teal);
+                box-shadow: 0 4px 12px rgba(10, 110, 110, 0.15);
             }
             .post-card h3 {
                 margin: 0 0 0.5rem 0;
@@ -103,8 +105,7 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
             }
             .post-card .date {
                 font-size: 0.9rem;
-                color: var(--text-color);
-                opacity: 0.7;
+                color: var(--text-muted);
                 margin-bottom: 1rem;
             }
             .post-card p {
@@ -114,16 +115,16 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
                 flex-grow: 1;
             }
             .games-preview {
-                background: var(--accent);
-                color: white; /* Keep white text on accent background */
-                border: var(--border-width) solid var(--text-color);
+                background: var(--brand-teal);
+                color: #FFFFFF;
+                border: none;
                 padding: 3rem;
                 text-align: center;
                 margin-bottom: 4rem;
-                box-shadow: var(--shadow-hard);
+                border-radius: var(--radius);
             }
             .games-preview h2 {
-                color: white;
+                color: #FFFFFF;
                 margin-top: 0;
                 font-size: 2rem;
             }
@@ -134,22 +135,23 @@ const posts = allPosts.sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0
                 max-width: 600px;
                 margin-left: auto;
                 margin-right: auto;
-                color: white;
+                color: #FFFFFF;
             }
             .btn {
                 display: inline-block;
-                background: var(--bg-color);
-                color: var(--accent);
+                background: var(--brand-amber);
+                color: var(--brand-navy);
                 padding: 0.75rem 2rem;
-                border-radius: 50px;
-                font-weight: bold;
+                border-radius: var(--radius);
+                font-weight: 600;
                 text-decoration: none;
                 transition: transform 0.2s, box-shadow 0.2s;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                font-family: var(--font-body);
             }
             .btn:hover {
                 transform: scale(1.05);
-                box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+                box-shadow: 0 6px 16px rgba(245, 166, 35, 0.3);
+                color: var(--brand-navy);
             }
             @media (max-width: 720px) {
                 .hero {

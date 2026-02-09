@@ -13,7 +13,7 @@ import { SITE_TITLE } from '../consts';
 		}
 		.game-card {
 			background: var(--surface-color);
-			border: 1px solid var(--accent);
+			border: 1px solid var(--border-color);
 			border-radius: 8px;
 			padding: 1.5rem;
 			text-align: center;
@@ -28,33 +28,34 @@ import { SITE_TITLE } from '../consts';
 		}
 		.game-card:hover {
 			transform: translateY(-4px);
-			box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+			box-shadow: 0 0 15px rgba(10, 110, 110, 0.2);
+			border-color: var(--brand-teal);
 		}
 		.game-card h3 {
 			margin-top: 0;
-			color: var(--accent);
+			color: var(--brand-teal);
 			font-family: var(--font-ui);
 		}
 		.game-card p {
-			color: var(--gray);
+			color: var(--text-muted);
 			font-size: 0.9rem;
 			flex-grow: 1;
 			font-family: var(--font-ui);
 		}
 		.status-badge {
 			background: var(--surface-color);
-			color: var(--gray);
+			color: var(--text-muted);
 			padding: 0.5rem 1rem;
 			border-radius: 4px;
 			font-size: 0.85rem;
 			display: inline-block;
 			margin-top: 1rem;
-			border: 1px solid var(--gray);
+			border: 1px solid var(--border-color);
 			font-family: var(--font-ui);
 		}
 		.play-now {
-			background: var(--accent);
-			color: var(--bg-color);
+			background: var(--brand-teal);
+			color: #FFFFFF;
 			border: none;
 			font-weight: bold;
 		}
