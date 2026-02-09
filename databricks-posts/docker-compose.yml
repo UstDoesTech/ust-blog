@@ -1,0 +1,30 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: databricks-ollama
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    # Uncomment the deploy block below if you have an NVIDIA GPU available.
+    # This dramatically improves generation speed.
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+    # Health check so dependent services / scripts can wait for readiness
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:11434/api/tags || exit 1"]  # port inside container stays 11434
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+volumes:
+  ollama_data:
+    name: databricks-ollama-data
