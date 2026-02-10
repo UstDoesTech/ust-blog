@@ -140,10 +140,10 @@ def process_file(md_path: Path, session: requests.Session):
             replacement += f'  ![{alt}]({d["local_path"]})\n'
         replacement += "-->"
         
-        # Replace old manifest
+        # Replace old manifest (escape backslashes in replacement to avoid re interpretation)
         content = re.sub(
             r'<!-- IMAGE MANIFEST\n.*?-->',
-            replacement,
+            replacement.replace('\\', '\\\\'),
             content,
             flags=re.DOTALL
         )
