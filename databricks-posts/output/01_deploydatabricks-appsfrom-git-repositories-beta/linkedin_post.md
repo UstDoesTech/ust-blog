@@ -5,7 +5,15 @@
 
 ---
 
-Attention data enthusiasts! 🚀 Have you heard about the new Beta feature on Databricks? Now, deploy apps directly from Git repositories without uploading files to the workspace. Say goodbye to manual file transfers and streamline your workflows! Try it out now and let us know what you think. #Databricks #GitIntegration #DataDeployment #AIML #BigData
+A Databricks feature announcement, unpacked.
+
+In our ongoing pursuit of seamless data workflows, we're thrilled to announce the beta release of DeployDatabricks apps directly from Git repositories.
+
+This new feature allows you to configure a repository for your app and deploy from any branch, tag, or commit without uploading files to the workspace.
+
+Imagine being able to manage your data applications as code, reducing error-prone manual steps and streamlining deployments.
+
+DeployDatabricks apps directly from Git repositories (Beta) is a significant leap forward for any team looking to elevate their data workflows. But what does this mean in practice?
 
 ---
 

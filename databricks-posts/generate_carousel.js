@@ -10,23 +10,23 @@
 const pptxgen = require("pptxgenjs");
 const fs = require("fs");
 
-// --- CONFIG ---
+// --- CONFIG (Ust Brand v2 — Automation Pillar) ---
 const COLORS = {
-  dbRed:     "FF3621",   // Databricks red
-  darkBg:    "1B1F2B",   // Deep dark blue-black
-  midDark:   "262B3D",   // Card background
+  teal:      "0A6E6E",   // Deep Teal — Primary / Brand Anchor
+  darkBg:    "0D1B2A",   // Dark Navy — slide backgrounds
+  midDark:   "162738",   // bgSubtle — card backgrounds
   white:     "FFFFFF",
-  offWhite:  "F0F0F5",
-  lightGray: "A0A4B8",
-  accent:    "FF6F59",   // Warm coral accent
-  green:     "00D4AA",   // Teal green for HOW
-  blue:      "5B8DEF",   // Blue for WHY
-  yellow:    "FFB84D",   // Gold for WHAT
+  offWhite:  "E8E4DD",   // Warm off-white — body text
+  lightGray: "6B7C8A",   // Text muted — footers, page numbers
+  sage:      "4A7C6F",   // Sage Green — Automation accent
+  amber:     "F5A623",   // Honey Amber — WHAT accent
+  coral:     "FF4F58",   // Electric Coral — emphasis only
 };
 
 const FONTS = {
-  header: "Trebuchet MS",
-  body:   "Calibri",
+  header: "Georgia",
+  body:   "Segoe UI",
+  code:   "Consolas",
 };
 
 // Helper: factory functions to avoid pptxgenjs object mutation bug
@@ -41,7 +41,7 @@ function createCarousel(data, outputPath) {
   // Square format for LinkedIn carousel
   pres.defineLayout({ name: "SQUARE", width: 7.5, height: 7.5 });
   pres.layout = "SQUARE";
-  pres.author = "Ust @ Advancing Analytics";
+  pres.author = "Ust. does. tech";
   pres.title = data.title;
 
   // ============================================
@@ -50,21 +50,35 @@ function createCarousel(data, outputPath) {
   const s1 = pres.addSlide();
   s1.background = { color: COLORS.darkBg };
 
-  // Top accent bar
+  // Top accent bar (brand teal)
   s1.addShape(pres.shapes.RECTANGLE, {
     x: 0, y: 0, w: 7.5, h: 0.08,
-    fill: { color: COLORS.dbRed }
+    fill: { color: COLORS.teal }
   });
 
-  // Tag pill
+  // Gradient bar below (Teal → Sage → Amber — v2 brand signature)
+  s1.addShape(pres.shapes.RECTANGLE, {
+    x: 0, y: 0.08, w: 2.5, h: 0.03,
+    fill: { color: COLORS.teal }
+  });
+  s1.addShape(pres.shapes.RECTANGLE, {
+    x: 2.5, y: 0.08, w: 2.5, h: 0.03,
+    fill: { color: COLORS.sage }
+  });
+  s1.addShape(pres.shapes.RECTANGLE, {
+    x: 5.0, y: 0.08, w: 2.5, h: 0.03,
+    fill: { color: COLORS.amber }
+  });
+
+  // Tag pill (Automation pillar — Sage Green)
   s1.addShape(pres.shapes.ROUNDED_RECTANGLE, {
     x: 0.6, y: 1.2, w: 2.8, h: 0.45,
-    fill: { color: COLORS.dbRed },
+    fill: { color: COLORS.sage },
     rectRadius: 0.15
   });
   s1.addText("DATABRICKS UPDATE", {
     x: 0.6, y: 1.2, w: 2.8, h: 0.45,
-    fontSize: 12, fontFace: FONTS.header,
+    fontSize: 12, fontFace: FONTS.body,
     color: COLORS.white, bold: true,
     align: "center", valign: "middle",
     charSpacing: 3
@@ -103,13 +117,13 @@ function createCarousel(data, outputPath) {
   // Top accent
   s2.addShape(pres.shapes.RECTANGLE, {
     x: 0, y: 0, w: 7.5, h: 0.08,
-    fill: { color: COLORS.yellow }
+    fill: { color: COLORS.amber }
   });
 
   // Step indicator
   s2.addShape(pres.shapes.OVAL, {
     x: 0.6, y: 0.7, w: 0.65, h: 0.65,
-    fill: { color: COLORS.yellow }
+    fill: { color: COLORS.amber }
   });
   s2.addText("1", {
     x: 0.6, y: 0.7, w: 0.65, h: 0.65,
@@ -122,7 +136,7 @@ function createCarousel(data, outputPath) {
   s2.addText("WHAT IS IT?", {
     x: 1.5, y: 0.72, w: 5.4, h: 0.6,
     fontSize: 26, fontFace: FONTS.header,
-    color: COLORS.yellow, bold: true,
+    color: COLORS.amber, bold: true,
     align: "left", valign: "middle",
     charSpacing: 2
   });
@@ -137,7 +151,7 @@ function createCarousel(data, outputPath) {
   // Left accent bar on card
   s2.addShape(pres.shapes.RECTANGLE, {
     x: 0.6, y: 1.8, w: 0.06, h: 4.6,
-    fill: { color: COLORS.yellow }
+    fill: { color: COLORS.amber }
   });
 
   s2.addText(data.what, {
@@ -163,12 +177,12 @@ function createCarousel(data, outputPath) {
 
   s3.addShape(pres.shapes.RECTANGLE, {
     x: 0, y: 0, w: 7.5, h: 0.08,
-    fill: { color: COLORS.blue }
+    fill: { color: COLORS.teal }
   });
 
   s3.addShape(pres.shapes.OVAL, {
     x: 0.6, y: 0.7, w: 0.65, h: 0.65,
-    fill: { color: COLORS.blue }
+    fill: { color: COLORS.teal }
   });
   s3.addText("2", {
     x: 0.6, y: 0.7, w: 0.65, h: 0.65,
@@ -180,7 +194,7 @@ function createCarousel(data, outputPath) {
   s3.addText("WHY DOES IT MATTER?", {
     x: 1.5, y: 0.72, w: 5.4, h: 0.6,
     fontSize: 26, fontFace: FONTS.header,
-    color: COLORS.blue, bold: true,
+    color: COLORS.teal, bold: true,
     align: "left", valign: "middle",
     charSpacing: 2
   });
@@ -193,7 +207,7 @@ function createCarousel(data, outputPath) {
 
   s3.addShape(pres.shapes.RECTANGLE, {
     x: 0.6, y: 1.8, w: 0.06, h: 4.6,
-    fill: { color: COLORS.blue }
+    fill: { color: COLORS.teal }
   });
 
   s3.addText(data.why, {
@@ -218,12 +232,12 @@ function createCarousel(data, outputPath) {
 
   s4.addShape(pres.shapes.RECTANGLE, {
     x: 0, y: 0, w: 7.5, h: 0.08,
-    fill: { color: COLORS.green }
+    fill: { color: COLORS.sage }
   });
 
   s4.addShape(pres.shapes.OVAL, {
     x: 0.6, y: 0.7, w: 0.65, h: 0.65,
-    fill: { color: COLORS.green }
+    fill: { color: COLORS.sage }
   });
   s4.addText("3", {
     x: 0.6, y: 0.7, w: 0.65, h: 0.65,
@@ -235,7 +249,7 @@ function createCarousel(data, outputPath) {
   s4.addText("HOW TO USE IT", {
     x: 1.5, y: 0.72, w: 5.4, h: 0.6,
     fontSize: 26, fontFace: FONTS.header,
-    color: COLORS.green, bold: true,
+    color: COLORS.sage, bold: true,
     align: "left", valign: "middle",
     charSpacing: 2
   });
@@ -248,7 +262,7 @@ function createCarousel(data, outputPath) {
 
   s4.addShape(pres.shapes.RECTANGLE, {
     x: 0.6, y: 1.8, w: 0.06, h: 4.6,
-    fill: { color: COLORS.green }
+    fill: { color: COLORS.sage }
   });
 
   s4.addText(data.how, {
@@ -273,7 +287,7 @@ function createCarousel(data, outputPath) {
 
   s5.addShape(pres.shapes.RECTANGLE, {
     x: 0, y: 0, w: 7.5, h: 0.08,
-    fill: { color: COLORS.dbRed }
+    fill: { color: COLORS.teal }
   });
 
   s5.addText("Found this useful?", {
@@ -296,16 +310,20 @@ function createCarousel(data, outputPath) {
     lineSpacingMultiple: 1.3
   });
 
-  s5.addText("ustdoes.tech  |  @Ust", {
+  // Branded footer with wordmark
+  s5.addText([
+    { text: "Ust", options: { bold: true, fontFace: FONTS.header } },
+    { text: ".", options: { bold: true, color: COLORS.amber, fontFace: FONTS.header } },
+    { text: " does.tech  |  @Ust", options: { fontFace: FONTS.body } },
+  ], {
     x: 0.6, y: 6.0, w: 6.3, h: 0.5,
-    fontSize: 14, fontFace: FONTS.body,
-    color: COLORS.lightGray, align: "center"
+    fontSize: 14, color: COLORS.lightGray, align: "center"
   });
 
   // Bottom accent bar
   s5.addShape(pres.shapes.RECTANGLE, {
     x: 0, y: 7.42, w: 7.5, h: 0.08,
-    fill: { color: COLORS.dbRed }
+    fill: { color: COLORS.teal }
   });
 
   return pres.writeFile({ fileName: outputPath });

@@ -1,7 +1,11 @@
 /*
-  Ust. Brand Guidelines — Applied
+  Ust. Brand Guidelines v2 — Applied
   Visual identity: ustdoes.tech · Advancing Analytics
-  Approachable expert — deep knowledge, easy manner.
+  The curious expert who shows their working.
+
+  Brand Values: Curiosity · Empathy · Simplicity · Purpose · Transparency · Playfulness
+  Content Pillars: Strategy · Automation · Philosophy · Thought Experiments · Personal
+  80/20 Rule: Teal/Sage/Navy carry 80% visual weight; Amber/Coral for emphasis only.
  */
 
 @import "tailwindcss";
@@ -66,6 +70,7 @@
 		--text-secondary: #A8B8C8;
 		--text-muted: #6B7C8A;
 		--surface-color: #162738;
+		--surface-elevated: #1A3045;   /* Modals, dropdowns, popovers */
 		--border-color: #243B50;
 		--border-subtle: #1E3347;
 		--code-bg: #0A1420;
@@ -91,6 +96,7 @@
 	--text-secondary: #A8B8C8;
 	--text-muted: #6B7C8A;
 	--surface-color: #162738;
+	--surface-elevated: #1A3045;   /* Modals, dropdowns, popovers */
 	--border-color: #243B50;
 	--border-subtle: #1E3347;
 	--code-bg: #0A1420;
@@ -321,16 +327,16 @@ nav a,
 }
 .btn-cta:hover {
 	transform: scale(1.03);
-	box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+	box-shadow: 0 4px 12px color-mix(in srgb, var(--brand-amber) 30%, transparent);
 	color: var(--brand-navy);
 }
 
-/* ── Content Tags ── */
+/* ── Content Pillar Tags (v2) ── */
 .tag {
 	display: inline-block;
 	font-family: var(--font-body);
 	font-weight: 600;
-	font-size: 0.6875rem;
+	font-size: 0.6875rem; /* 11px */
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 	color: #FFFFFF;
@@ -338,9 +344,128 @@ nav a,
 	border-radius: 4px;
 	background: var(--brand-teal);
 }
+
+/* Pillar-specific tags */
+.tag--strategy           { background: var(--brand-teal); color: #FFFFFF; }
+.tag--automation         { background: var(--brand-sage); color: #FFFFFF; }
+.tag--philosophy         { background: var(--brand-navy); color: #FFFFFF; }
+.tag--philosophy::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-amber); margin-right: 0.4em; vertical-align: middle; }
+.tag--thought-experiment { background: var(--brand-amber); color: var(--brand-navy); }
+.tag--personal           { display: none; } /* Personal content has no tag */
+
+/* Legacy aliases */
 .tag--sage       { background: var(--brand-sage); }
 .tag--amber      { background: var(--brand-amber); color: var(--brand-navy); }
 .tag--coral      { background: var(--brand-coral); }
+
+/* Dual-pillar tag container (for content bridging two pillars) */
+.tag-group {
+	display: inline-flex;
+	gap: 0.5em;
+	align-items: center;
+}
+
+/* ───────────────────────────────────────────────
+   Tonal Registers (v2)
+   Content pillar-specific typography & spacing
+   ─────────────────────────────────────────────── */
+
+/* Strategy: Full hierarchy, structured, authoritative */
+.register-strategy {
+	/* Default register — standard type scale */
+}
+
+/* Automation: More Consolas, tighter spacing, code-forward */
+.register-automation code,
+.register-automation .inline-code {
+	font-size: 0.875rem;
+}
+.register-automation h2,
+.register-automation h3 {
+	font-family: var(--font-ui);
+}
+
+/* Philosophy: Larger body, generous whitespace, unhurried */
+.register-philosophy {
+	font-size: 1.0625rem; /* 17px */
+	line-height: 1.8;
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Thought Experiments: Mixed fonts, deliberate tension */
+.register-thought-experiment h1,
+.register-thought-experiment h2,
+.register-thought-experiment h3 {
+	font-style: italic;
+}
+.register-thought-experiment p {
+	font-family: var(--font-body);
+}
+
+/* Personal: Georgia for everything, stripped back, intimate */
+.register-personal {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 1rem; /* 16px */
+}
+.register-personal h1,
+.register-personal h2,
+.register-personal h3,
+.register-personal p {
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* ── Pull Quotes (Philosophy & Thought Experiment content) ── */
+.pull-quote {
+	font-family: var(--font-heading);
+	font-size: 1.375rem; /* 22px */
+	font-style: italic;
+	color: var(--text-color);
+	border: none;
+	padding: 1.5em 0;
+	margin: 2em 0;
+	text-align: center;
+	line-height: 1.6;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* ── Gradient Bar (Strategy content header accent) ── */
+.gradient-bar {
+	height: 4px;
+	background: linear-gradient(to right, var(--brand-teal), var(--brand-sage), var(--brand-amber));
+	border-radius: 2px;
+}
+
+/* ── The Amber Dot — Signature micro-accent ── */
+.amber-dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--brand-amber);
+	vertical-align: middle;
+}
+.amber-dot--sm {
+	width: 6px;
+	height: 6px;
+}
+
+/* ── Open Hexagon (Thought experiment — "not finished yet") ── */
+.hex-open {
+	border: 2px dashed var(--brand-amber);
+	border-radius: var(--radius);
+	padding: 1.5em;
+	background: transparent;
+}
+
+/* ── Teal Left Bar (Strategy content marker) ── */
+.teal-bar-left {
+	border-left: 4px solid var(--brand-teal);
+	padding-left: 1em;
+}
 
 @media (max-width: 720px) {
 	body {

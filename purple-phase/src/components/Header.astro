@@ -5,7 +5,12 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/" class="wordmark">Ust<span class="dot-amber">.</span> does<span class="dot-teal">.</span> tech</a></h2>
+		<h2>
+			<a href="/" class="wordmark" aria-label="Ust. does. tech">
+				<img src="/ust-wordmark-navy.png" alt="Ust. does. tech" class="logo logo-light" height="24" />
+				<img src="/ust-wordmark-white.png" alt="Ust. does. tech" class="logo logo-dark" height="24" />
+			</a>
+		</h2>
 		<div class="internal-links">
 			<HeaderLink href="/">[ / ] Home</HeaderLink>
 			<HeaderLink href="/about">[ ? ] About</HeaderLink>
@@ -74,17 +79,20 @@ import HeaderLink from './HeaderLink.astro';
 	.wordmark {
 		text-decoration: none;
 		color: var(--text-color);
-		font-family: Georgia, 'Times New Roman', serif;
-		font-weight: bold;
-		font-size: 1.1rem;
-		letter-spacing: 0.5px;
+		display: inline-flex;
+		align-items: center;
 	}
-	.dot-amber {
-		color: #F5A623;
+	.logo {
+		height: 24px;
+		width: auto;
+		display: block;
 	}
-	.dot-teal {
-		color: #0A6E6E;
-	}
+
+	/* Light/Dark logo switching */
+	:global(html.light) .logo-light { display: block; }
+	:global(html.light) .logo-dark  { display: none; }
+	:global(html.dark) .logo-light  { display: none; }
+	:global(html.dark) .logo-dark   { display: block; }
 	nav {
 		display: flex;
 		align-items: center;

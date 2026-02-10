@@ -64,6 +64,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.back-link:hover {
 				text-decoration: underline;
 			}
+			.sign-off {
+				text-align: right;
+				margin-top: 3rem;
+				margin-bottom: 2rem;
+				font-family: var(--font-heading);
+				font-size: 1.1rem;
+				color: var(--text-color);
+				letter-spacing: 0.02em;
+			}
+			.sign-off .amber-dot {
+				margin-left: 2px;
+			}
 		</style>
 	</head>
 
@@ -91,6 +103,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<hr />
 					</div>
 					<slot />
+
+					<div class="sign-off">Ust<span class="amber-dot"></span></div>
 					
 					<Comments slug={Astro.url.pathname.replace(/^\/posts\//, '').replace(/\/$/, '')} />
 				</div>

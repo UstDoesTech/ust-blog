@@ -19,15 +19,15 @@ const { title, description } = Astro.props;
 		<style>
 			/* Force Dark Mode Variables for Lab Mode */
 			:global(.lab-mode) {
-				--bg-color: #0D1B2A;
+				--bg-color: var(--brand-navy, #0D1B2A);
 				--text-color: #E8E4DD;
-				--accent-color: #0A6E6E;
+				--accent-color: var(--brand-teal);
 				--surface-color: #162738;
+				--surface-elevated: #1A3045;
 				--code-bg: #0A1420;
 				
 				/* Re-map legacy vars */
-				--accent: var(--accent-color);
-				--brand-teal: #0A6E6E;
+				--accent: var(--brand-teal);
 				--black: 232, 228, 221;
 				--gray: 168, 184, 200;
 				--gray-light: 22, 39, 56;
@@ -51,7 +51,7 @@ const { title, description } = Astro.props;
 				background: var(--bg-color);
 				border: 1px solid var(--brand-teal);
 				border-radius: 4px;
-				box-shadow: 0 0 20px rgba(10, 110, 110, 0.1);
+				box-shadow: 0 0 20px color-mix(in srgb, var(--brand-teal) 10%, transparent);
 				overflow: hidden;
 				margin-top: 2rem;
 			}
