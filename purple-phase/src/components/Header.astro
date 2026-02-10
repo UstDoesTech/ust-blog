@@ -93,6 +93,10 @@ import HeaderLink from './HeaderLink.astro';
 	:global(html.light) .logo-dark  { display: none; }
 	:global(html.dark) .logo-light  { display: none; }
 	:global(html.dark) .logo-dark   { display: block; }
+
+	/* Lab-mode pages have a dark background regardless of theme toggle */
+	:global(html.lab-mode) .logo-light { display: none; }
+	:global(html.lab-mode) .logo-dark  { display: block; }
 	nav {
 		display: flex;
 		align-items: center;
