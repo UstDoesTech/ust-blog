@@ -1,0 +1,19 @@
+# YouTube videos to migrate to ustdoes.tech
+# Add one URL per line. Lines starting with # are ignored.
+
+# Add more URLs here as you find them, e.g.:
+# https://www.youtube.com/watch?v=VIDEO_ID
+# https://youtu.be/VIDEO_ID
+
+# Conference talks (SQLBits, Data & AI Summit, Big Data LDN, etc.)
+# Find your talks and add URLs below:
+
+https://youtu.be/bpsqBLiZRro?si=lD6uAkz4jTmK2bmF
+https://www.youtube.com/live/ZSYhF1tOaHI?si=ajcR3K2VpJ0KxC4O
+https://youtu.be/k-3Oo5Oqius?si=VF-2QAqk4Gm5ESPW
+https://youtu.be/9R8jcXGU4HY?si=fPv0pvU3Znfek9S6
+https://youtu.be/bR2WgISH650?si=aPPUljf63Tra4SPo
+https://youtu.be/Z3JpPA9yrEo?si=7GJ-zJRPo1r0mUQn
+https://www.youtube.com/live/WZw11s_bRa0?si=TzIx4BEhHTiQyfEg
+https://youtu.be/gSUSwciqcxY?si=cfyvoZEM31GErITq
+https://youtu.be/iR7MhTr0Hr4?si=DZ7Uz4VsgMgY-pfW
